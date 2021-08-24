@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let row = [];
 
         for(let i = 5; i>-1; i--){
-            if(tableRow[i].children[column].style.backgroundColor == 'white'){
+            if(tableRow[i].children[column].style.backgroundColor == '#A8DADC'){
                 row.push(tableRow[i].children[column]);
             }
         }

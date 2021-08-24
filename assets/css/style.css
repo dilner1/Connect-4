@@ -3,14 +3,14 @@
 body {
     background-color: #F1FAEE;
     color: #1E1E1E;
+    margin: 0;
 }
 
 #heading {
     font-family: Pacifico, sans-serif;
     font-size: 4rem;
     text-align: center;
-    margin: 0 0;
-    
+    margin: 0;
 }
 
 .canvas {
@@ -21,7 +21,6 @@ body {
     height: 660px;
     margin: 0 auto;
     background-color: #A8DADC;
-    justify-content: center;
 }
 
 .chip {

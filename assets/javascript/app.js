@@ -15,12 +15,12 @@ document.addEventListener("DOMContentLoaded", function() {
      while(!player1) {
          var player1 = prompt('Player One, Enter your name. You will be red')
      }
-     player1Color = 'red';
+     player1Color = 'rgb(230,57,70)';
 
      while(!player2) {
         var player2 = prompt('Player Two, Enter your name. You will be blue')
     }
-    player2Color = 'blue';
+    player2Color = 'rgb(29,53,87)';
 
     let currentPlayer = 1;
     playerGo.textContent = `${player1}'s turn!`
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
         let column = event.target.cellIndex;
         let row = [];
 
-        for(let i = 5; i>-1; i--){
+        for(let i = 5; i > -1; i--){
             if(tableRow[i].children[column].style.backgroundColor == 'rgb(241,250,238)'){
                 row.push(tableRow[i].children[column]);
                 if(currentPlayer === 1){

@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Check table cells
     Array.prototype.forEach.call(tableData, (d) =>{
         d.addEventListener('click', changeColor);
-        d.style.backgroundColor = 'white';
+        d.style.backgroundColor = 'rgb(241,250,238)';
     })
 
     // check rows and columns starting from the bottom
@@ -37,8 +37,11 @@ document.addEventListener("DOMContentLoaded", function() {
         let row = [];
 
         for(let i = 5; i>-1; i--){
-            if(tableRow[i].children[column].style.backgroundColor == '#A8DADC'){
+            if(tableRow[i].children[column].style.backgroundColor == 'rgb(241,250,238)'){
                 row.push(tableRow[i].children[column]);
+                if(currentPlayer === 1){
+                    row[0].style.backgroundColor = player1Color;
+                }
             }
         }
     }

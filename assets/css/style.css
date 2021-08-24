@@ -16,6 +16,12 @@ body {
     margin: 0;
 }
 
+.player-go {
+    position: absolute;
+    float: left;
+    margin-left: 5%;
+}
+
 .canvas {
     display: grid;
     width: 770px;

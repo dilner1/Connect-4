@@ -21,3 +21,13 @@ Non-essential elements to add
 - timer
 
 having a coloured button to show who's go it is - it look good and combined with text would be good for visually impared users.
+
+## Colour Palette
+
+https://coolors.co/palettes/trending
+
+- Player red E63946
+- Canvas blue A8DADC
+- Player blue 1D3557
+- background F1FAEE
+- Alternative B1E1A3

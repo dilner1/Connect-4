@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@700;800&display=swap');
+
+body {
+    background-color: #F1FAEE;
+    color: #1E1E1E;
+}
+
+#heading {
+    font-family: Pacifico, sans-serif;
+    font-size: 4rem;
+    text-align: center;
+    margin: 0 0;
+    
+}
+
+.canvas {
+    display: grid;
+    grid-template-columns: repeat(7, 110px);
+    grid-template-rows: repeat(6, 110px);
+    width: 770px;
+    height: 660px;
+    margin: 0 auto;
+    background-color: #A8DADC;
+    justify-content: center;
+}
+
+.chip {
+    border: 5px solid #A8DADC;
+    border-radius: 50%;
+    background-color: #F1FAEE;
+}

@@ -6,12 +6,13 @@ body {
     margin: 0;
     font-family: Poppins, sans-serif;
     font-size: 2rem;
+    text-align: center;
+    text-align: center;
 }
 
 #heading {
     font-family: Pacifico, sans-serif;
     font-size: 4rem;
-    text-align: center;
     margin: 0;
 }
 

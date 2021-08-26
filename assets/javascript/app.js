@@ -41,8 +41,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 row.push(tableRow[i].children[column]);
                 if(currentPlayer === 1){
                     row[0].style.backgroundColor = player1Color;
+                    
+                    return currentPlayer = 2
                 } else {
-                    row[0].style.backgroundColor = player1Color;
+                    row[0].style.backgroundColor = player2Color;
+                    return currentPlayer = 1
+
                 }
             }
         }

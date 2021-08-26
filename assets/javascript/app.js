@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
-    let tableRow = document.getElementsByTagName('tr');
-    let tableData = document.getElementsByTagName('td')
-    let playerPiece = document.querySelector('.chip');
-    let playerGo = document.querySelector('.player-go');
+    var tableRow = document.getElementsByTagName('tr');
+    var tableData = document.getElementsByTagName('td')
+    var playerPiece = document.querySelector('.chip');
+    var playerGo = document.querySelector('.player-go');
     const reset = document.querySelector('.reset');
 
      for (let i = 0; i < tableData.length; i++){
@@ -51,5 +51,22 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     }
+
+    // check for win condition
+    function colorMatchCheck(pos1, pos2, pos3, pos4){
+        if (pos1 === pos2 && pos2 === pos3 && pos3 === pos4 && pos1 !== 'white');
+    };
+
+    function horizontalWinCheck() {
+        for(let slot = 0; slot < tableRow.length; slot++){
+            for(let color = 0; color < 4; color++)
+            if(colorMatchCheck(tableRow[slot].children[color].style.backgroundColor,
+                tableRow[slot].children[color+1].style.backgroundColor,
+                    tableRow[slot].children[color+2].style.backgroundColor,
+                        tableRow[slot].children[color+3].style.backgroundColor)){
+                            return true;
+                        }
+        }
+    };
 
   });

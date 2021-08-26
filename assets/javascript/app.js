@@ -55,11 +55,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // check for win condition
+    // check if colors match
     function colorMatchCheck(pos1, pos2, pos3, pos4){
         if (pos1 == pos2 && pos1 === pos3 && pos1 === pos4 && pos1 !== 'white');
     };
 
+    // check if horizontal win condition is met
     function horizontalWinCheck() {
         for(let row = 0; row < tableRow.length; row++){
             for(let color = 0; color < 4; color++){

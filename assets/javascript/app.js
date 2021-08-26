@@ -41,8 +41,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 row.push(tableRow[i].children[column]);
                 if(currentPlayer === 1){
                     row[0].style.backgroundColor = player1Color;
-                    playerGo.textContent = `${player2}'s turn!`
-                    return currentPlayer = 2
+                    //playerGo.textContent = `${player2}'s turn!`
+                    //return currentPlayer = 2
+                    if(horizontalWinCheck()){
+                        return(alert('You Win'));
+                    }
                 } else {
                     row[0].style.backgroundColor = player2Color;
                     playerGo.textContent = `${player1}'s turn!`
@@ -54,16 +57,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // check for win condition
     function colorMatchCheck(pos1, pos2, pos3, pos4){
-        if (pos1 === pos2 && pos2 === pos3 && pos3 === pos4 && pos1 !== 'white');
+        if (pos1 == pos2 && pos2 === pos3 && pos3 === pos4 && pos1 !== 'white');
     };
 
     function horizontalWinCheck() {
-        for(let slot = 0; slot < tableRow.length; slot++){
+        for(let row = 0; row < tableRow.length; row++){
             for(let color = 0; color < 4; color++)
-            if(colorMatchCheck(tableRow[slot].children[color].style.backgroundColor,
-                tableRow[slot].children[color+1].style.backgroundColor,
-                    tableRow[slot].children[color+2].style.backgroundColor,
-                        tableRow[slot].children[color+3].style.backgroundColor)){
+            if(colorMatchCheck(tableRow[row].children[color].style.backgroundColor,
+                tableRow[row].children[color+1].style.backgroundColor,
+                    tableRow[row].children[color+2].style.backgroundColor,
+                        tableRow[row].children[color+3].style.backgroundColor)){
                             return true;
                         }
         }

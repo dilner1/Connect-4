@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     var tableRow = document.getElementsByTagName('tr');
-    var tableData = document.getElementsByTagName('td')
+    var tableData = document.getElementsByTagName('td');
     var playerPiece = document.querySelector('.chip');
     var playerGo = document.querySelector('.player-go');
     const reset = document.querySelector('.reset');
@@ -9,17 +9,17 @@ document.addEventListener("DOMContentLoaded", function() {
         tableData[i].addEventListener('click', (e) => {
             console.log(`${e.target.parentElement.rowIndex}, ${e.target.cellIndex}`);
         })
-     }
+     };
 
     // Choose player name
      while(!player1) {
          var player1 = prompt('Player One, Enter your name. You will be red')
-     }
+     };
      player1Color = 'rgb(230,57,70)';
 
      while(!player2) {
         var player2 = prompt('Player Two, Enter your name. You will be blue')
-    }
+    };
     player2Color = 'rgb(29,53,87)';
 
     let currentPlayer = 1;
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
     Array.prototype.forEach.call(tableData, (d) =>{
         d.addEventListener('click', changeColor);
         d.style.backgroundColor = 'white';
-    })
+    });
 
     // check rows and columns starting from the bottom
     function changeColor(event) {
@@ -41,23 +41,29 @@ document.addEventListener("DOMContentLoaded", function() {
                 row.push(tableRow[i].children[column]);
                 if(currentPlayer === 1){
                     row[0].style.backgroundColor = player1Color;
-                    //playerGo.textContent = `${player2}'s turn!`
-                    //return currentPlayer = 2
+                    
                     if(horizontalWinCheck()){
-                        return(alert('You Win'));
-                    }
+                        return(alert(`${player1} wins!`));
+                    } 
+                    playerGo.textContent = `${player2}'s turn.`
+                    return currentPlayer = 2
+
                 } else {
                     row[0].style.backgroundColor = player2Color;
-                    playerGo.textContent = `${player1}'s turn!`
+
+                    if(horizontalWinCheck()){
+                        return(alert(`${player2} wins!`));
+                    } 
+                    playerGo.textContent = `${player1}'s turn.`
                     return currentPlayer = 1
-                }
-            }
-        }
-    }
+                };
+            };
+        };
+    };
 
     // check if colors match
     function colorMatchCheck(pos1, pos2, pos3, pos4){
-        if (pos1 == pos2 && pos1 === pos3 && pos1 === pos4 && pos1 !== 'white');
+        return (pos1 == pos2 && pos1 === pos3 && pos1 === pos4 && pos1 !== 'white');
     };
 
     // check if horizontal win condition is met
@@ -69,9 +75,37 @@ document.addEventListener("DOMContentLoaded", function() {
                         tableRow[row].children[color+2].style.backgroundColor,
                             tableRow[row].children[color+3].style.backgroundColor)){
                                 return true;
-                            }
+                            };
+            };
+        };
+    };
+
+    // check if vertical win condition is met
+    function verticalWinCheck() {
+        for(let color = 0; color < 7; color++){
+            for(let row = 0; row < 4; row++){
+                if(colorMatchCheck(tableRow[row].children[color].style.backgroundColor,
+                    tableRow[row+1].children[color].style.backgroundColor,
+                        tableRow[row+2].children[color].style.backgroundColor,
+                            tableRow[row+3].children[color].style.backgroundColor)){
+                                return true;
+                            };
             }
         }
-    };
+    }
+
+    function diagnalWinCheck(){
+        for(let color = 0; color < 4; color++){
+            for(let row = 0; row < 3; row++){
+                if(colorMatchCheck(tableRow[row].children[color].style.backgroundColor,
+                    tableRow[row+1].children[color+1].style.backgroundColor,
+                        tableRow[row+2].children[color+2].style.backgroundColor,
+                            tableRow[row+3].children[color+3].style.backgroundColor)){
+                                return true;
+                            };
+            }
+        }
+    }
+
 
   });

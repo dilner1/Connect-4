@@ -41,12 +41,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 row.push(tableRow[i].children[column]);
                 if(currentPlayer === 1){
                     row[0].style.backgroundColor = player1Color;
-                    
+                    playerGo.textContent = `${player2}'s turn!`
                     return currentPlayer = 2
                 } else {
                     row[0].style.backgroundColor = player2Color;
+                    playerGo.textContent = `${player1}'s turn!`
                     return currentPlayer = 1
-
                 }
             }
         }

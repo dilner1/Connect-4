@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const tableRow = document.getElementsByTagName('tr');
-    const tableData = document.getElementsByTagName('td')
-    const playerPiece = document.querySelector('.chip');
-    const playerGo = document.querySelector('.player-go');
+    let tableRow = document.getElementsByTagName('tr');
+    let tableData = document.getElementsByTagName('td')
+    let playerPiece = document.querySelector('.chip');
+    let playerGo = document.querySelector('.player-go');
     const reset = document.querySelector('.reset');
 
      for (let i = 0; i < tableData.length; i++){
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Check table cells
     Array.prototype.forEach.call(tableData, (d) =>{
         d.addEventListener('click', changeColor);
-        d.style.backgroundColor = 'rgb(241,250,238)';
+        d.style.backgroundColor = 'white';
     })
 
     // check rows and columns starting from the bottom
@@ -37,9 +37,11 @@ document.addEventListener("DOMContentLoaded", function() {
         let row = [];
 
         for(let i = 5; i > -1; i--){
-            if(tableRow[i].children[column].style.backgroundColor == 'rgb(241,250,238)'){
+            if(tableRow[i].children[column].style.backgroundColor == 'white'){
                 row.push(tableRow[i].children[column]);
                 if(currentPlayer === 1){
+                    row[0].style.backgroundColor = player1Color;
+                } else {
                     row[0].style.backgroundColor = player1Color;
                 }
             }

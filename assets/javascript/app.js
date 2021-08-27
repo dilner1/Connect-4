@@ -45,13 +45,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     // check player 1 win condition
                     if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()){
                         return(alert(`${player1} wins!`));
-                    } else if (CanvasSlotCheck){ 
-                        playerGo.textContent = 'Game is a draw!'
-                        return alert('DRAW');
-                    } else {
-                        playerGo.textContent = `${player2}'s turn.`;
-                        return currentPlayer = 2;
                     }
+                    playerGo.textContent = `${player2}'s turn.`;
+                    return currentPlayer = 2;
 
                 } else {
                     //check player 2 win condition

@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // check if diagonal win condition is met going up
-    function diagonalWinCheckUp(){
+    function diagonalWinCheckUp() {
         for(let color = 0; color < 4; color++){
             for(let row = 0; row < 3; row++){
                 if(colorMatchCheck(tableRow[row].children[color].style.backgroundColor,
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // check if diagonal win condition is met going down
-    function diagonalWinCheckdown(){
+    function diagonalWinCheckdown() {
         for(let color = 0; color < 4; color++){
             for(let row = 0; row > 2; row--){
                 if(colorMatchCheck(tableRow[row].children[color].style.backgroundColor,
@@ -119,6 +119,19 @@ document.addEventListener("DOMContentLoaded", function() {
                                 return true;
                             };
             }
+        }
+    }
+
+    // Check if all slots have been taken by players
+    function CanvasSlotCheck() {
+        let canvasSlots = [];
+        for(let i = 0; i < tableData.length; i++){
+            if(tableData[i].style.backgroundColor !== 'white'){
+                canvasSlots.push(tableData[i]);
+            }
+        }
+        if(canvasSlots.length == tableData.length){
+            return true;
         }
     }
 

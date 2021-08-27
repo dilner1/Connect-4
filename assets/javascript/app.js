@@ -42,13 +42,19 @@ document.addEventListener("DOMContentLoaded", function() {
                 if(currentPlayer === 1){
                     row[0].style.backgroundColor = player1Color;
                     
+                    // check player 1 win condition
                     if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()){
                         return(alert(`${player1} wins!`));
-                    } 
-                    playerGo.textContent = `${player2}'s turn.`;
-                    return currentPlayer = 2;
+                    } else if (CanvasSlotCheck){ 
+                        playerGo.textContent = 'Game is a draw!'
+                        return alert('DRAW');
+                    } else {
+                        playerGo.textContent = `${player2}'s turn.`;
+                        return currentPlayer = 2;
+                    }
 
                 } else {
+                    //check player 2 win condition
                     row[0].style.backgroundColor = player2Color;
 
                     if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()){
@@ -121,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     }
-/*
+
     // Check if all slots have been taken by players
     function CanvasSlotCheck() {
         let canvasSlots = [];
@@ -135,5 +141,4 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-*/
   });

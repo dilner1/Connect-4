@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if(currentPlayer === 1){
                     row[0].style.backgroundColor = player1Color;
                     
-                    if(horizontalWinCheck() || verticalWinCheck()){
+                    if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckUp() || diagonalWinCheckdown()){
                         return(alert(`${player1} wins!`));
                     } 
                     playerGo.textContent = `${player2}'s turn.`
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 } else {
                     row[0].style.backgroundColor = player2Color;
 
-                    if(horizontalWinCheck() || verticalWinCheck()){
+                    if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckUp() || diagonalWinCheckdown()){
                         return(alert(`${player2} wins!`));
                     } 
                     playerGo.textContent = `${player1}'s turn.`

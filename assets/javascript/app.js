@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if(currentPlayer === 1){
                     row[0].style.backgroundColor = player1Color;
                     
-                    if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckUp()){
+                    if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()){
                         return(alert(`${player1} wins!`));
                     } 
                     playerGo.textContent = `${player2}'s turn.`;
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 } else {
                     row[0].style.backgroundColor = player2Color;
 
-                    if(horizontalWinCheck() || verticalWinCheck()){
+                    if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown()){
                         return(alert(`${player2} wins!`));
                     } 
                     playerGo.textContent = `${player1}'s turn.`;
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // check if diagonal win condition is met going up
-    function diagonalWinCheckUp() {
+    function diagonalWinCheckDown() {
         for(let color = 0; color < 4; color++){
             for(let row = 0; row < 3; row++){
                 if(colorMatchCheck(tableRow[row].children[color].style.backgroundColor,
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // check if diagonal win condition is met going down
-    function diagonalWinCheckdown() {
+    function diagonalWinCheckUp() {
         for(let color = 0; color < 4; color++){
             for(let row = 0; row > 2; row--){
                 if(colorMatchCheck(tableRow[row].children[color].style.backgroundColor,

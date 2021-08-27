@@ -44,17 +44,23 @@ document.addEventListener("DOMContentLoaded", function() {
                     
                     // check player 1 win condition
                     if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()){
+                        playerGo.textContent = `${player1} is the winner!`
+                        playerGo.style.color = player1Color
                         return(alert(`${player1} wins!`));
+                    } else if(CanvasSlotCheck()) {
+                        playerGo.textContent = `It's a draw!`
+                        return(alert(`Draw`));
+                    } else {
+                        playerGo.textContent = `${player2}'s turn.`;
+                        return currentPlayer = 2;
                     }
-                    playerGo.textContent = `${player2}'s turn.`;
-                    return currentPlayer = 2;
 
                 } else {
                     //check player 2 win condition
                     row[0].style.backgroundColor = player2Color;
 
                     if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()){
-                        return(alert(`${player2} wins!`));
+                        return(alert(`${player2} is the winner!`));
                     } 
                     playerGo.textContent = `${player1}'s turn.`;
                     return currentPlayer = 1;
@@ -132,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 canvasSlots.push(tableData[i]);
             }
         }
-        if(canvasSlots.length == tableData.length){
+        if(canvasSlots.length === tableData.length){
             return true;
         }
     }

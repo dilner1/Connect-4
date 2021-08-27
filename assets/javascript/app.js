@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // check if diagonal win condition is met going down
     function diagonalWinCheckUp() {
         for(let color = 0; color < 4; color++){
-            for(let row = 0; row > 2; row--){
+            for(let row = 5; row > 2; row--){
                 if(colorMatchCheck(tableRow[row].children[color].style.backgroundColor,
                     tableRow[row-1].children[color+1].style.backgroundColor,
                         tableRow[row-2].children[color+2].style.backgroundColor,

@@ -42,20 +42,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 if(currentPlayer === 1){
                     row[0].style.backgroundColor = player1Color;
                     
-                    if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckUp() || diagonalWinCheckdown()){
+                    if(horizontalWinCheck() || verticalWinCheck()){
                         return(alert(`${player1} wins!`));
                     } 
-                    playerGo.textContent = `${player2}'s turn.`
-                    return currentPlayer = 2
+                    playerGo.textContent = `${player2}'s turn.`;
+                    return currentPlayer = 2;
 
                 } else {
                     row[0].style.backgroundColor = player2Color;
 
-                    if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckUp() || diagonalWinCheckdown()){
+                    if(horizontalWinCheck() || verticalWinCheck()){
                         return(alert(`${player2} wins!`));
                     } 
-                    playerGo.textContent = `${player1}'s turn.`
-                    return currentPlayer = 1
+                    playerGo.textContent = `${player1}'s turn.`;
+                    return currentPlayer = 1;
                 };
             };
         };

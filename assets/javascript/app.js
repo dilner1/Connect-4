@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const reset = document.querySelector('.reset');
 
      for (let i = 0; i < tableData.length; i++){
-        tableData[i].addEventListener('click', (e) => {
-            console.log(`${e.target.parentElement.rowIndex}, ${e.target.cellIndex}`);
+        tableData[i].addEventListener('click', (event) => {
+            console.log(`${event.target.parentElement.rowIndex}, ${event.target.cellIndex}`);
         })
      };
 
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // check if vertical win condition is met
     function verticalWinCheck() {
         for(let color = 0; color < 7; color++){
-            for(let row = 0; row < 4; row++){
+            for(let row = 0; row < 3; row++){
                 if(colorMatchCheck(tableRow[row].children[color].style.backgroundColor,
                     tableRow[row+1].children[color].style.backgroundColor,
                         tableRow[row+2].children[color].style.backgroundColor,
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     }
-
+/*
     // Check if all slots have been taken by players
     function CanvasSlotCheck() {
         let canvasSlots = [];
@@ -135,5 +135,5 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-
+*/
   });

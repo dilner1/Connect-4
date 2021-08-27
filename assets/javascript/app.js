@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 if(currentPlayer === 1){
                     row[0].style.backgroundColor = player1Color;
                     
-                    if(horizontalWinCheck() || verticalWinCheck()){
+                    if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckUp()){
                         return(alert(`${player1} wins!`));
                     } 
                     playerGo.textContent = `${player2}'s turn.`;

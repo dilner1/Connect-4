@@ -94,7 +94,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    function diagnalWinCheck(){
+    // check if diagonal win condition is met going up
+    function diagonalWinCheckUp(){
         for(let color = 0; color < 4; color++){
             for(let row = 0; row < 3; row++){
                 if(colorMatchCheck(tableRow[row].children[color].style.backgroundColor,

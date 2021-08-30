@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         playerGo.textContent = `${player1} is the winner!`
                         playerGo.style.color = player1Color
                         return(alert(`${player1} wins!`));
-                    } else if(canvasWhiteSpaceCheck()) {
+                    } else if(canvasSpaceCheck()) {
                         playerGo.textContent = `It's a draw!`
                         return alert(`Draw`);
                     } else {
@@ -60,13 +60,19 @@ document.addEventListener("DOMContentLoaded", function() {
                     row[0].style.backgroundColor = player2Color;
 
                     if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()){
-                        return(alert(`${player2} is the winner!`));
-                    } 
-                    playerGo.textContent = `${player1}'s turn.`;
-                    return currentPlayer = 1;
-                };
-            };
-        };
+                        playerGo.textContent = `${player2} is the winner!`
+                        playerGo.style.color = player2Color
+                        return(alert(`${player2} wins!`));
+                    } else if(canvasSpaceCheck()) {
+                        playerGo.textContent = `It's a draw!`
+                        return alert(`Draw`);
+                    } else {
+                        playerGo.textContent = `${player1}'s turn.`;
+                        return currentPlayer = 1;
+                    }
+                }
+            }
+        }
     };
 
     // check if colors match
@@ -131,14 +137,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Check if all slots have been taken by players
-    function canvasWhiteSpaceCheck(){
-        let fullSlot = []
-        for (i=0; i < tableData.length; i++){
+    function canvasSpaceCheck(){
+        let slot = []
+        for (i = 0; i < tableData.length; i++){
             if (tableData[i].style.backgroundColor !== 'white'){
-                fullSlot.push(tableData[i]);
+                slot.push(tableData[i]);
             }
         }
-        if (fullSlot.length === tableData.length){
+        if (slot.length === tableData.length){
             return true;
         }
     }

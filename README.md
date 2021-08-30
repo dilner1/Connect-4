@@ -31,3 +31,8 @@ https://coolors.co/palettes/trending
 - Player blue 1D3557
 - background F1FAEE
 - Alternative B1E1A3
+
+# Issues
+
+When coding the reset button I used a querySelector however forgot to put the '.' before class name so I kept returning the error app.js:153 Uncaught TypeError: Cannot read property 'addEventListener' of null
+    at HTMLDocument.<anonymous>

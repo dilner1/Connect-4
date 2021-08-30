@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
     var tableRow = document.getElementsByTagName('tr');
     var tableData = document.getElementsByTagName('td');
     var playerGo = document.querySelector('.player-go');
-    const playerChip = document.getElementsByClassName('chip');
-    const reset = document.getElementsByClassName('reset');
+    var playerChip = document.getElementsByClassName('chip');
+    var reset = document.querySelector('.reset');
 
      for (let i = 0; i < tableData.length; i++){
         tableData[i].addEventListener('click', (event) => {
@@ -26,9 +26,9 @@ document.addEventListener("DOMContentLoaded", function() {
     playerGo.textContent = `${player1}'s turn!`
 
     // Check table cells
-    Array.prototype.forEach.call(tableData, (d) =>{
-        d.addEventListener('click', changeColor);
-        d.style.backgroundColor = 'white';
+    Array.prototype.forEach.call(tableData, (e) =>{
+        e.addEventListener('click', changeColor);
+        e.style.backgroundColor = 'white';
     });
 
     // check rows and columns starting from the bottom
@@ -149,8 +149,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Reset color function
-    reset.addEventListener('click', () => console.log('Clicked!'));
+    // Reset canvas colors 
+    reset.addEventListener('click', e => {
+        playerChip.forEach(e)
+        
 
-
+    } )
   });

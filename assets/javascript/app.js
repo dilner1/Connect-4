@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function() {
     var tableRow = document.getElementsByTagName('tr');
     var tableData = document.getElementsByTagName('td');
     var playerGo = document.querySelector('.player-go');
-    var playerChip = document.getElementsByClassName('chip');
     var reset = document.querySelector('.reset');
 
      for (let i = 0; i < tableData.length; i++){
@@ -150,9 +149,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Reset canvas colors 
-    reset.addEventListener('click', e => {
-        playerChip.forEach(e)
-        
-
-    } )
+    reset.addEventListener('click', () => {
+        let playerChip = document.querySelector('.chip');
+        playerChip.style.backgroundColor = 'white'
+        console.log('reset')
+    });
   });

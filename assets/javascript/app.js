@@ -149,4 +149,12 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+
+    
+    // Reset board function
+    function resetButton(){
+        let reset = document.getElementsByClassName('reset');
+        reset.addEventListener('click', changeColor)
+        reset.style.backgroundColor = 'white';
+    }
   });

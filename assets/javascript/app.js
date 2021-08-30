@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
     var tableRow = document.getElementsByTagName('tr');
     var tableData = document.getElementsByTagName('td');
     var playerGo = document.querySelector('.player-go');
-    var playerPiece = document.querySelectorAll('.chip');
-    var reset = document.getElementsByClassName('reset');
+    const playerChip = document.getElementsByClassName('chip');
+    const reset = document.getElementsByClassName('reset');
 
      for (let i = 0; i < tableData.length; i++){
         tableData[i].addEventListener('click', (event) => {
@@ -149,11 +149,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Reset board button
-    reset.addEventListener('click', () => {
-        playerPiece.forEach(chip => {
-            chip.style.backgroundColor = 'white';
-        })
-    })
-    
+    // Reset color function
+    reset.addEventListener('click', () => console.log('Clicked!'));
+
+
   });

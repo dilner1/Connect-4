@@ -47,9 +47,9 @@ document.addEventListener("DOMContentLoaded", function() {
                         playerGo.textContent = `${player1} is the winner!`
                         playerGo.style.color = player1Color
                         return(alert(`${player1} wins!`));
-                    } else if(CanvasSlotCheck()) {
+                    } else if(canvasWhiteSpaceCheck()) {
                         playerGo.textContent = `It's a draw!`
-                        return(alert(`Draw`));
+                        return alert(`Draw`);
                     } else {
                         playerGo.textContent = `${player2}'s turn.`;
                         return currentPlayer = 2;
@@ -131,14 +131,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Check if all slots have been taken by players
-    function CanvasSlotCheck() {
-        let canvasSlots = [];
-        for(let i = 0; i < tableData.length; i++){
-            if(tableData[i].style.backgroundColor !== 'white'){
-                canvasSlots.push(tableData[i]);
+    function canvasWhiteSpaceCheck(){
+        let fullSlot = []
+        for (i=0; i < tableData.length; i++){
+            if (tableData[i].style.backgroundColor !== 'white'){
+                fullSlot.push(tableData[i]);
             }
         }
-        if(canvasSlots.length === tableData.length){
+        if (fullSlot.length === tableData.length){
             return true;
         }
     }

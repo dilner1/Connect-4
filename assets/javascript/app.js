@@ -153,8 +153,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Reset canvas colors 
     reset.addEventListener('click', () => {
-        let playerChip = document.querySelector('.chip');
-        playerChip.style.backgroundColor = 'white';
+        let playerChip = document.querySelectorAll('.chip');
+        playerChip.forEach(chip => {
+            console.log('change chip color')
+            chip.style.backgroundColor = 'white'
+        })
         alert('New game')
     });
   });

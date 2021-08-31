@@ -40,4 +40,7 @@ body {
 
 .reset {
     text-align: center;
+    position: absolute;
+    float: left;
+    margin-left: 5%;
 }

@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let currentPlayer = 1;
     playerGo.textContent = `${player1}'s turn!`
+    playerGo.style.color = 'rgb(230,57,70)'
 
     // Check table cells
     Array.prototype.forEach.call(tableData, (e) =>{
@@ -51,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         return alert(`Draw`);
                     } else {
                         playerGo.textContent = `${player2}'s turn.`;
+                        playerGo.style.color = 'rgb(29,53,87)'
                         return currentPlayer = 2;
                     }
 
@@ -67,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         return alert(`Draw`);
                     } else {
                         playerGo.textContent = `${player1}'s turn.`;
+                        playerGo.style.color = 'rgb(230,57,70)'
                         return currentPlayer = 1;
                     }
                 }

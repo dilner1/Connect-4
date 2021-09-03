@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", function() {
     var tableRow = document.getElementsByTagName('tr');
     var tableData = document.getElementsByTagName('td');
     var playerGo = document.querySelector('.player-go');
@@ -160,4 +159,3 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         alert('New game')
     });
-  });

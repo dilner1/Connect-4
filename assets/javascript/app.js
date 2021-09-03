@@ -12,28 +12,7 @@
     // Choose player name
      while(!player1) {
         var player1 = prompt('Player One, Enter your name. You will be red')
-         /* const ipAPI = '//api.ipify.org?format=json'
-
-         const inputValue = fetch(ipAPI)
-           .then(response => response.json())
-           .then(data => data.ip)
-         
-         const { value: name } = await Swal.fire({
-           title: 'Player 1, enter your name',
-           input: 'text',
-           inputLabel: 'Player 1',
-           inputValue: inputValue,
-           showCancelButton: true,
-           inputValidator: (value) => {
-             if (!value) {
-               return 'Write your name Player 1.'
-             }
-           }
-         })
-         
-         if (name) {
-           Swal.fire(`${name} is Player 1`)
-         } */
+        //var player1 = playerOneName.value
      };
      player1Color = 'rgb(230,57,70)';
 
@@ -67,10 +46,10 @@
                     if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()){
                         playerGo.textContent = `${player1} is the winner!`
                         playerGo.style.color = player1Color
-                        return(alert(`${player1} wins!`));
+                        return(swal.fire(`${player1} wins!`));
                     } else if(canvasSpaceCheck()) {
                         playerGo.textContent = `It's a draw!`
-                        return alert(`Draw`);
+                        return swal.fire(`It's a draw`);
                     } else {
                         playerGo.textContent = `${player2}'s turn.`;
                         playerGo.style.color = 'rgb(29,53,87)'
@@ -84,10 +63,10 @@
                     if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()){
                         playerGo.textContent = `${player2} is the winner!`
                         playerGo.style.color = player2Color
-                        return(alert(`${player2} wins!`));
+                        return(swal.fire(`${player2} wins!`));
                     } else if(canvasSpaceCheck()) {
                         playerGo.textContent = `It's a draw!`
-                        return alert(`Draw`);
+                        return swal.fire(`Draw`);
                     } else {
                         playerGo.textContent = `${player1}'s turn.`;
                         playerGo.style.color = 'rgb(230,57,70)'
@@ -176,8 +155,7 @@
     reset.addEventListener('click', () => {
         let playerChip = document.querySelectorAll('.chip');
         playerChip.forEach(chip => {
-            console.log('change chip color')
             chip.style.backgroundColor = 'white'
         })
-        alert('New game')
+        swal.fire('Start new game')
     });

@@ -1,7 +1,7 @@
-    var tableRow = document.getElementsByTagName('tr');
-    var tableData = document.getElementsByTagName('td');
-    var playerGo = document.querySelector('.player-go');
-    var reset = document.querySelector('.reset');
+    let tableRow = document.getElementsByTagName('tr');
+    let tableData = document.getElementsByTagName('td');
+    let playerGo = document.querySelector('.player-go');
+    let reset = document.querySelector('.reset');
 
      for (let i = 0; i < tableData.length; i++){
         tableData[i].addEventListener('click', (event) => {
@@ -11,7 +11,29 @@
 
     // Choose player name
      while(!player1) {
-         var player1 = prompt('Player One, Enter your name. You will be red')
+        var player1 = prompt('Player One, Enter your name. You will be red')
+         /* const ipAPI = '//api.ipify.org?format=json'
+
+         const inputValue = fetch(ipAPI)
+           .then(response => response.json())
+           .then(data => data.ip)
+         
+         const { value: name } = await Swal.fire({
+           title: 'Player 1, enter your name',
+           input: 'text',
+           inputLabel: 'Player 1',
+           inputValue: inputValue,
+           showCancelButton: true,
+           inputValidator: (value) => {
+             if (!value) {
+               return 'Write your name Player 1.'
+             }
+           }
+         })
+         
+         if (name) {
+           Swal.fire(`${name} is Player 1`)
+         } */
      };
      player1Color = 'rgb(230,57,70)';
 

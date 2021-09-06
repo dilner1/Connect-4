@@ -3,12 +3,6 @@
     let playerGo = document.querySelector('.player-go');
     let reset = document.querySelector('.reset');
 
-     for (let i = 0; i < tableData.length; i++){
-        tableData[i].addEventListener('click', (event) => {
-            console.log(`${event.target.parentElement.rowIndex}, ${event.target.cellIndex}`);
-        })
-     };
-
     // Choose player name
      while(!player1) {
         var player1 = prompt('Player One, Enter your name. You will be red')

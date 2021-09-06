@@ -1,26 +1,27 @@
-
+# Features
 
 ## Design Stage: 
 
-This gave me inspiration on creaitng the game, although with parts that are probably too complex for me.
+This version of connect four gave me inspiration on creaitng my game, although with parts that are certainly too complex for me at this stage.
 
 https://codethislab.com/html5-game-connect-4/
 
 What MUST be include:
 - Changes between player one and player two after each go
-- Player go indicator
-- Chips must stack ontop of each other
-- Placing 4 of the same colour chips in a row, colum or diagnally provides a win
+- Cannot place chips anywhere on the board, they must stack ontop of each other
+- Placing 4 of the same colour chips in a row, colum or diagnally gives a win
 - detect which player won
 
-The classic game of connect 4 is 7 counters wide and 6 counters high.
+What should be included
+- Player turn indicator
+- Reset button
 
 Non-essential elements to add
 - start menu
 - AI player option
 - timer
 
-having a coloured button to show who's go it is - it look good and combined with text would be good for visually impared users.
+The classic game of connect 4 is 7 counters wide and 6 counters high so i will follow this design.
 
 ## Colour Palette
 
@@ -32,7 +33,22 @@ https://coolors.co/palettes/trending
 - background F1FAEE
 - Alternative B1E1A3
 
-# Issues
+
+# Testing
+
+## Validator Testing
+
+
 
 When coding the reset button I used a querySelector however forgot to put the '.' before class name so I kept returning the error app.js:153 Uncaught TypeError: Cannot read property 'addEventListener' of null
     at HTMLDocument.<anonymous>
+
+## Unfixed Bugs
+
+# Deployment
+
+# Credits
+
+## Content
+
+## Media

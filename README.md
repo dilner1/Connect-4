@@ -38,7 +38,10 @@ https://coolors.co/palettes/trending
 
 ## Validator Testing
 
+## Changes to base code
 
+Following the tutorial the following code was added to log mouse clicks to the console. After realising it doesn't actually benefit the game in any way I removed it completely without consequence.
+![code](assets/Images/event_listener_removed.png)
 
 When coding the reset button I used a querySelector however forgot to put the '.' before class name so I kept returning the error app.js:153 Uncaught TypeError: Cannot read property 'addEventListener' of null
     at HTMLDocument.<anonymous>

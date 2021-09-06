@@ -3,14 +3,16 @@
     let playerGo = document.querySelector('.player-go');
     let reset = document.querySelector('.reset');
 
-    // Choose player name
-     while(!player1) {
+    /**
+     * chooses player name
+     * make into a function
+     */
+    if(!player1) {
         var player1 = prompt('Player One, Enter your name. You will be red')
-        //var player1 = playerOneName.value
      };
      player1Color = 'rgb(230,57,70)';
 
-     while(!player2) {
+    if(!player2) {
         var player2 = prompt('Player Two, Enter your name. You will be blue')
     };
     player2Color = 'rgb(29,53,87)';
@@ -19,13 +21,18 @@
     playerGo.textContent = `${player1}'s turn!`
     playerGo.style.color = 'rgb(230,57,70)'
 
-    // Check table cells
+    /**
+     * check table cells for click and calls fuction to change color
+     */
     Array.prototype.forEach.call(tableData, (e) =>{
         e.addEventListener('click', changeColor);
         e.style.backgroundColor = 'white';
     });
 
-    // check rows and columns starting from the bottom
+    /**
+     * check rows and columns starting from the bottom
+     * function should be split up
+     */
     function changeColor(event) {
         let column = event.target.cellIndex;
         let row = [];
@@ -36,7 +43,10 @@
                 if(currentPlayer === 1){
                     row[0].style.backgroundColor = player1Color;
                     
-                    // check player 1 win condition
+                    /**
+                     * check player 1 win condition
+                     * player 1 check and 2 check are almost identical - could combine both
+                     */
                     if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()){
                         playerGo.textContent = `${player1} is the winner!`
                         playerGo.style.color = player1Color
@@ -51,7 +61,9 @@
                     }
 
                 } else {
-                    //check player 2 win condition
+                    /**
+                     * check player 2 win condition
+                     */
                     row[0].style.backgroundColor = player2Color;
 
                     if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()){
@@ -71,12 +83,17 @@
         }
     };
 
-    // check if colors match
+    /**
+     * check if colors match
+     */
     function colorMatchCheck(pos1, pos2, pos3, pos4){
         return (pos1 == pos2 && pos1 === pos3 && pos1 === pos4 && pos1 !== 'white');
     };
 
-    // check if horizontal win condition is met
+    /**
+     * check if horizontal win condition is met
+     * could simplify?
+     */
     function horizontalWinCheck() {
         for(let row = 0; row < tableRow.length; row++){
             for(let color = 0; color < 4; color++){
@@ -90,7 +107,9 @@
         };
     };
 
-    // check if vertical win condition is met
+    /**
+     * check if vertical win condition is met
+     */
     function verticalWinCheck() {
         for(let color = 0; color < 7; color++){
             for(let row = 0; row < 3; row++){
@@ -104,7 +123,9 @@
         }
     }
 
-    // check if diagonal win condition is met going up
+    /**
+     * check if diagonal win condition is met going up
+     */
     function diagonalWinCheckDown() {
         for(let color = 0; color < 4; color++){
             for(let row = 0; row < 3; row++){
@@ -118,7 +139,9 @@
         }
     }
 
-    // check if diagonal win condition is met going down
+    /**
+     * check if diagonal win condition is met going down
+     */
     function diagonalWinCheckUp() {
         for(let color = 0; color < 4; color++){
             for(let row = 5; row > 2; row--){
@@ -132,7 +155,9 @@
         }
     }
 
-    // Check if all slots have been taken by players
+    /**
+     * Check if all slots have been taken by players
+     */
     function canvasSpaceCheck(){
         let slot = []
         for (i = 0; i < tableData.length; i++){
@@ -145,7 +170,9 @@
         }
     }
 
-    // Reset canvas colors 
+    /**
+     * Reset canvas colors
+     */ 
     reset.addEventListener('click', () => {
         let playerChip = document.querySelectorAll('.chip');
         playerChip.forEach(chip => {

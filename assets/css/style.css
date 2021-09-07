@@ -43,4 +43,7 @@ body {
     position: absolute;
     float: left;
     margin-left: 5%;
+    color: white;
+    background-color: #2778C4;
+    padding: 1rem;
 }

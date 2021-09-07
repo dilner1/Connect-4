@@ -47,3 +47,16 @@ body {
     background-color: #2778C4;
     padding: 1rem;
 }
+
+#player-one-name {
+    color: rgb(230,57,70);
+}
+
+#player-two-name {
+    color:rgb(29,53,87);
+}
+
+.start_game a {
+    text-decoration: none;
+    color:blue;
+}

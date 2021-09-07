@@ -10,10 +10,14 @@ body {
     text-align: center;
 }
 
-#heading {
+.heading {
     font-family: Pacifico, sans-serif;
     font-size: 4rem;
     margin: 0;
+}
+
+#heading-one {
+    font-size: 5rem;
 }
 
 .player-go {
@@ -43,20 +47,42 @@ body {
     position: absolute;
     float: left;
     margin-left: 5%;
-    color: white;
+    color: #ffffff;
     background-color: #2778C4;
     padding: 1rem;
 }
 
-#player-one-name {
+.player-one-name {
     color: rgb(230,57,70);
 }
 
-#player-two-name {
+.player-two-name {
     color:rgb(29,53,87);
+}
+
+#player-one-input {
+    display: block;
+}
+
+#player-one-input {
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+#player-two-input {
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.start_game {
+    margin-top: 2rem;
 }
 
 .start_game a {
     text-decoration: none;
-    color:blue;
+    color: #ffffff;
+    padding: 1rem;
+    background-color: #2778C4;
 }

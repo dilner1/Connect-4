@@ -31,6 +31,7 @@ body {
 
 #player-one-input {
     display: block;
+    text-align: center;
     font-size: 1.5rem;
     width: 200px;
 }
@@ -44,13 +45,13 @@ body {
 #player-two-input {
     margin: 0 auto;
     display: block;
+    text-align: center;
     font-size: 1.5rem;
     width: 200px;
-    margin-bottom: 1rem;
 }
 
 .start_game {
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 .start_game a {

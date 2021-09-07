@@ -1,8 +1,8 @@
     let tableRow = document.getElementsByTagName('tr');
     let tableData = document.getElementsByTagName('td');
     let playerGo = document.querySelector('.player-go');
-    let player1 = document.getElementById('player-one-name').value;
-    let player2 = document.getElementById('player-two-name').value;
+    let player1 = document.getElementById('player-one-input').value;
+    let player2 = document.getElementById('player-two-input').value;
     let player1Color = 'rgb(230,57,70)';
     let player2Color = 'rgb(29,53,87)';
     let reset = document.querySelector('.reset');

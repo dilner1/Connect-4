@@ -2,20 +2,10 @@
     let tableData = document.getElementsByTagName('td');
     let playerGo = document.querySelector('.player-go');
     let reset = document.querySelector('.reset');
-
-    /**
-     * chooses player name
-     * make into a function
-     */
-    if(!player1) {
-        var player1 = prompt('Player One, Enter your name. You will be red')
-     };
-     player1Color = 'rgb(230,57,70)';
-
-    if(!player2) {
-        var player2 = prompt('Player Two, Enter your name. You will be blue')
-    };
-    player2Color = 'rgb(29,53,87)';
+    let player1 = document.getElementById('player-one-name').value;
+    let player2 = document.getElementById('player-two-name').value;
+    let player1Color = 'rgb(230,57,70)';
+    let player2Color = 'rgb(29,53,87)';
 
     let currentPlayer = 1;
     playerGo.textContent = `${player1}'s turn!`

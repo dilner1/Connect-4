@@ -10,6 +10,7 @@
     playerGo.style.color = 'rgb(230,57,70)'
 
     function usernameForm(){
+        document.getElementById('start-game').addEventListener('click')
         var player1 = document.getElementById('player-one-input').value;
         var player2 = document.getElementById('player-two-input').value;
     };

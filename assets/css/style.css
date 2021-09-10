@@ -50,15 +50,13 @@ body {
     width: 200px;
 }
 
-.start_game {
+#start-game {
     margin-top: 3rem;
-}
-
-.start_game a {
-    text-decoration: none;
     color: #ffffff;
+    font-size: 2rem;
     padding: 1rem;
     background-color: #2778C4;
+    border: none;
 }
 
 /* game page */

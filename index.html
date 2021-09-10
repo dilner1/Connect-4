@@ -23,18 +23,16 @@
         <p class="enter-name-heading">Players, Enter your name!</p>
         <div>
             <label for="player-one-name" class="player-one-name">Player 1</label>
-            <input type="text" id="player-one-input" class="player-one-name" name="player-one-name">
+            <input type="text" id="player-one-input" class="player-one-name" name="player-one-name" required>
         </div>
         <div>
             <label for="player-two-name" class="player-two-name" >Player 2</label>
-            <input type="text" id="player-two-input" class="player-two-name" name="player-two-name"> 
+            <input type="text" id="player-two-input" class="player-two-name" name="player-two-name" required> 
         </div>
     </form>
 
     <!-- submit also redirects to game page -->
-    <input type="submit" value="Submit" onclick="usernameForm()">
-
-    <nav class="start_game"><a rel="start game" href="game.html">start</a></nav>
+    <input id="start-game" type="submit" value="Submit" onclick="usernameForm()" href="game.html">
 
     <script rel="javascript" src="assets/javascript/app.js"></script>
 </body>

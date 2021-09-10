@@ -12,7 +12,7 @@
     function usernameForm(){
         var player1 = document.getElementById('player-one-input').value;
         var player2 = document.getElementById('player-two-input').value;
-    }
+    };
 
     /**
      * check table cells for click and calls fuction to change color

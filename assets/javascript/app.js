@@ -5,8 +5,8 @@
     let player2Color = 'rgb(29,53,87)';
     let reset = document.querySelector('.reset');
     let currentPlayer = 1;
-    var player1 = document.querySelector('#player-one-input').value;
-    var player2 = document.querySelector('#player-two-input').value;
+    let player1 = document.getElementById('player-one-input');
+    let player2 = document.querySelector('#player-two-input');
 
     playerGo.textContent = `${player1}'s turn!`
     playerGo.style.color = 'rgb(230,57,70)'

@@ -52,6 +52,10 @@ Created a function that allowed submit button to also redirect to the game howev
 ![Submit error message](assets/Images/post_error_message.png)
 This still didn't redirect to the correct page, this was because I set the action as app.js rather than game.html.
 
+The second part of the form issue was this error message
+![Value error](assets/Images/value_error_message.png)
+There is an issue with collecting data from the form itself
+
 ## Unfixed Bugs
 
 # Deployment

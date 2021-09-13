@@ -5,25 +5,18 @@
     let player2Color = 'rgb(29,53,87)';
     let reset = document.querySelector('.reset');
     let currentPlayer = 1;
-    var player1 = document.getElementById('player-one-input').value;
-    var player2 = document.getElementById('player-two-input').value;
+    var player1 = document.querySelector('#player-one-input').value;
+    var player2 = document.querySelector('#player-two-input').value;
 
     playerGo.textContent = `${player1}'s turn!`
     playerGo.style.color = 'rgb(230,57,70)'
 
-    /** 
+    
     function usernameForm(){
-        document.getElementById('start-game').addEventListener('submit', function(e) {
-            if(!isValid){
-                e.preventDefault();  
-            } else {
-                var player1 = document.getElementById('player-one-input').value;
-                var player2 = document.getElementById('player-two-input').value;
-                window.location.href = '../../game.html'
-            }
+        document.getElementById('start-game').addEventListener('submit', function() {
+            console.log('names submitted')
         })
     };
-    */
 
     /**
      * check table cells for click and calls fuction to change color

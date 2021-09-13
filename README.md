@@ -50,6 +50,7 @@ When coding the reset button I used a querySelector however forgot to put the '.
 
 Created a function that allowed submit button to also redirect to the game however POST method was causing an issue - for now am using GET.
 ![Submit error message](assets/Images/post_error_message.png)
+This still didn't redirect to the correct page, this was because I set the action as app.js rather than game.html.
 
 ## Unfixed Bugs
 

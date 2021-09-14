@@ -1,18 +1,21 @@
     let tableRow = document.getElementsByTagName('tr');
     let tableData = document.getElementsByTagName('td');
-    let playerGo = document.querySelector('.player-go');
     let player1Color = 'rgb(230,57,70)';
     let player2Color = 'rgb(29,53,87)';
+    var playerGo = document.querySelector('.player-go');
+    var player1 = "";
+    var player2 = "";
     let reset = document.querySelector('.reset');
     let currentPlayer = 1;
 
-    playerGo.textContent = `${player1}'s turn!`
-    playerGo.style.color = 'rgb(230,57,70)'
+    
 
     
     function usernameForm(){
-        var player1 = document.getElementById('player-one-input');
-        var player2 = document.getElementById('player-two-input');
+        player1 = document.getElementById('player-one-input').value;
+        player2 = document.getElementById('player-two-input').value;
+        playerGo.textContent = `${player1}'s turn!`
+        playerGo.style.color = 'rgb(230,57,70)'
         console.log('names submitted')
     };
 

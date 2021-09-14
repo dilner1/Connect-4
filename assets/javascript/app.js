@@ -5,17 +5,15 @@
     let player2Color = 'rgb(29,53,87)';
     let reset = document.querySelector('.reset');
     let currentPlayer = 1;
-    let player1 = document.getElementById('player-one-input');
-    let player2 = document.querySelector('#player-two-input');
 
     playerGo.textContent = `${player1}'s turn!`
     playerGo.style.color = 'rgb(230,57,70)'
 
     
     function usernameForm(){
-        document.getElementById('start-game').addEventListener('submit', function() {
-            console.log('names submitted')
-        })
+        var player1 = document.getElementById('player-one-input');
+        var player2 = document.getElementById('player-two-input');
+        console.log('names submitted')
     };
 
     /**

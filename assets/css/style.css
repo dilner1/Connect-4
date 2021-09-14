@@ -21,33 +21,21 @@ body {
     font-size: 5rem;
 }
 
-.player-one-name {
+.player-name {
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    width: 200px;
+}
+
+#player-one-input{
     color: rgb(230,57,70);
 }
 
-.player-two-name {
-    color:rgb(29,53,87);
-}
-
-#player-one-input {
-    display: block;
-    text-align: center;
-    font-size: 1.5rem;
-    width: 200px;
-}
-
-#player-one-input {
-    margin: 0 auto;
-    display: block;
-    margin-bottom: 1rem;
-}
-
 #player-two-input {
-    margin: 0 auto;
-    display: block;
-    text-align: center;
-    font-size: 1.5rem;
-    width: 200px;
+    color:rgb(29,53,87);
 }
 
 #start-game {

@@ -19,7 +19,7 @@
     <h2 class="heading" id='heading-one'>Connect 4</h2>
 
     
-    <form action="game.html" method="GET">
+    <form action="game.html" method="GET" onsubmit="return usernameForm()">
         <p class="enter-name-heading">Players, Enter your name!</p>
         <div>
             <input type="text" id="player-one-input" class="player-name" value="Player 1" required>
@@ -28,7 +28,7 @@
             <input type="text" id="player-two-input" class="player-name" value="Player 2" required> 
         </div>
         
-        <input id="start-game" type="submit" value="Start Game" onclick="usernameForm()">
+        <input id="start-game" type="submit" value="Start Game">
     </form>
 
     <script rel="javascript" src="assets/javascript/app.js"></script>

@@ -48,7 +48,7 @@ body {
 }
 
 /* game page */
-.player-go {
+#player-go {
     margin: 0;
     font-size: 2rem;
 }

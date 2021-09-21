@@ -1,27 +1,32 @@
     let tableRow = document.getElementsByTagName('tr');
     let tableData = document.getElementsByTagName('td');
-    var player1 = document.getElementById('player-one-input')
-    var player2 = document.getElementById('player-two-input')
+    let player1 = document.getElementById('player-one-input');
+    let player2 = document.getElementById('player-two-input');
+
+    const form = document.getElementById('form');
+    
     let player1Color = 'rgb(230,57,70)';
     let player2Color = 'rgb(29,53,87)';
-    var playerGo = document.querySelector('.player-go');
+    let playerGo = document.getElementById('player-go');
     let reset = document.querySelector('.reset');
     let currentPlayer = 1;
-    
-    function usernameForm(event){
 
-        event.preventDefault();
+    /** Gets player names  */
+    function getUserNames(event){
+        event.preventDefault;
 
-        player1 = document.getElementById('player-one-input').value;
-        player2 = document.getElementById('player-two-input').value;
+        console.log(userName.value)
+
         playerGo.textContent = `${player1}'s turn!`
         playerGo.style.color = 'rgb(230,57,70)'
         console.log('names submitted')
+
+        event.submit;
     };
 
-    /**
-     * check table cells for click and calls fuction to change color
-     */
+    form.addEventListener('submit', getUserNames);
+
+    /** check table cells for click and calls fuction to change color */
     Array.prototype.forEach.call(tableData, (event) =>{
         event.addEventListener('click', changeColor);
         event.style.backgroundColor = 'white';
@@ -59,9 +64,7 @@
                     }
 
                 } else {
-                    /**
-                     * check player 2 win condition
-                     */
+                    /** check player 2 win condition */
                     row[0].style.backgroundColor = player2Color;
 
                     if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()){
@@ -81,9 +84,7 @@
         }
     };
 
-    /**
-     * check if colors match
-     */
+    /** check if colors match */
     function colorMatchCheck(pos1, pos2, pos3, pos4){
         return (pos1 == pos2 && pos1 === pos3 && pos1 === pos4 && pos1 !== 'white');
     };
@@ -105,9 +106,7 @@
         };
     };
 
-    /**
-     * check if vertical win condition is met
-     */
+    /** check if vertical win condition is met */
     function verticalWinCheck() {
         for(let color = 0; color < 7; color++){
             for(let row = 0; row < 3; row++){
@@ -137,9 +136,7 @@
         }
     }
 
-    /**
-     * check if diagonal win condition is met going down
-     */
+    /** check if diagonal win condition is met going down */
     function diagonalWinCheckUp() {
         for(let color = 0; color < 4; color++){
             for(let row = 5; row > 2; row--){
@@ -168,9 +165,7 @@
         }
     }
 
-    /**
-     * Reset canvas colors
-     */ 
+    /** Reset canvas colors */ 
     reset.addEventListener('click', () => {
         let playerChip = document.querySelectorAll('.chip');
         playerChip.forEach(chip => {
@@ -178,3 +173,4 @@
         })
         swal.fire('Start new game')
     });
+

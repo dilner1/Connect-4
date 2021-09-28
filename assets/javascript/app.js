@@ -1,5 +1,5 @@
-const player1 = document.getElementById('player-one-input');
-const player2 = document.getElementById('player-two-input');
+const player1 = 'Player 1' //document.getElementById('player-one-input');
+const player2 = 'Player 2' //document.getElementById('player-two-input');
 const form = document.getElementById('form');
 const playerGo = document.getElementById('player-go');
 
@@ -12,16 +12,19 @@ let player2Color = 'rgb(29,53,87)';
 let reset = document.querySelector('.reset');
 let currentPlayer = 1;
 
-/** Gets player names  */
+/** Gets player names  
 function getUserNames(event){
     event.preventDefault;
 
-    console.log(player1.value)
-    console.log(player2.value)
+    console.log(player1)
+    console.log(player2)
     dispalyText.innerHTML = player1.value;
 }
 
+
 form.addEventListener('submit', getUserNames);
+
+*/
 
  /** check table cells for click and calls fuction to change color */
  Array.prototype.forEach.call(tableData, (event) =>{

@@ -55,7 +55,7 @@ body {
 
 .canvas {
     display: grid;
-    width: 100vw;
+    width: 95vw;
     height: 75vw;
     margin: 0 auto;
     background-color: #7dc6c9;

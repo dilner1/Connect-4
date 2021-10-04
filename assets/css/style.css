@@ -21,6 +21,18 @@ body {
     font-size: 5rem;
 }
 
+.scoreline {
+    display: inline;
+}
+
+#player-1-score {
+    color: rgb(230,57,70);
+}
+
+#player-2-score {
+    color: rgb(20, 23, 182);
+}
+
 .player-name {
     margin: 0 auto;
     margin-bottom: 2rem;

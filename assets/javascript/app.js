@@ -1,15 +1,26 @@
 const PLAYER_ONE = 'Player 1' //document.getElementById('player-one-input');
 const PLAYER_TWO = 'Player 2' //document.getElementById('player-two-input');
-const form = document.getElementById('form');
-let playerGo = document.getElementById('player-go');
-let currentPlayer = 1;
 const PLAYER_ONE_COLOR = 'rgb(230,57,70)';
 const PLAYER_TWO_COLOR = 'rgb(29,53,87)';
+
+let playerTurnText = document.getElementById('player-go');
+let currentPlayerCount = 1;
+let playerName = '';
+let playerOneScore = document.getElementByIdName('player-1-score');
+let playerTwoScote = document.getElementByIdName('player-2-score');
+
+/** changes player name function 
+function changePlayerName() {
+    if (currentPlayerCount === 1) {
+        playerName = PLAYER_ONE.value
+    } else {
+        playerName = PLAYER_TWO.value
+    };
+}*/
 
 
 let tableRow = document.getElementsByTagName('tr');
 let tableData = document.getElementsByTagName('td');
-
 
 let reset = document.querySelector('.reset');
 
@@ -31,7 +42,7 @@ function changeColor(event) {
     for (let i = 5; i > -1; i--) {
         if (tableRow[i].children[column].style.backgroundColor === 'white') {
             row.push(tableRow[i].children[column]);
-            if (currentPlayer === 1) {
+            if (currentPlayerCount === 1) {
                 row[0].style.backgroundColor = PLAYER_ONE_COLOR;
 
                 /**
@@ -39,16 +50,17 @@ function changeColor(event) {
                  * player 1 check and 2 check are almost identical - could combine both
                  */
                 if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
-                    playerGo.textContent = `${PLAYER_ONE} is the winner!`
-                    playerGo.style.color = PLAYER_ONE_COLOR
+                    playerTurnText.textContent = `${PLAYER_ONE} is the winner!`
+                    playerTurnText.style.color = PLAYER_ONE_COLOR
+                    playerOneScore.innerHTML += 1;
                     return (swal.fire(`${PLAYER_ONE} wins!`));
                 } else if (checkCanvasSpace()) {
-                    playerGo.textContent = `It's a draw!`
+                    playerTurnText.textContent = `It's a draw!`
                     return swal.fire(`It's a draw`);
                 } else {
-                    playerGo.textContent = `${PLAYER_TWO}'s turn.`;
-                    playerGo.style.color = 'rgb(29,53,87)'
-                    return currentPlayer = 2;
+                    playerTurnText.textContent = `${PLAYER_TWO}'s turn.`;
+                    playerTurnText.style.color = 'rgb(29,53,87)'
+                    return currentPlayerCount = 2;
                 }
 
             } else {
@@ -56,16 +68,17 @@ function changeColor(event) {
                 row[0].style.backgroundColor = PLAYER_TWO_COLOR;
 
                 if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
-                    playerGo.textContent = `${PLAYER_TWO} is the winner!`
-                    playerGo.style.color = PLAYER_TWO_COLOR
+                    playerTurnText.textContent = `${PLAYER_TWO} is the winner!`
+                    playerTurnText.style.color = PLAYER_TWO_COLOR
                     return (swal.fire(`${PLAYER_TWO} wins!`));
+
                 } else if (checkCanvasSpace()) {
-                    playerGo.textContent = `It's a draw!`
+                    playerTurnText.textContent = `It's a draw!`
                     return swal.fire(`Draw`);
                 } else {
-                    playerGo.textContent = `${PLAYER_ONE}'s turn.`;
-                    playerGo.style.color = 'rgb(230,57,70)'
-                    return currentPlayer = 1;
+                    playerTurnText.textContent = `${PLAYER_ONE}'s turn.`;
+                    playerTurnText.style.color = 'rgb(230,57,70)'
+                    return currentPlayerCount = 1;
                 }
             }
         }
@@ -82,25 +95,18 @@ function checkColorsMatch(pos1, pos2, pos3, pos4) {
 
 /** Change player go */
 
-function changePlayerGo() {
-    playerGo.textContent = `${PLAYER_TWO}'s turn.`;
-    playerGo.style.color = 'rgb(29,53,87)'
-    return currentPlayer = 2;
+function changeplayerTurnText() {
+    playerTurnText.textContent = `${PLAYER_TWO}'s turn.`;
+    playerTurnText.style.color = 'rgb(29,53,87)'
+    return currentPlayerCount = 2;
 }
 
 /** Checks all winning functions */
 function checkWinningMoves() {
     if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
-        playerGo.textContent = `${PLAYER_ONE} is the winner!`
-        playerGo.style.color = PLAYER_ONE_COLOR
+        playerTurnText.textContent = `${PLAYER_ONE} is the winner!`
+        playerTurnText.style.color = PLAYER_ONE_COLOR
         return (swal.fire(`${PLAYER_ONE} wins!`));
-    } else if (checkCanvasSpace()) {
-        playerGo.textContent = `It's a draw!`
-        return swal.fire(`It's a draw`);
-    } else {
-        playerGo.textContent = `${PLAYER_TWO}'s turn.`;
-        playerGo.style.color = 'rgb(29,53,87)'
-        return currentPlayer = 2;
     }
 }
 
@@ -178,6 +184,10 @@ function checkCanvasSpace() {
     if (slot.length === tableData.length) {
         return true;
     }
+}
+
+function score() {
+
 }
 
 /** Reset canvas colors */

@@ -25,7 +25,6 @@ let tableData = document.getElementsByTagName('td');
 
 let reset = document.querySelector('.reset');
 
-
 /** check table cells for click and calls fuction to change color */
 Array.prototype.forEach.call(tableData, (event) => {
     event.addEventListener('click', changeColor);
@@ -54,7 +53,9 @@ function changeColor(event) {
                     playerTurnText.textContent = `${PLAYER_ONE} is the winner!`
                     playerTurnText.style.color = PLAYER_ONE_COLOR
                     document.getElementById("player-1-score").innerText = ++playerOneScore;
+                    resetGame();
                     return (swal.fire(`${PLAYER_ONE} wins!`));
+                    
                 } else if (checkCanvasSpace()) {
                     playerTurnText.textContent = `It's a draw!`
                     return swal.fire(`It's a draw`);
@@ -72,6 +73,7 @@ function changeColor(event) {
                     playerTurnText.textContent = `${PLAYER_TWO} is the winner!`
                     playerTurnText.style.color = PLAYER_TWO_COLOR
                     document.getElementById("player-2-score").innerText = ++playerTwoScore;
+                    resetGame();
                     return (swal.fire(`${PLAYER_TWO} wins!`));
 
                 } else if (checkCanvasSpace()) {
@@ -188,10 +190,11 @@ function checkCanvasSpace() {
     }
 }
 
-/** Reset canvas colors */
-reset.addEventListener('click', () => {
+reset.addEventListener('click', resetGame);
+
+function resetGame () {
     let playerChip = document.querySelectorAll('.chip');
     playerChip.forEach(chip => {
         chip.style.backgroundColor = 'white'
     })
-});
+};

@@ -80,10 +80,25 @@ function checkColorsMatch (pos1, pos2, pos3, pos4){
             pos1 !== 'white');
 };
 
+/** Change player go */
+
+function changePlayerGo() {
+    playerGo.textContent = `${PLAYER_TWO}'s turn.`;
+    playerGo.style.color = 'rgb(29,53,87)'
+    return currentPlayer = 2;
+}
+
 /** Checks all winning functions */
 function checkAllWinningMoves(){
-    
+    if(horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()){
+        playerGo.textContent = `${PLAYER_ONE} is the winner!`
+        playerGo.style.color = PLAYER_ONE_COLOR
+        return(swal.fire(`${PLAYER_ONE} wins!`));
+    } else if(checkCanvasSpace()) {
+        playerGo.textContent = `It's a draw!`
+        return swal.fire(`It's a draw`);
 }
+
 
 /**
  * check if horizontal win condition is met

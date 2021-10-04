@@ -53,8 +53,7 @@ function changeColor(event) {
                     playerTurnText.textContent = `${PLAYER_ONE} is the winner!`
                     playerTurnText.style.color = PLAYER_ONE_COLOR
                     document.getElementById("player-1-score").innerText = ++playerOneScore;
-                    resetGame();
-                    return (swal.fire(`${PLAYER_ONE} wins!`));
+                    return playerOneWinNotice;
                     
                 } else if (checkCanvasSpace()) {
                     playerTurnText.textContent = `It's a draw!`
@@ -73,8 +72,7 @@ function changeColor(event) {
                     playerTurnText.textContent = `${PLAYER_TWO} is the winner!`
                     playerTurnText.style.color = PLAYER_TWO_COLOR
                     document.getElementById("player-2-score").innerText = ++playerTwoScore;
-                    resetGame();
-                    return (swal.fire(`${PLAYER_TWO} wins!`));
+                    return (playerOneWinNotice);
 
                 } else if (checkCanvasSpace()) {
                     playerTurnText.textContent = `It's a draw!`
@@ -88,6 +86,12 @@ function changeColor(event) {
         }
     }
 };
+
+/** reset game on win */
+function playerOneWinNotice(){
+    swal.fire(`${PLAYER_ONE} wins!`)
+    document.addEventListener('click', resetGame)
+}
 
 /** check if colors match */
 function checkColorsMatch(pos1, pos2, pos3, pos4) {

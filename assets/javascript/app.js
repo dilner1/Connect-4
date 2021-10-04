@@ -4,10 +4,11 @@ const PLAYER_ONE_COLOR = 'rgb(230,57,70)';
 const PLAYER_TWO_COLOR = 'rgb(29,53,87)';
 
 let playerTurnText = document.getElementById('player-go');
+playerTurnText.textContent = `${PLAYER_ONE} starts`
 let currentPlayerCount = 1;
 let playerName = '';
-let playerOneScore = document.getElementByIdName('player-1-score');
-let playerTwoScote = document.getElementByIdName('player-2-score');
+//let playerOneScore = parseInt(document.getElementByIdName('player-1-score').innerHTML);
+//let playerTwoScote = parseInt(document.getElementByIdName('player-2-score').innerHTML);
 
 /** changes player name function 
 function changePlayerName() {
@@ -17,7 +18,6 @@ function changePlayerName() {
         playerName = PLAYER_TWO.value
     };
 }*/
-
 
 let tableRow = document.getElementsByTagName('tr');
 let tableData = document.getElementsByTagName('td');
@@ -52,7 +52,7 @@ function changeColor(event) {
                 if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
                     playerTurnText.textContent = `${PLAYER_ONE} is the winner!`
                     playerTurnText.style.color = PLAYER_ONE_COLOR
-                    playerOneScore.innerHTML += 1;
+                    //document.getElementById("player-1-score").innerText = ++playerOneScore;
                     return (swal.fire(`${PLAYER_ONE} wins!`));
                 } else if (checkCanvasSpace()) {
                     playerTurnText.textContent = `It's a draw!`
@@ -70,6 +70,7 @@ function changeColor(event) {
                 if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
                     playerTurnText.textContent = `${PLAYER_TWO} is the winner!`
                     playerTurnText.style.color = PLAYER_TWO_COLOR
+                    //document.getElementById("player-2-score").innerText = ++playerTwoScore;
                     return (swal.fire(`${PLAYER_TWO} wins!`));
 
                 } else if (checkCanvasSpace()) {

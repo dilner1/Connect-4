@@ -14,6 +14,7 @@ body {
     font-family: Pacifico, sans-serif;
     font-size: 4rem;
     margin: 0;
+    display: inline;
 }
 
 /* first page */
@@ -23,6 +24,7 @@ body {
 
 .scoreline {
     display: inline;
+    padding-left: 2rem;
 }
 
 #player-1-score {
@@ -63,6 +65,7 @@ body {
 #player-go {
     margin: 0;
     font-size: 2rem;
+    color: rgb(230,57,70);
 }
 
 .canvas {

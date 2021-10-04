@@ -4,11 +4,12 @@ const PLAYER_ONE_COLOR = 'rgb(230,57,70)';
 const PLAYER_TWO_COLOR = 'rgb(29,53,87)';
 
 let playerTurnText = document.getElementById('player-go');
-playerTurnText.textContent = `${PLAYER_ONE} starts`
+    playerTurnText.textContent = `${PLAYER_ONE} starts`
 let currentPlayerCount = 1;
 let playerName = '';
-//let playerOneScore = parseInt(document.getElementByIdName('player-1-score').innerHTML);
-//let playerTwoScote = parseInt(document.getElementByIdName('player-2-score').innerHTML);
+
+let playerOneScore = parseInt(document.getElementById('player-1-score').innerHTML);
+let playerTwoScore = parseInt(document.getElementById('player-2-score').innerHTML);
 
 /** changes player name function 
 function changePlayerName() {
@@ -52,7 +53,7 @@ function changeColor(event) {
                 if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
                     playerTurnText.textContent = `${PLAYER_ONE} is the winner!`
                     playerTurnText.style.color = PLAYER_ONE_COLOR
-                    //document.getElementById("player-1-score").innerText = ++playerOneScore;
+                    document.getElementById("player-1-score").innerText = ++playerOneScore;
                     return (swal.fire(`${PLAYER_ONE} wins!`));
                 } else if (checkCanvasSpace()) {
                     playerTurnText.textContent = `It's a draw!`
@@ -70,7 +71,7 @@ function changeColor(event) {
                 if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
                     playerTurnText.textContent = `${PLAYER_TWO} is the winner!`
                     playerTurnText.style.color = PLAYER_TWO_COLOR
-                    //document.getElementById("player-2-score").innerText = ++playerTwoScore;
+                    document.getElementById("player-2-score").innerText = ++playerTwoScore;
                     return (swal.fire(`${PLAYER_TWO} wins!`));
 
                 } else if (checkCanvasSpace()) {
@@ -187,15 +188,10 @@ function checkCanvasSpace() {
     }
 }
 
-function score() {
-
-}
-
 /** Reset canvas colors */
 reset.addEventListener('click', () => {
     let playerChip = document.querySelectorAll('.chip');
     playerChip.forEach(chip => {
         chip.style.backgroundColor = 'white'
     })
-    swal.fire('Start new game')
 });

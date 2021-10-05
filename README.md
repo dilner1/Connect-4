@@ -56,6 +56,13 @@ The second part of the form issue was this error message
 ![Value error](assets/Images/value_error_message.png)
 There is an issue with collecting data from the form itself
 
+## Responsive Design
+
+![Responsive design on laptop](assets/Images/on_laptop_screenshot.png)
+
+
+![Responsive design on phone](assets/Images/on_phone_screenshot.jpg)
+
 ## Unfixed Bugs
 
 # Deployment

@@ -47,13 +47,14 @@ function changeColor(event) {
 
                 /**
                  * check player 1 win condition
-                 * player 1 check and 2 check are almost identical - could combine both
+                 * player 1 check and 2 check are almost identical - looking to combine both
                  */
                 if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
                     playerTurnText.textContent = `${PLAYER_ONE} is the winner!`
                     playerTurnText.style.color = PLAYER_ONE_COLOR
                     document.getElementById("player-1-score").innerText = ++playerOneScore;
-                    return playerOneWinNotice;
+                    playerOneWinNotice();
+                    return
                     
                 } else if (checkCanvasSpace()) {
                     playerTurnText.textContent = `It's a draw!`
@@ -72,7 +73,8 @@ function changeColor(event) {
                     playerTurnText.textContent = `${PLAYER_TWO} is the winner!`
                     playerTurnText.style.color = PLAYER_TWO_COLOR
                     document.getElementById("player-2-score").innerText = ++playerTwoScore;
-                    return (playerOneWinNotice);
+                    playerOneWinNotice();
+                    return
 
                 } else if (checkCanvasSpace()) {
                     playerTurnText.textContent = `It's a draw!`
@@ -89,38 +91,35 @@ function changeColor(event) {
 
 /** reset game on win */
 function playerOneWinNotice(){
-    swal.fire(`${PLAYER_ONE} wins!`)
-    document.addEventListener('click', resetGame)
+     swal.fire(`${PLAYER_ONE} wins!`)
+     reset();
 }
 
 /** check if colors match */
 function checkColorsMatch(pos1, pos2, pos3, pos4) {
     return (pos1 === pos2 &&
-        pos1 === pos3 &&
-        pos1 === pos4 &&
-        pos1 !== 'white');
+            pos1 === pos3 &&
+            pos1 === pos4 &&
+            pos1 !== 'white');
 };
 
-/** Change player go */
-
-function changeplayerTurnText() {
-    playerTurnText.textContent = `${PLAYER_TWO}'s turn.`;
-    playerTurnText.style.color = 'rgb(29,53,87)'
-    return currentPlayerCount = 2;
-}
-
-/** Checks all winning functions */
+/** Checks all winning functions - not yet implemented 
 function checkWinningMoves() {
     if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
-        playerTurnText.textContent = `${PLAYER_ONE} is the winner!`
-        playerTurnText.style.color = PLAYER_ONE_COLOR
-        return (swal.fire(`${PLAYER_ONE} wins!`));
+        if (currentPlayerCount === 1){
+            playerTurnText.textContent = `${PLAYER_ONE} is the winner!`
+            playerTurnText.style.color = PLAYER_ONE_COLOR
+            return (swal.fire(`${PLAYER_ONE} wins!`));
+        } else {
+            playerTurnText.textContent = `${PLAYER_TWO} is the winner!`
+            playerTurnText.style.color = PLAYER_TWO_COLOR
+            return (swal.fire(`${PLAYER_TWO} wins!`));
+        }
     }
-}
+}*/
 
 /**
  * check if horizontal win condition is met
- * could simplify?
  */
 function horizontalWinCheck() {
     for (let row = 0; row < tableRow.length; row++) {
@@ -150,7 +149,7 @@ function verticalWinCheck() {
 }
 
 /**
- * check if diagonal win condition is met going up
+ * check if diagonal win condition is met going down
  */
 function diagonalWinCheckDown() {
     for (let color = 0; color < 4; color++) {
@@ -165,7 +164,7 @@ function diagonalWinCheckDown() {
     }
 }
 
-/** check if diagonal win condition is met going down */
+/** check if diagonal win condition is met going up */
 function diagonalWinCheckUp() {
     for (let color = 0; color < 4; color++) {
         for (let row = 5; row > 2; row--) {
@@ -194,6 +193,7 @@ function checkCanvasSpace() {
     }
 }
 
+/** Resets canvas */
 reset.addEventListener('click', resetGame);
 
 function resetGame () {

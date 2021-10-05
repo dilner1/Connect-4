@@ -91,8 +91,9 @@ function changeColor(event) {
 
 /** reset game on win */
 function playerOneWinNotice(){
-     swal.fire(`${PLAYER_ONE} wins!`)
-     reset();
+    swal.fire(`${PLAYER_ONE} wins!`);
+    document.addEventListener('click', resetGame());
+    return
 }
 
 /** check if colors match */

@@ -65,9 +65,10 @@ function changeColor(event) {
                     playerTurnText.textContent = `It's a draw!`
                     return swal.fire(`It's a draw`);
                 } else {
+                    currentPlayerCount = 2;
                     playerTurnText.textContent = `${PLAYER_TWO}'s turn.`;
                     playerTurnText.style.color = 'rgb(24, 26, 153)'
-                    return currentPlayerCount = 2;
+                    return
                 }
 
             } else {
@@ -85,9 +86,10 @@ function changeColor(event) {
                     playerTurnText.textContent = `It's a draw!`
                     return swal.fire(`Draw`);
                 } else {
+                    currentPlayerCount = 1;
                     playerTurnText.textContent = `${PLAYER_ONE}'s turn.`;
                     playerTurnText.style.color = 'rgb(230,57,70)'
-                    return currentPlayerCount = 1;
+                    return 
                 }
             }
         }

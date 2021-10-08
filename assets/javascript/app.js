@@ -55,7 +55,7 @@ function changeColor(event) {
                  * player 1 check and 2 check are almost identical - looking to combine both
                  */
                 if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
-                    playerTurnText.textContent = `${PLAYER_ONE} is the winner!`
+                    playerTurnText.textContent = `${playerName} is the winner!`
                     playerTurnText.style.color = PLAYER_ONE_COLOR
                     document.getElementById("player-1-score").innerText = ++playerOneScore;
                     playerWinNotice();
@@ -65,7 +65,7 @@ function changeColor(event) {
                     playerTurnText.textContent = `It's a draw!`
                     return swal.fire(`It's a draw`);
                 } else {
-                    playerTurnText.textContent = `${PLAYER_TWO}'s turn.`;
+                    playerTurnText.textContent = `${playerName}'s turn.`;
                     playerTurnText.style.color = 'rgb(24, 26, 153)'
                     return currentPlayerCount = 2;
                 }
@@ -75,7 +75,7 @@ function changeColor(event) {
                 row[0].style.backgroundColor = PLAYER_TWO_COLOR;
 
                 if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
-                    playerTurnText.textContent = `${PLAYER_TWO} is the winner!`
+                    playerTurnText.textContent = `${playerName} is the winner!`
                     playerTurnText.style.color = PLAYER_TWO_COLOR
                     document.getElementById("player-2-score").innerText = ++playerTwoScore;
                     playerWinNotice();
@@ -85,7 +85,7 @@ function changeColor(event) {
                     playerTurnText.textContent = `It's a draw!`
                     return swal.fire(`Draw`);
                 } else {
-                    playerTurnText.textContent = `${PLAYER_ONE}'s turn.`;
+                    playerTurnText.textContent = `${playerName}'s turn.`;
                     playerTurnText.style.color = 'rgb(230,57,70)'
                     return currentPlayerCount = 1;
                 }

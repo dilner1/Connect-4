@@ -65,7 +65,7 @@ function changeColor(event) {
                     playerTurnText.textContent = `It's a draw!`
                     return swal.fire(`It's a draw`);
                 } else {
-                    playerTurnText.textContent = `${playerName}'s turn.`;
+                    playerTurnText.textContent = `${PLAYER_TWO}'s turn.`;
                     playerTurnText.style.color = 'rgb(24, 26, 153)'
                     return currentPlayerCount = 2;
                 }
@@ -85,7 +85,7 @@ function changeColor(event) {
                     playerTurnText.textContent = `It's a draw!`
                     return swal.fire(`Draw`);
                 } else {
-                    playerTurnText.textContent = `${playerName}'s turn.`;
+                    playerTurnText.textContent = `${PLAYER_ONE}'s turn.`;
                     playerTurnText.style.color = 'rgb(230,57,70)'
                     return currentPlayerCount = 1;
                 }
@@ -109,11 +109,11 @@ function checkColorsMatch(pos1, pos2, pos3, pos4) {
             pos1 !== 'white');
 };
 
-/** Checks all winning functions - not yet implemented 
+/** Checks all winning functions - not yet implemented */
 function checkWinningMoves() {
     if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
         if (currentPlayerCount === 1){
-            playerTurnText.textContent = `${PLAYER_ONE} is the winner!`
+            playerTurnText.textContent = `${playerName} is the winner!`
             playerTurnText.style.color = PLAYER_ONE_COLOR
             return (swal.fire(`${PLAYER_ONE} wins!`));
         } else {
@@ -122,7 +122,7 @@ function checkWinningMoves() {
             return (swal.fire(`${PLAYER_TWO} wins!`));
         }
     }
-}*/
+}
 
 /**
  * check if horizontal win condition is met

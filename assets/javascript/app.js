@@ -6,19 +6,24 @@ const PLAYER_TWO_COLOR = 'rgb(29,53,87)';
 let playerTurnText = document.getElementById('player-go');
     playerTurnText.textContent = `${PLAYER_ONE} starts`
 let currentPlayerCount = 1;
-let playerName = '';
 
 let playerOneScore = parseInt(document.getElementById('player-1-score').innerHTML);
 let playerTwoScore = parseInt(document.getElementById('player-2-score').innerHTML);
 
-/** changes player name function 
+/** changes player name */
+let playerName = '';
+document.addEventListener('click',changePlayerName)
+
 function changePlayerName() {
     if (currentPlayerCount === 1) {
-        playerName = PLAYER_ONE.value
+        playerName = PLAYER_ONE
     } else {
-        playerName = PLAYER_TWO.value
+        playerName = PLAYER_TWO
     };
-}*/
+    console.log(playerName)
+}
+
+console.log(playerName.value)
 
 let tableRow = document.getElementsByTagName('tr');
 let tableData = document.getElementsByTagName('td');
@@ -53,7 +58,7 @@ function changeColor(event) {
                     playerTurnText.textContent = `${PLAYER_ONE} is the winner!`
                     playerTurnText.style.color = PLAYER_ONE_COLOR
                     document.getElementById("player-1-score").innerText = ++playerOneScore;
-                    playerOneWinNotice();
+                    playerWinNotice();
                     return
                     
                 } else if (checkCanvasSpace()) {
@@ -73,7 +78,7 @@ function changeColor(event) {
                     playerTurnText.textContent = `${PLAYER_TWO} is the winner!`
                     playerTurnText.style.color = PLAYER_TWO_COLOR
                     document.getElementById("player-2-score").innerText = ++playerTwoScore;
-                    playerOneWinNotice();
+                    playerWinNotice();
                     return
 
                 } else if (checkCanvasSpace()) {
@@ -90,8 +95,8 @@ function changeColor(event) {
 };
 
 /** reset game on win */
-function playerOneWinNotice(){
-    swal.fire(`${PLAYER_ONE} wins!`);
+function playerWinNotice(){
+    swal.fire(`${playerName} wins!`);
     document.addEventListener('click', resetGame());
     return
 }

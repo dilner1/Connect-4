@@ -19,6 +19,7 @@ let reset = document.querySelector('.reset');
 let playerName = '';
 document.addEventListener('click', changePlayerName)
 
+let rowColor = [];
 function changePlayerName() {
     if (currentPlayerCount === 1) {
         playerName = PLAYER_ONE
@@ -27,6 +28,7 @@ function changePlayerName() {
         playerName = PLAYER_TWO
         rowColor[0].style.backgroundColor = PLAYER_TWO_COLOR;
     };
+    /** tests if name changes in console */
     console.log(playerName)
 }
 
@@ -62,15 +64,14 @@ Array.prototype.forEach.call(tableData, (event) => {
  * function should be split up
  */ 
 
- const rowColor = [];
+
 function winDrawOrChangeTurn (event) {
     let column = event.target.cellIndex;
 
     for (let i = 5; i > 0; i--) {
         if (tableRow[i].children[column].style.backgroundColor === 'snow') {
             rowColor.push(tableRow[i].children[column]);
-            if (currentPlayerCount === 1) {
-                rowColor[0].style.backgroundColor = PLAYER_ONE_COLOR;
+            if (currentPlayerCount === 1 || currentPlayerCount === 2) {
 
                 /** write seperate function here instead to be put here so can have if(currentPlayerCount === 2) */
 

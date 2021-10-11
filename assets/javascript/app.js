@@ -34,15 +34,17 @@ function changePlayerTurn() {
         currentPlayerCount = 2;
         playerTurnText.textContent = `${PLAYER_TWO}'s turn.`;
         playerTurnText.style.color = 'rgb(24, 26, 153)';
-
         console.log('goodbye')
+
+        return currentPlayerCount = 2;
     } else if (currentPlayerCount === 2) {
 
         row[0].style.backgroundColor = PLAYER_ONE_COLOR;
-        currentPlayerCount = 1;
+        
         playerTurnText.textContent = `${PLAYER_ONE}'s turn.`;
         playerTurnText.style.color = 'rgb(230,57,70)';
         console.log("you're welcome")
+        return currentPlayerCount = 1;
     }
 }
 
@@ -56,9 +58,10 @@ Array.prototype.forEach.call(tableData, (event) => {
  * check rows and columns starting from the bottom
  * function should be split up
  */ 
+
+ const row = [];
 function winDrawOrChangeTurn (event) {
     let column = event.target.cellIndex;
-    let row = [];
 
     for (let i = 5; i > 0; i--) {
         if (tableRow[i].children[column].style.backgroundColor === 'snow') {

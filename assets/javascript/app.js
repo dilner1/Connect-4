@@ -28,6 +28,20 @@ function changePlayerName() {
     console.log(playerName)
 }
 
+function changePlayerTurn() {
+    if (currentPlayerCount === 1) {
+        currentPlayerCount = 2;
+        playerTurnText.textContent = `${PLAYER_TWO}'s turn.`;
+        playerTurnText.style.color = 'rgb(24, 26, 153)';
+    } else {
+        if (currentPlayerCount === 2) {
+            currentPlayerCount = 1;
+            playerTurnText.textContent = `${PLAYER_ONE}'s turn.`;
+            playerTurnText.style.color = 'rgb(230,57,70)';
+        }
+    }
+}
+
 /** check table cells for click and calls fuction to change color */
 Array.prototype.forEach.call(tableData, (event) => {
     event.addEventListener('click', changeColor);
@@ -61,31 +75,10 @@ function changeColor(event) {
                     playerTurnText.textContent = `It's a draw!`
                     return swal.fire(`It's a draw`);
                 } else {
-                    currentPlayerCount = 2;
-                    playerTurnText.textContent = `${PLAYER_TWO}'s turn.`;
-                    playerTurnText.style.color = 'rgb(24, 26, 153)'
+                    document.addEventListener('click', changePlayerTurn)
                     return
                 }
-
-            } else {
-                /** check player 2 win condition */
-                row[0].style.backgroundColor = PLAYER_TWO_COLOR;
-
-                if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
-                    
-                    playerWinNotice();
-                    return
-
-                } else if (checkCanvasSpace()) {
-                    playerTurnText.textContent = `It's a draw!`
-                    return swal.fire(`Draw`);
-                } else {
-                    currentPlayerCount = 1;
-                    playerTurnText.textContent = `${PLAYER_ONE}'s turn.`;
-                    playerTurnText.style.color = 'rgb(230,57,70)'
-                    return 
-                }
-            }
+            } 
         }
     }
 };

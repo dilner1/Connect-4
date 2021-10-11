@@ -54,10 +54,8 @@ function changeColor(event) {
                  * check player 1 win condition
                  * player 1 check and 2 check are almost identical - looking to combine both
                  */
-                if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
-                    playerTurnText.textContent = `${playerName} is the winner!`
-                    playerTurnText.style.color = PLAYER_ONE_COLOR
-                    document.getElementById("player-1-score").innerText = ++playerOneScore;
+                if (checkWinningMoves) {
+                    
                     playerWinNotice();
                     return
                     
@@ -76,9 +74,7 @@ function changeColor(event) {
                 row[0].style.backgroundColor = PLAYER_TWO_COLOR;
 
                 if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
-                    playerTurnText.textContent = `${playerName} is the winner!`
-                    playerTurnText.style.color = PLAYER_TWO_COLOR
-                    document.getElementById("player-2-score").innerText = ++playerTwoScore;
+                    
                     playerWinNotice();
                     return
 
@@ -117,11 +113,11 @@ function checkWinningMoves() {
         if (currentPlayerCount === 1){
             playerTurnText.textContent = `${playerName} is the winner!`
             playerTurnText.style.color = PLAYER_ONE_COLOR
-            return (swal.fire(`${PLAYER_ONE} wins!`));
+            return document.getElementById("player-1-score").innerText = ++playerOneScore;
         } else {
-            playerTurnText.textContent = `${PLAYER_TWO} is the winner!`
+            playerTurnText.textContent = `${playerName} is the winner!`
             playerTurnText.style.color = PLAYER_TWO_COLOR
-            return (swal.fire(`${PLAYER_TWO} wins!`));
+            return document.getElementById("player-2-score").innerText = ++playerTwoScore;
         }
     }
 }

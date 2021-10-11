@@ -30,16 +30,16 @@ function changePlayerName() {
 
 function changePlayerTurn() {
     if (currentPlayerCount === 1) {
-        row[0].style.backgroundColor = PLAYER_TWO_COLOR;
+        rowColor[0].style.backgroundColor = PLAYER_TWO_COLOR;
         currentPlayerCount = 2;
         playerTurnText.textContent = `${PLAYER_TWO}'s turn.`;
         playerTurnText.style.color = 'rgb(24, 26, 153)';
         console.log('goodbye')
 
         return currentPlayerCount = 2;
-    } else if (currentPlayerCount === 2) {
+    } else if (currentPlayerCount === 2){
 
-        row[0].style.backgroundColor = PLAYER_ONE_COLOR;
+        rowColor[0].style.backgroundColor = PLAYER_ONE_COLOR;
         
         playerTurnText.textContent = `${PLAYER_ONE}'s turn.`;
         playerTurnText.style.color = 'rgb(230,57,70)';
@@ -55,19 +55,19 @@ Array.prototype.forEach.call(tableData, (event) => {
 });
 
 /**
- * check rows and columns starting from the bottom
+ * check rowColors and columns starting from the bottom
  * function should be split up
  */ 
 
- const row = [];
+ const rowColor = [];
 function winDrawOrChangeTurn (event) {
     let column = event.target.cellIndex;
 
     for (let i = 5; i > 0; i--) {
         if (tableRow[i].children[column].style.backgroundColor === 'snow') {
-            row.push(tableRow[i].children[column]);
+            rowColor.push(tableRow[i].children[column]);
             if (currentPlayerCount === 1) {
-                row[0].style.backgroundColor = PLAYER_ONE_COLOR;
+                rowColor[0].style.backgroundColor = PLAYER_ONE_COLOR;
 
                 /** write seperate function here instead to be put here so can have if(currentPlayerCount === 2) */
 

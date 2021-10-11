@@ -1,6 +1,6 @@
 const PLAYER_ONE = 'Player 1' //document.getElementById('player-one-input');
 const PLAYER_TWO = 'Player 2' //document.getElementById('player-two-input');
-const PLAYER_ONE_COLOR = 'rgb(230,57,70)';
+const PLAYER_ONE_COLOR = 'rgb(230,57,70)'; 
 const PLAYER_TWO_COLOR = 'rgb(29,53,87)';
 
 let playerTurnText = document.getElementById('player-go');
@@ -9,6 +9,11 @@ let currentPlayerCount = 1;
 
 let playerOneScore = parseInt(document.getElementById('player-1-score').innerHTML);
 let playerTwoScore = parseInt(document.getElementById('player-2-score').innerHTML);
+
+let tableRow = document.getElementsByTagName('tr');
+let tableData = document.getElementsByTagName('td');
+
+let reset = document.querySelector('.reset');
 
 /** changes player name */
 let playerName = '';
@@ -23,17 +28,10 @@ function changePlayerName() {
     console.log(playerName)
 }
 
-console.log(playerName.value)
-
-let tableRow = document.getElementsByTagName('tr');
-let tableData = document.getElementsByTagName('td');
-
-let reset = document.querySelector('.reset');
-
 /** check table cells for click and calls fuction to change color */
 Array.prototype.forEach.call(tableData, (event) => {
     event.addEventListener('click', changeColor);
-    event.style.backgroundColor = 'white';
+    event.style.backgroundColor = 'snow'; 
 });
 
 /**
@@ -43,9 +41,9 @@ Array.prototype.forEach.call(tableData, (event) => {
 function changeColor(event) {
     let column = event.target.cellIndex;
     let row = [];
-
+    
     for (let i = 5; i > -1; i--) {
-        if (tableRow[i].children[column].style.backgroundColor === 'white') {
+        if (tableRow[i].children[column].style.backgroundColor === 'snow') {
             row.push(tableRow[i].children[column]);
             if (currentPlayerCount === 1) {
                 row[0].style.backgroundColor = PLAYER_ONE_COLOR;
@@ -54,8 +52,8 @@ function changeColor(event) {
                  * check player 1 win condition
                  * player 1 check and 2 check are almost identical - looking to combine both
                  */
-                if (checkWinningMoves) {
-                    
+                if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
+                    checkWinningMoves();
                     playerWinNotice();
                     return
                     
@@ -95,7 +93,7 @@ function changeColor(event) {
 /** reset game on win */
 function playerWinNotice(){
     swal.fire(`${playerName} wins!`);
-    document.addEventListener('click', resetGame());
+    //document.addEventListener('click', resetGame());
     return
 }
 
@@ -104,7 +102,7 @@ function checkColorsMatch(pos1, pos2, pos3, pos4) {
     return (pos1 === pos2 &&
             pos1 === pos3 &&
             pos1 === pos4 &&
-            pos1 !== 'white');
+            pos1 !== 'snow');
 };
 
 /** Checks all winning functions - not yet implemented */
@@ -188,7 +186,7 @@ function diagonalWinCheckUp() {
 function checkCanvasSpace() {
     let slot = []
     for (i = 0; i < tableData.length; i++) {
-        if (tableData[i].style.backgroundColor !== 'white') {
+        if (tableData[i].style.backgroundColor !== 'snow') {
             slot.push(tableData[i]);
         }
     }
@@ -203,6 +201,6 @@ reset.addEventListener('click', resetGame);
 function resetGame () {
     let playerChip = document.querySelectorAll('.chip');
     playerChip.forEach(chip => {
-        chip.style.backgroundColor = 'white'
+        chip.style.backgroundColor = 'snow'
     })
 };

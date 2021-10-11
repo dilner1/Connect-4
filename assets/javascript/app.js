@@ -35,13 +35,14 @@ function changePlayerTurn() {
         playerTurnText.textContent = `${PLAYER_TWO}'s turn.`;
         playerTurnText.style.color = 'rgb(24, 26, 153)';
 
+        console.log('goodbye')
     } else if (currentPlayerCount === 2) {
 
         row[0].style.backgroundColor = PLAYER_ONE_COLOR;
         currentPlayerCount = 1;
         playerTurnText.textContent = `${PLAYER_ONE}'s turn.`;
         playerTurnText.style.color = 'rgb(230,57,70)';
-
+        console.log("you're welcome")
     }
 }
 
@@ -76,11 +77,12 @@ function winDrawOrChangeTurn (event) {
                     playerTurnText.textContent = `It's a draw!`
                     return swal.fire(`It's a draw`);
                 } else {
-                    
-                    return changePlayerTurn
+                    console.log('hello')
+                    changePlayerTurn();
+                    return
                 }
             }
-        }
+        } 
     }
 };
 

@@ -22,11 +22,14 @@ document.addEventListener('click', changePlayerName)
 function changePlayerName() {
     if (currentPlayerCount === 1) {
         playerName = PLAYER_ONE
+        rowColor[0].style.backgroundColor = PLAYER_ONE_COLOR;
     } else {
         playerName = PLAYER_TWO
+        rowColor[0].style.backgroundColor = PLAYER_TWO_COLOR;
     };
     console.log(playerName)
 }
+
 
 function changePlayerTurn() {
     if (currentPlayerCount === 1) {

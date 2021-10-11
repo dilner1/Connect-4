@@ -30,15 +30,17 @@ function changePlayerName() {
 
 function changePlayerTurn() {
     if (currentPlayerCount === 1) {
+        row[0].style.backgroundColor = PLAYER_TWO_COLOR;
         currentPlayerCount = 2;
         playerTurnText.textContent = `${PLAYER_TWO}'s turn.`;
         playerTurnText.style.color = 'rgb(24, 26, 153)';
-    } else {
-        if (currentPlayerCount === 2) {
+    } else if (currentPlayerCount === 2) {
+        
+            row[0].style.backgroundColor = PLAYER_ONE_COLOR;
             currentPlayerCount = 1;
             playerTurnText.textContent = `${PLAYER_ONE}'s turn.`;
             playerTurnText.style.color = 'rgb(230,57,70)';
-        }
+        
     }
 }
 
@@ -56,16 +58,12 @@ function changeColor(event) {
     let column = event.target.cellIndex;
     let row = [];
     
-    for (let i = 5; i > -1; i--) {
+    for (let i = 5; i > 0; i--) {
         if (tableRow[i].children[column].style.backgroundColor === 'snow') {
             row.push(tableRow[i].children[column]);
-            if (currentPlayerCount === 1) {
+            if (currentPlayerCount === 1 ) {
                 row[0].style.backgroundColor = PLAYER_ONE_COLOR;
 
-                /**
-                 * check player 1 win condition
-                 * player 1 check and 2 check are almost identical - looking to combine both
-                 */
                 if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
                     checkWinningMoves();
                     playerWinNotice();

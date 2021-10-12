@@ -54,8 +54,9 @@ function playerCellCheck(event) {
                 if (checkWinConditions()) {
                     return
                 } else if (checkCanvasSpace()) {
-                    playerTurnText.textContent = `It's a draw!`
-                    return swal.fire(`It's a draw`);
+
+                    playerDraw();
+
                 } else {
                     currentPlayerCount = 2;
                     playerTurnText.textContent = `${PLAYER_TWO}'s turn.`;
@@ -71,8 +72,9 @@ function playerCellCheck(event) {
                     return
 
                 } else if (checkCanvasSpace()) {
-                    playerTurnText.textContent = `It's a draw!`
-                    return swal.fire(`Draw`);
+                    
+                    playerDraw();
+
                 } else {
                     currentPlayerCount = 1;
                     playerTurnText.textContent = `${PLAYER_ONE}'s turn.`;
@@ -119,6 +121,11 @@ function playerWinNotice(){
     //document.addEventListener('click', resetGame());
     return
 }
+
+function playerDraw() {
+    playerTurnText.textContent = `It's a draw!`
+    return swal.fire(`Draw`);
+};
 
 /**
  * check if horizontal win condition is met

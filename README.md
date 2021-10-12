@@ -56,14 +56,16 @@ The second part of the form issue was this error message
 ![Value error](assets/Images/value_error_message.png)
 There is an issue with collecting data from the form itself
 
+## Unfixed Bugs
+
 ## Responsive Design
 
+When looking at the grid on the inspect screen, the site scales well in different sizes.
 ![Responsive design on laptop](assets/Images/on_laptop_screenshot.png)
 
+When looking at the github link on mobile the chips do not space out correctly however, have adjust the width and height from 14% to use transform:scale() however this doesn't fix the issue. This is very confising as it works perfectly fine as shown on when looking at responsive design on the laptop
 
 ![Responsive design on phone](assets/Images/on_phone_screenshot.jpg)
-
-## Unfixed Bugs
 
 # Deployment
 

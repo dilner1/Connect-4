@@ -57,7 +57,7 @@ function changePlayerTurn() {
 
 /** check table cells for click and calls fuction to change color */
 Array.prototype.forEach.call(tableData, (event) => {
-    event.addEventListener('click',winDrawOrChangeTurn );
+    event.addEventListener('click',playerCellCheck );
     event.style.backgroundColor = 'snow';
 });
 
@@ -67,34 +67,41 @@ Array.prototype.forEach.call(tableData, (event) => {
  */ 
 
 
-function winDrawOrChangeTurn (event) {
+function playerCellCheck (event) {
     let column = event.target.cellIndex;
 
     for (let i = 5; i > 0; i--) {
         if (tableRow[i].children[column].style.backgroundColor === 'snow') {
             rowColor.push(tableRow[i].children[column]);
-            if (currentPlayerCount === 1 || currentPlayerCount === 2) {
+            if (currentPlayerCount === 1 ) {
 
-                /** write seperate function here instead to be put here so can have if(currentPlayerCount === 2) */
+                return winDrawOrChangeTurn()
+                
+            } else if (currentPlayerCount === 2){
 
-                if (checkHorizontalWin() || checkVerticalWin() || checkDiagonalWinDown() || checkDiagonalWinUp()) {
-                    checkWinningMoves();
-                    playerWinNotice();  
-                    return
-
-                } else if (checkCanvasSpace()) {
-                    playerTurnText.textContent = `It's a draw!`
-                    return swal.fire(`It's a draw`);
-                } else {
-                    // testing function chain works
-                    console.log('hello')
-                    changePlayerTurn();
-                    return
-                }
-            }
-        } 
+                return winDrawOrChangeTurn()
+        }
     }
 };
+
+function winDrawOrChangeTurn() {
+    if (checkHorizontalWin() || checkVerticalWin() || checkDiagonalWinDown() || checkDiagonalWinUp()) {
+                    
+        checkWinningMoves();
+        playerWinNotice();  
+        return 
+
+    } else if (checkCanvasSpace()) {
+        playerTurnText.textContent = `It's a draw!`
+        return swal.fire(`It's a draw`);
+    } else {
+        // testing function chain works
+        console.log('hello')
+        changePlayerTurn();
+        return changePlayerName
+    }
+}
+}
 
 /** reset game on win */
 function playerWinNotice() {

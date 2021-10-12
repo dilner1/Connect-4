@@ -30,58 +30,7 @@ function changePlayerName() {
 /** check table cells for click and calls fuction to change color */
 Array.prototype.forEach.call(tableData, (event) => {
     event.style.backgroundColor = 'snow'; 
-    event.addEventListener('click', (event) => {
-        let column = event.target.cellIndex;
-        let row = [];
-        
-        for (let i = 5; i > -1; i--) {
-            if (tableRow[i].children[column].style.backgroundColor === 'snow') {
-                row.push(tableRow[i].children[column]);
-                if (currentPlayerCount === 1) {
-                    row[0].style.backgroundColor = PLAYER_ONE_COLOR;
-    
-                    /**
-                     * check player 1 win condition
-                     * player 1 check and 2 check are almost identical - looking to combine both
-                     */
-                    if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
-                        checkWinningMoves();
-                        playerWinNotice();
-                        return
-                        
-                    } else if (checkCanvasSpace()) {
-                        playerTurnText.textContent = `It's a draw!`
-                        return swal.fire(`It's a draw`);
-                    } else {
-                        currentPlayerCount = 2;
-                        playerTurnText.textContent = `${PLAYER_TWO}'s turn.`;
-                        playerTurnText.style.color = 'rgb(24, 26, 153)'
-                        return
-                    }
-    
-                } else {
-                    /** check player 2 win condition */
-                    row[0].style.backgroundColor = PLAYER_TWO_COLOR;
-    
-                    if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
-                        checkWinningMoves();
-                        playerWinNotice();
-                        return
-    
-                    } else if (checkCanvasSpace()) {
-                        playerTurnText.textContent = `It's a draw!`
-                        return swal.fire(`Draw`);
-                    } else {
-                        currentPlayerCount = 1;
-                        playerTurnText.textContent = `${PLAYER_ONE}'s turn.`;
-                        playerTurnText.style.color = 'rgb(230,57,70)'
-                        return 
-                    }
-                }
-            }
-        }
-    });
-    
+    event.addEventListener('click', playerCellCheck);
 });
 
 /**
@@ -90,26 +39,69 @@ Array.prototype.forEach.call(tableData, (event) => {
  */
 function playerCellCheck(event) {
 
-};
+    let row = event.target.cellIndex;
+    let cell = [];
+    for (let i = 5; i > -1; i--) {
+        if (tableRow[i].children[row].style.backgroundColor === 'snow') {
+            cell.push(tableRow[i].children[row]);
+            if (currentPlayerCount === 1) {
+                cell[0].style.backgroundColor = PLAYER_ONE_COLOR;
 
-/** reset game on win */
-function playerWinNotice(){
-    swal.fire(`${playerName} wins!`);
-    //document.addEventListener('click', resetGame());
-    return
-}
+                /**
+                 * check player 1 win condition
+                 * player 1 check and 2 check are almost identical - looking to combine both
+                 */
+                if (checkWinConditions()) {
+                    return
+                } else if (checkCanvasSpace()) {
+                    playerTurnText.textContent = `It's a draw!`
+                    return swal.fire(`It's a draw`);
+                } else {
+                    currentPlayerCount = 2;
+                    playerTurnText.textContent = `${PLAYER_TWO}'s turn.`;
+                    playerTurnText.style.color = 'rgb(24, 26, 153)'
+                    return
+                }
+
+            } else {
+                /** check player 2 win condition */
+                cell[0].style.backgroundColor = PLAYER_TWO_COLOR;
+
+                if (checkWinConditions()) {
+                    return
+
+                } else if (checkCanvasSpace()) {
+                    playerTurnText.textContent = `It's a draw!`
+                    return swal.fire(`Draw`);
+                } else {
+                    currentPlayerCount = 1;
+                    playerTurnText.textContent = `${PLAYER_ONE}'s turn.`;
+                    playerTurnText.style.color = 'rgb(230,57,70)'
+                    return 
+                }
+            }
+        }
+    }
+};
 
 /** check if colors match */
-function checkColorsMatch(pos1, pos2, pos3, pos4) {
-    return (pos1 === pos2 &&
-            pos1 === pos3 &&
-            pos1 === pos4 &&
-            pos1 !== 'snow');
+function matchCheck(chip1, chip2, chip3, chip4) {
+    return (chip1 === chip2 &&
+        chip1 === chip3 &&
+        chip1 === chip4 &&
+        chip1 !== 'snow');
 };
 
-/** Checks all winning functions - not yet implemented */
-function checkWinningMoves() {
+function checkWinConditions() {
     if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
+        winnerReuslt();
+        return playerWinNotice();
+    }
+}
+
+/** Checks all winning functions - not yet implemented */
+function winnerReuslt() {
+    
         if (currentPlayerCount === 1){
             playerTurnText.textContent = `${playerName} is the winner!`
             playerTurnText.style.color = PLAYER_ONE_COLOR
@@ -119,7 +111,13 @@ function checkWinningMoves() {
             playerTurnText.style.color = PLAYER_TWO_COLOR
             return document.getElementById("player-2-score").innerText = ++playerTwoScore;
         }
-    }
+}
+
+/** reset game on win */
+function playerWinNotice(){
+    swal.fire(`${playerName} wins!`);
+    //document.addEventListener('click', resetGame());
+    return
 }
 
 /**
@@ -128,7 +126,7 @@ function checkWinningMoves() {
 function horizontalWinCheck() {
     for (let row = 0; row < tableRow.length; row++) {
         for (let color = 0; color < 4; color++) {
-            if (checkColorsMatch(tableRow[row].children[color].style.backgroundColor,
+            if (matchCheck(tableRow[row].children[color].style.backgroundColor,
                     tableRow[row].children[color + 1].style.backgroundColor,
                     tableRow[row].children[color + 2].style.backgroundColor,
                     tableRow[row].children[color + 3].style.backgroundColor)) {
@@ -142,7 +140,7 @@ function horizontalWinCheck() {
 function verticalWinCheck() {
     for (let color = 0; color < 7; color++) {
         for (let row = 0; row < 3; row++) {
-            if (checkColorsMatch(tableRow[row].children[color].style.backgroundColor,
+            if (matchCheck(tableRow[row].children[color].style.backgroundColor,
                     tableRow[row + 1].children[color].style.backgroundColor,
                     tableRow[row + 2].children[color].style.backgroundColor,
                     tableRow[row + 3].children[color].style.backgroundColor)) {
@@ -158,7 +156,7 @@ function verticalWinCheck() {
 function diagonalWinCheckDown() {
     for (let color = 0; color < 4; color++) {
         for (let row = 0; row < 3; row++) {
-            if (checkColorsMatch(tableRow[row].children[color].style.backgroundColor,
+            if (matchCheck(tableRow[row].children[color].style.backgroundColor,
                     tableRow[row + 1].children[color + 1].style.backgroundColor,
                     tableRow[row + 2].children[color + 2].style.backgroundColor,
                     tableRow[row + 3].children[color + 3].style.backgroundColor)) {
@@ -172,7 +170,7 @@ function diagonalWinCheckDown() {
 function diagonalWinCheckUp() {
     for (let color = 0; color < 4; color++) {
         for (let row = 5; row > 2; row--) {
-            if (checkColorsMatch(tableRow[row].children[color].style.backgroundColor,
+            if (matchCheck(tableRow[row].children[color].style.backgroundColor,
                     tableRow[row - 1].children[color + 1].style.backgroundColor,
                     tableRow[row - 2].children[color + 2].style.backgroundColor,
                     tableRow[row - 3].children[color + 3].style.backgroundColor)) {

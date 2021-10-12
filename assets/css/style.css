@@ -70,8 +70,6 @@ body {
 
 .canvas {
     display: grid;
-    top: 0; 
-    left: 0;
     width: 95vw;
     height: 75vw;
     margin: 0 auto;
@@ -83,7 +81,9 @@ body {
 }
 
 .chip {
-    position: absolute;
+    position: relative;
+    top: 0; 
+    left: 0;
     width: 14%;
     height: 14%;
     border: 5px solid #A8DADC;

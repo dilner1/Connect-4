@@ -39,6 +39,7 @@ function changePlayerTurn() {
         currentPlayerCount = 2;
         playerTurnText.textContent = `${PLAYER_TWO}'s turn.`;
         playerTurnText.style.color = 'rgb(24, 26, 153)';
+        // testing function chain works
         console.log('goodbye')
 
         return currentPlayerCount = 2;
@@ -48,6 +49,7 @@ function changePlayerTurn() {
         
         playerTurnText.textContent = `${PLAYER_ONE}'s turn.`;
         playerTurnText.style.color = 'rgb(230,57,70)';
+        // testing function chain works
         console.log("you're welcome")
         return currentPlayerCount = 1;
     }
@@ -84,6 +86,7 @@ function winDrawOrChangeTurn (event) {
                     playerTurnText.textContent = `It's a draw!`
                     return swal.fire(`It's a draw`);
                 } else {
+                    // testing function chain works
                     console.log('hello')
                     changePlayerTurn();
                     return

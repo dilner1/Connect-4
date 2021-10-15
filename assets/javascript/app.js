@@ -44,11 +44,9 @@ function playerCellCheck(event) {
             cell.push(tableRow[i].children[row]);
             if (currentPlayerCount === 1) {
                 cell[0].style.backgroundColor = PLAYER_ONE_COLOR;
+                // create a function that changes between currentPlayerCount? then executes only one of the following
 
-                /**
-                 * check player 1 win condition
-                 * player 1 check and 2 check are almost identical - looking to combine both
-                 */
+                /** check player 1 win condition    */
                 if (checkWinConditions()) {
                     return playerWinNotice();
                 } else if (checkCanvasSpace()) {
@@ -56,14 +54,14 @@ function playerCellCheck(event) {
                     return playerDraw();
 
                 } else {
-                    currentPlayerCount = 2;
-                    playerTurnText.textContent = `${PLAYER_TWO}'s turn.`;
-                    playerTurnText.style.color = 'rgb(24, 26, 153)'
-                    return
+                    //currentPlayerCount = 1;
+                    playerTurnText.textContent = `${playerName}'s turn.`;
+                    playerTurnText.style.color = 'rgb(230,57,70)'
+                    return currentPlayerCount = 2;
                 }
 
             } else {
-                /** check player 2 win condition */
+                /** check player 2 win condition    */
                 cell[0].style.backgroundColor = PLAYER_TWO_COLOR;
 
                 if (checkWinConditions()) {
@@ -74,10 +72,10 @@ function playerCellCheck(event) {
                     return playerDraw();
 
                 } else {
-                    currentPlayerCount = 1;
-                    playerTurnText.textContent = `${PLAYER_ONE}'s turn.`;
-                    playerTurnText.style.color = 'rgb(230,57,70)'
-                    return 
+                    //currentPlayerCount = 2;
+                    playerTurnText.textContent = `${playerName}'s turn.`;
+                    playerTurnText.style.color = 'rgb(24, 26, 153)'
+                    return currentPlayerCount = 1;
                 }
             }
         }

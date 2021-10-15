@@ -101,8 +101,7 @@ function checkWinConditions() {
 /** reset game on win */
 function playerWinNotice(){
     swal.fire(`${playerName} wins!`);
-    //document.addEventListener('click', resetGame());
-    return
+    return setTimeout(resetGame, 2000)
 }
 
 function playerDraw() {

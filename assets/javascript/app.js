@@ -10,10 +10,11 @@ let currentPlayerCount = 1;
 let playerOneScore = parseInt(document.getElementById('player-1-score').innerHTML);
 let playerTwoScore = parseInt(document.getElementById('player-2-score').innerHTML);
 
+/** grid elements */
 let tableRow = document.getElementsByTagName('tr');
 let tableData = document.getElementsByTagName('td');
 
-let reset = document.querySelector('.reset');
+let resetButton = document.querySelector('.reset-game');
 
 /** changes player name */
 let playerName = '';
@@ -33,10 +34,7 @@ Array.prototype.forEach.call(tableData, (event) => {
     event.addEventListener('click', playerCellCheck);
 });
 
-/**
- * check rows and columns starting from the bottom
- * function should be split up
- */
+/** check rows and columns starting from the bottom */
 function playerCellCheck(event) {
 
     let row = event.target.cellIndex;
@@ -199,10 +197,17 @@ function checkCanvasSpace() {
     //Array.prototype.forEach.call(tableData, (event) => {
         // possibly use this instead of for loop
     //});
+
+    /** possibly use this?
+     * let playerChip = document.querySelectorAll('.chip');
+    playerChip.forEach(chip => {
+        chip.style.backgroundColor = 'snow'
+    })
+     */
 }
 
 /** Resets canvas */
-reset.addEventListener('click', resetGame);
+resetButton.addEventListener('click', resetGame);
 
 function resetGame () {
     let playerChip = document.querySelectorAll('.chip');

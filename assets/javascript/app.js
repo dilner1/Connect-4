@@ -196,6 +196,9 @@ function checkCanvasSpace() {
     if (canvasSlot.length === tableData.length) {
         return true;
     }
+    //Array.prototype.forEach.call(tableData, (event) => {
+        // possibly use this instead of for loop
+    //});
 }
 
 /** Resets canvas */

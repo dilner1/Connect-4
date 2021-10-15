@@ -52,7 +52,7 @@ function playerCellCheck(event) {
                  * player 1 check and 2 check are almost identical - looking to combine both
                  */
                 if (checkWinConditions()) {
-                    return
+                    return playerWinNotice();
                 } else if (checkCanvasSpace()) {
 
                     playerDraw();
@@ -69,7 +69,7 @@ function playerCellCheck(event) {
                 cell[0].style.backgroundColor = PLAYER_TWO_COLOR;
 
                 if (checkWinConditions()) {
-                    return
+                    return playerWinNotice();
 
                 } else if (checkCanvasSpace()) {
                     
@@ -87,23 +87,14 @@ function playerCellCheck(event) {
 };
 
 /** check if colors match */
-function matchCheck(chip1, chip2, chip3, chip4) {
-    return (chip1 === chip2 &&
-        chip1 === chip3 &&
-        chip1 === chip4 &&
-        chip1 !== 'snow');
+function checkChipsMatch(chip1, chip2, chip3, chip4) {
+    if (chip1 !== 'snow'){
+        return (chip1 == (chip2 && chip3 && chip4))
+    } 
 };
 
 function checkWinConditions() {
     if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
-        winnerReuslt();
-        return playerWinNotice();
-    }
-}
-
-/** Checks all winning functions - not yet implemented */
-function winnerReuslt() {
-    
         if (currentPlayerCount === 1){
             playerTurnText.textContent = `${playerName} is the winner!`
             playerTurnText.style.color = PLAYER_ONE_COLOR
@@ -113,6 +104,7 @@ function winnerReuslt() {
             playerTurnText.style.color = PLAYER_TWO_COLOR
             return document.getElementById("player-2-score").innerText = ++playerTwoScore;
         }
+    }
 }
 
 /** reset game on win */
@@ -132,25 +124,27 @@ function playerDraw() {
  */
 function horizontalWinCheck() {
     for (let row = 0; row < tableRow.length; row++) {
-        for (let color = 0; color < 4; color++) {
-            if (matchCheck(tableRow[row].children[color].style.backgroundColor,
-                    tableRow[row].children[color + 1].style.backgroundColor,
-                    tableRow[row].children[color + 2].style.backgroundColor,
-                    tableRow[row].children[color + 3].style.backgroundColor)) {
+        for (let playerColor = 0; playerColor < 4; playerColor++) {
+            if (checkChipsMatch(tableRow[row].children[playerColor].style.backgroundColor,
+                    tableRow[row].children[playerColor + 1].style.backgroundColor,
+                    tableRow[row].children[playerColor + 2].style.backgroundColor,
+                    tableRow[row].children[playerColor + 3].style.backgroundColor)) {
                 return true;
             };
         };
     };
 };
 
+
+
 /** check if vertical win condition is met */
 function verticalWinCheck() {
-    for (let color = 0; color < 7; color++) {
+    for (let playerColor = 0; playerColor < 7; playerColor++) {
         for (let row = 0; row < 3; row++) {
-            if (matchCheck(tableRow[row].children[color].style.backgroundColor,
-                    tableRow[row + 1].children[color].style.backgroundColor,
-                    tableRow[row + 2].children[color].style.backgroundColor,
-                    tableRow[row + 3].children[color].style.backgroundColor)) {
+            if (checkChipsMatch(tableRow[row].children[playerColor].style.backgroundColor,
+                    tableRow[row + 1].children[playerColor].style.backgroundColor,
+                    tableRow[row + 2].children[playerColor].style.backgroundColor,
+                    tableRow[row + 3].children[playerColor].style.backgroundColor)) {
                 return true;
             };
         }
@@ -161,12 +155,12 @@ function verticalWinCheck() {
  * check if diagonal win condition is met going down
  */
 function diagonalWinCheckDown() {
-    for (let color = 0; color < 4; color++) {
+    for (let playerColor = 0; playerColor < 4; playerColor++) {
         for (let row = 0; row < 3; row++) {
-            if (matchCheck(tableRow[row].children[color].style.backgroundColor,
-                    tableRow[row + 1].children[color + 1].style.backgroundColor,
-                    tableRow[row + 2].children[color + 2].style.backgroundColor,
-                    tableRow[row + 3].children[color + 3].style.backgroundColor)) {
+            if (checkChipsMatch(tableRow[row].children[playerColor].style.backgroundColor,
+                    tableRow[row + 1].children[playerColor + 1].style.backgroundColor,
+                    tableRow[row + 2].children[playerColor + 2].style.backgroundColor,
+                    tableRow[row + 3].children[playerColor + 3].style.backgroundColor)) {
                 return true;
             };
         }
@@ -175,12 +169,12 @@ function diagonalWinCheckDown() {
 
 /** check if diagonal win condition is met going up */
 function diagonalWinCheckUp() {
-    for (let color = 0; color < 4; color++) {
+    for (let playerColor = 0; playerColor < 4; playerColor++) {
         for (let row = 5; row > 2; row--) {
-            if (matchCheck(tableRow[row].children[color].style.backgroundColor,
-                    tableRow[row - 1].children[color + 1].style.backgroundColor,
-                    tableRow[row - 2].children[color + 2].style.backgroundColor,
-                    tableRow[row - 3].children[color + 3].style.backgroundColor)) {
+            if (checkChipsMatch(tableRow[row].children[playerColor].style.backgroundColor,
+                    tableRow[row - 1].children[playerColor + 1].style.backgroundColor,
+                    tableRow[row - 2].children[playerColor + 2].style.backgroundColor,
+                    tableRow[row - 3].children[playerColor + 3].style.backgroundColor)) {
                 return true;
             };
         }

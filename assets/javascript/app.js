@@ -86,13 +86,6 @@ function playerCellCheck(event) {
     }
 };
 
-/** check if colors match */
-function checkChipsMatch(chip1, chip2, chip3, chip4) {
-    if (chip1 !== 'snow'){
-        return (chip1 == (chip2 && chip3 && chip4))
-    } 
-};
-
 function checkWinConditions() {
     if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
         if (currentPlayerCount === 1){
@@ -180,6 +173,14 @@ function diagonalWinCheckUp() {
         }
     }
 }
+
+/** check if colors match */
+function checkChipsMatch(chip1, chip2, chip3, chip4) {
+    if (chip1 !== 'snow'){
+        let c = chip1
+        return (c === chip2 && c === chip3 && c === chip4)
+    } 
+};
 
 /**
  * Check if all slots have been taken by players

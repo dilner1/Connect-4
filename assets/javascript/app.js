@@ -55,7 +55,7 @@ function playerCellCheck(event) {
                     return playerWinNotice();
                 } else if (checkCanvasSpace()) {
 
-                    playerDraw();
+                    return playerDraw();
 
                 } else {
                     currentPlayerCount = 2;
@@ -73,7 +73,7 @@ function playerCellCheck(event) {
 
                 } else if (checkCanvasSpace()) {
                     
-                    playerDraw();
+                    return playerDraw();
 
                 } else {
                     currentPlayerCount = 1;
@@ -183,16 +183,17 @@ function checkChipsMatch(chip1, chip2, chip3, chip4) {
 };
 
 /**
- * Check if all slots have been taken by players
+ * Check if all slots have been taken by players - rewrite? 
  */
+
 function checkCanvasSpace() {
-    let slot = []
-    for (i = 0; i < tableData.length; i++) {
+    let canvasSlot = []
+    for (let i = 0; i < tableData.length; i++) {
         if (tableData[i].style.backgroundColor !== 'snow') {
-            slot.push(tableData[i]);
+            canvasSlot.push(tableData[i]);
         }
     }
-    if (slot.length === tableData.length) {
+    if (canvasSlot.length === tableData.length) {
         return true;
     }
 }

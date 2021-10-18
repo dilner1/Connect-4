@@ -2,6 +2,7 @@ const PLAYER_ONE = 'Player 1' //document.getElementById('player-one-input');
 const PLAYER_TWO = 'Player 2' //document.getElementById('player-two-input');
 const PLAYER_ONE_COLOR = 'rgb(230,57,70)'; 
 const PLAYER_TWO_COLOR = 'rgb(29,53,87)';
+const EmptySpaceColor =  'white';
 
 let playerTurnText = document.getElementById('player-go');
     playerTurnText.textContent = `${PLAYER_ONE} starts`
@@ -31,7 +32,7 @@ function changePlayerName() {
 
 /** check table cells for click and calls fuction to change color */
 Array.prototype.forEach.call(tableData, (event) => {
-    event.style.backgroundColor = 'snow'; 
+    event.style.backgroundColor = EmptySpaceColor; 
     event.addEventListener('click', playerCellCheck);
 });
 
@@ -41,7 +42,7 @@ function playerCellCheck(event) {
     let row = event.target.cellIndex;
     let cell = [];
     for (let i = 5; i > -1; i--) {
-        if (tableRow[i].children[row].style.backgroundColor === 'snow') {
+        if (tableRow[i].children[row].style.backgroundColor === EmptySpaceColor) {
             cell.push(tableRow[i].children[row]);
             if (currentPlayerCount === 1) {
                 cell[0].style.backgroundColor = PLAYER_ONE_COLOR;
@@ -95,9 +96,7 @@ function checkWinConditions() {
             return document.getElementById("player-2-score").innerText = ++playerTwoScore;
         }
     }
-}
-
-/** reset game on win */
+}/** reset game on win */
 function playerWinNotice(){
     swal.fire(`${playerName} wins!`);
     return setTimeout(resetGame, 2000)
@@ -172,7 +171,7 @@ function diagonalWinCheckUp() {
 
 /** check if colors match */
 function checkChipsMatch(chip1, chip2, chip3, chip4) {
-    if (chip1 !== 'snow'){
+    if (chip1 !== EmptySpaceColor){
         let c = chip1
         return (c === chip2 && c === chip3 && c === chip4)
     } 
@@ -183,11 +182,11 @@ function checkChipsMatch(chip1, chip2, chip3, chip4) {
  */
 
 function checkCanvasSpace() {
+
     let canvasSlot = []
 
-
     for (let i = 0; i < tableData.length; i++) {
-        if (tableData[i].style.backgroundColor !== 'snow') {
+        if (tableData[i].style.backgroundColor !== EmptySpaceColor) {
             canvasSlot.push(tableData[i]);
         }
     }
@@ -203,7 +202,7 @@ function checkCanvasSpace() {
     /** possibly use this?
      * let playerChip = document.querySelectorAll('.chip');
     playerChip.forEach(chip => {
-        chip.style.backgroundColor = 'snow'
+        chip.style.backgroundColor = EmptySpaceColor
     })
      
 }*/
@@ -213,6 +212,6 @@ resetButton.addEventListener('click', resetGame);
 
 function resetGame () {
     playerChip.forEach(chip => {
-        chip.style.backgroundColor = 'snow'
+        chip.style.backgroundColor = EmptySpaceColor
     })
 };

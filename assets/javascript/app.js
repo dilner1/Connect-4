@@ -173,7 +173,7 @@ function diagonalWinCheckUp() {
 function checkChipsMatch(chip1, chip2, chip3, chip4) {
     if (chip1 !== 'snow'){
         let c = chip1
-        return (c === chip2 && c === chip3 && c === chip4)
+        return (c === (chip2 && chip3 && chip4))
     } 
 };
 

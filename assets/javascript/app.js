@@ -186,6 +186,15 @@ function checkCanvasSpace() {
 
     let canvasSlot = []
 
+    /** not working yet - testing */
+    tableData.forEach((slot) => {
+        if (slot.style.backgroundColor !== EMPTY_SPACE_COLOR){
+            return 
+        }
+    })
+
+    /** working section */
+
     for (let i = 0; i < tableData.length; i++) {
         if (tableData[i].style.backgroundColor !== EMPTY_SPACE_COLOR) {
             canvasSlot.push(tableData[i]);
@@ -194,19 +203,6 @@ function checkCanvasSpace() {
     if (canvasSlot.length === tableData.length) {
         return true;
     } }
-
-
-    //Array.prototype.forEach.call(tableData, (event) => {
-        // possibly use this instead of for loop
-    //});
-
-    /** possibly use this?
-     * let playerChip = document.querySelectorAll('.chip');
-    playerChip.forEach(chip => {
-        chip.style.backgroundColor = EMPTY_SPACE_COLOR
-    })
-     
-}*/
 
 /** Resets canvas */
 resetButton.addEventListener('click', resetGame);

@@ -184,6 +184,8 @@ function checkChipsMatch(chip1, chip2, chip3, chip4) {
 
 function checkCanvasSpace() {
     let canvasSlot = []
+
+
     for (let i = 0; i < tableData.length; i++) {
         if (tableData[i].style.backgroundColor !== 'snow') {
             canvasSlot.push(tableData[i]);
@@ -191,7 +193,9 @@ function checkCanvasSpace() {
     }
     if (canvasSlot.length === tableData.length) {
         return true;
-    }
+    } }
+
+
     //Array.prototype.forEach.call(tableData, (event) => {
         // possibly use this instead of for loop
     //});
@@ -201,8 +205,8 @@ function checkCanvasSpace() {
     playerChip.forEach(chip => {
         chip.style.backgroundColor = 'snow'
     })
-     */
-}
+     
+}*/
 
 /** Resets canvas */
 resetButton.addEventListener('click', resetGame);

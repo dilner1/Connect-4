@@ -33,6 +33,10 @@ https://coolors.co/palettes/trending
 - background F1FAEE
 - Alternative B1E1A3
 
+## Reset Button
+
+Implemented a reset button for players to restart a round, this does not effect the players score. This function is also called when a player wins. Initially when called the canvas would reset immediately, decided instead to delay the rest so players could see the move that won the game. Initially tried to call the reset using an event listener to the sweet alert however I could not get this to work so instead opent for a setTimeout.
+
 
 # Testing
 

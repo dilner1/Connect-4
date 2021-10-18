@@ -6,6 +6,7 @@ const PLAYER_TWO_COLOR = 'rgb(29,53,87)';
 let playerTurnText = document.getElementById('player-go');
     playerTurnText.textContent = `${PLAYER_ONE} starts`
 let currentPlayerCount = 1;
+let playerChip = document.querySelectorAll('.chip');
 
 let playerOneScore = parseInt(document.getElementById('player-1-score').innerHTML);
 let playerTwoScore = parseInt(document.getElementById('player-2-score').innerHTML);
@@ -173,7 +174,7 @@ function diagonalWinCheckUp() {
 function checkChipsMatch(chip1, chip2, chip3, chip4) {
     if (chip1 !== 'snow'){
         let c = chip1
-        return (c === (chip2 && chip3 && chip4))
+        return (c === chip2 && c === chip3 && c === chip4)
     } 
 };
 
@@ -207,7 +208,6 @@ function checkCanvasSpace() {
 resetButton.addEventListener('click', resetGame);
 
 function resetGame () {
-    let playerChip = document.querySelectorAll('.chip');
     playerChip.forEach(chip => {
         chip.style.backgroundColor = 'snow'
     })

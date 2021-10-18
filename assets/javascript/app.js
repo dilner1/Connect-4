@@ -187,11 +187,12 @@ function checkCanvasSpace() {
     let canvasSlot = []
 
     /** not working yet - testing */
-    tableData.forEach((slot) => {
+    tableData.every((slot) => {
         if (slot.style.backgroundColor !== EMPTY_SPACE_COLOR){
-            return 
+            return console.log('hi')
         }
     })
+    
 
     /** working section */
 

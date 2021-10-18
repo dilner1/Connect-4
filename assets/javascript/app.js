@@ -2,7 +2,7 @@ const PLAYER_ONE = 'Player 1' //document.getElementById('player-one-input');
 const PLAYER_TWO = 'Player 2' //document.getElementById('player-two-input');
 const PLAYER_ONE_COLOR = 'rgb(230,57,70)'; 
 const PLAYER_TWO_COLOR = 'rgb(29,53,87)';
-const EmptySpaceColor =  'white';
+const EMPTY_SPACE_COLOR =  'snow';
 
 let playerTurnText = document.getElementById('player-go');
     playerTurnText.textContent = `${PLAYER_ONE} starts`
@@ -32,7 +32,7 @@ function changePlayerName() {
 
 /** check table cells for click and calls fuction to change color */
 Array.prototype.forEach.call(tableData, (event) => {
-    event.style.backgroundColor = EmptySpaceColor; 
+    event.style.backgroundColor = EMPTY_SPACE_COLOR; 
     event.addEventListener('click', playerCellCheck);
 });
 
@@ -42,7 +42,7 @@ function playerCellCheck(event) {
     let row = event.target.cellIndex;
     let cell = [];
     for (let i = 5; i > -1; i--) {
-        if (tableRow[i].children[row].style.backgroundColor === EmptySpaceColor) {
+        if (tableRow[i].children[row].style.backgroundColor === EMPTY_SPACE_COLOR) {
             cell.push(tableRow[i].children[row]);
             if (currentPlayerCount === 1) {
                 cell[0].style.backgroundColor = PLAYER_ONE_COLOR;
@@ -58,7 +58,7 @@ function playerCellCheck(event) {
                 } else {
                     //currentPlayerCount = 1;
                     playerTurnText.textContent = `${playerName}'s turn.`;
-                    playerTurnText.style.color = 'rgb(230,57,70)'
+                    playerTurnText.style.color = PLAYER_ONE_COLOR
                     return currentPlayerCount = 2;
                 }
 
@@ -76,7 +76,7 @@ function playerCellCheck(event) {
                 } else {
                     //currentPlayerCount = 2;
                     playerTurnText.textContent = `${playerName}'s turn.`;
-                    playerTurnText.style.color = 'rgb(24, 26, 153)'
+                    playerTurnText.style.color = PLAYER_TWO_COLOR
                     return currentPlayerCount = 1;
                 }
             }
@@ -104,7 +104,8 @@ function playerWinNotice(){
 
 function playerDraw() {
     playerTurnText.textContent = `It's a draw!`
-    return swal.fire(`Draw`);
+    swal.fire(`Draw`);
+    return setTimeout(resetGame, 2000)
 };
 
 /**
@@ -171,7 +172,7 @@ function diagonalWinCheckUp() {
 
 /** check if colors match */
 function checkChipsMatch(chip1, chip2, chip3, chip4) {
-    if (chip1 !== EmptySpaceColor){
+    if (chip1 !== EMPTY_SPACE_COLOR){
         let c = chip1
         return (c === chip2 && c === chip3 && c === chip4)
     } 
@@ -186,7 +187,7 @@ function checkCanvasSpace() {
     let canvasSlot = []
 
     for (let i = 0; i < tableData.length; i++) {
-        if (tableData[i].style.backgroundColor !== EmptySpaceColor) {
+        if (tableData[i].style.backgroundColor !== EMPTY_SPACE_COLOR) {
             canvasSlot.push(tableData[i]);
         }
     }
@@ -202,7 +203,7 @@ function checkCanvasSpace() {
     /** possibly use this?
      * let playerChip = document.querySelectorAll('.chip');
     playerChip.forEach(chip => {
-        chip.style.backgroundColor = EmptySpaceColor
+        chip.style.backgroundColor = EMPTY_SPACE_COLOR
     })
      
 }*/
@@ -212,6 +213,6 @@ resetButton.addEventListener('click', resetGame);
 
 function resetGame () {
     playerChip.forEach(chip => {
-        chip.style.backgroundColor = EmptySpaceColor
+        chip.style.backgroundColor = EMPTY_SPACE_COLOR
     })
 };

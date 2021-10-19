@@ -186,12 +186,11 @@ function checkCanvasSpace() {
     
     /** not working yet - testing */
     let i = 0
-    console.log(tableData[i])
-    Array.prototype.every.tableData, () => {
-        if (tableData[i].style.backgroundColor !== EMPTY_SPACE_COLOR){
-            return true
+    
+    Array.prototype.forEach.call.tableData, (event) => {
+        event.style.backgroundColor = EMPTY_SPACE_COLOR;
+            console.log(tableData[i])
         }
-        console.log(tableData[i]);
     };
 
     /** working section 
@@ -205,7 +204,7 @@ function checkCanvasSpace() {
     }
     if (canvasSlot.length === tableData.length) {
         return true;
-    }*/} 
+    }} */
 
 /** Resets canvas */
 resetButton.addEventListener('click', resetGame);

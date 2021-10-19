@@ -185,13 +185,11 @@ function checkChipsMatch(chip1, chip2, chip3, chip4) {
 function checkCanvasSpace() {
     
     /** not working yet - testing */
-
-    Array.prototype.forEach.call(tableData.slots, slot => {
-        if (slot.style.backgroundColor !==EMPTY_SPACE_COLOR){
-            console.log ('not White')
-        }
-
-    });
+    tableData.every(cell => {
+        cell.style.backgroundColor !==EMPTY_SPACE_COLOR
+            return true
+    })
+    
 
     /** working section 
     let canvasSlot = []

@@ -185,11 +185,14 @@ function checkChipsMatch(chip1, chip2, chip3, chip4) {
 function checkCanvasSpace() {
     
     /** not working yet - testing */
-    tableData.every(cell => {
-        cell.style.backgroundColor !==EMPTY_SPACE_COLOR
+    let i = 0
+    console.log(tableData[i])
+    Array.prototype.every.tableData, () => {
+        if (tableData[i].style.backgroundColor !== EMPTY_SPACE_COLOR){
             return true
-    })
-    
+        }
+        console.log(tableData[i]);
+    };
 
     /** working section 
     let canvasSlot = []
@@ -197,11 +200,12 @@ function checkCanvasSpace() {
     for (let i = 0; i < tableData.length; i++) {
         if (tableData[i].style.backgroundColor !== EMPTY_SPACE_COLOR) {
             canvasSlot.push(tableData[i]);
+            })
         }
     }
     if (canvasSlot.length === tableData.length) {
         return true;
-    }*/ } 
+    }*/} 
 
 /** Resets canvas */
 resetButton.addEventListener('click', resetGame);

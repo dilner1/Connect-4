@@ -1,13 +1,8 @@
-const PLAYER_ONE = 'player1'
-const PLAYER_ONE_INPUT =  document.getElementById('player-one-input');
+const PLAYER_ONE = 'player 1'
 const PLAYER_TWO = 'Player 2' //document.getElementById('player-two-input');
 const PLAYER_ONE_COLOR = 'rgb(230,57,70)'; 
 const PLAYER_TWO_COLOR = 'rgb(29,53,87)';
 const EMPTY_SPACE_COLOR =  'snow';
-
-/** button and text to test grabbing name from session.storage */
-let testerButton = document.getElementById('tester');
-let displayText = document.getElementById('display-text')
 
 let nameValue1 = [];
 let playerTurnText = document.getElementById('player-go');
@@ -27,18 +22,6 @@ let resetButton = document.querySelector('.reset-game');
 /** changes player name */
 let playerName = '';
 document.addEventListener('click',changePlayerName)
-
-function setPlayerNames(event){
-    event.preventDefault();
-    
-    nameValue1 = PLAYER_ONE_INPUT.value
-    sessionStorage.setItem('playerOne', nameValue1);
-    PLAYER_ONE = sessionStorage.getItem('playerOne');
-
-    console.log(PLAYER_ONE)
-    dispalyText.innerHTML = PLAYER_ONE;
-};
-testerButton.addEventListener('click', setPlayerNames);
 
 function changePlayerName() {
     if (currentPlayerCount === 1) {
@@ -76,7 +59,7 @@ function playerCellCheck(event) {
                 } else {
                     //currentPlayerCount = 1;
                     playerTurnText.textContent = `${playerName}'s turn.`;
-                    playerTurnText.style.color = PLAYER_ONE_COLOR
+                    playerTurnText.style.color = PLAYER_TWO_COLOR
                     return currentPlayerCount = 2;
                 }
 
@@ -94,7 +77,7 @@ function playerCellCheck(event) {
                 } else {
                     //currentPlayerCount = 2;
                     playerTurnText.textContent = `${playerName}'s turn.`;
-                    playerTurnText.style.color = PLAYER_TWO_COLOR
+                    playerTurnText.style.color = PLAYER_ONE_COLOR
                     return currentPlayerCount = 1;
                 }
             }

@@ -1,11 +1,13 @@
-const PLAYER_ONE = 'Player 1' //document.getElementById('player-one-input');
+const PLAYER_ONE = []
+const PLAYER_ONE_INPUT =  document.getElementById('player-one-input');
 const PLAYER_TWO = 'Player 2' //document.getElementById('player-two-input');
 const PLAYER_ONE_COLOR = 'rgb(230,57,70)'; 
 const PLAYER_TWO_COLOR = 'rgb(29,53,87)';
 const EMPTY_SPACE_COLOR =  'snow';
 
+let nameValue1 = [];
 let playerTurnText = document.getElementById('player-go');
-    playerTurnText.textContent = `${PLAYER_ONE} starts`
+    playerTurnText.textContent = `${PLAYER_ONE} starts`;
 let currentPlayerCount = 1;
 let playerChip = document.querySelectorAll('.chip');
 
@@ -21,6 +23,17 @@ let resetButton = document.querySelector('.reset-game');
 /** changes player name */
 let playerName = '';
 document.addEventListener('click',changePlayerName)
+
+function setPlayerNames(event){
+    event.preventDefault();
+    
+    nameValue1 = PLAYER_ONE_INPUT.value
+    sessionStorage.setItem('playerOne', nameValue1);
+    PLAYER_ONE = sessionStorage.getItem('playerOne');
+
+    console.log(PLAYER_ONE)
+    dispalyText.innerHTML = PLAYER_ONE;
+};
 
 function changePlayerName() {
     if (currentPlayerCount === 1) {
@@ -183,7 +196,16 @@ function checkChipsMatch(chip1, chip2, chip3, chip4) {
  */
 
 function checkCanvasSpace() {
-    let i = 0
+    let canvasSlot = []
+    for (let i = 0; i < tableData.length; i++) {
+        if (tableData[i].style.backgroundColor !== 'snow') {
+            canvasSlot.push(tableData[i]);
+        }
+    }
+    if (canvasSlot.length === tableData.length) {
+        return true;
+    }}
+    //let i = 0
     /** not working yet - testing 
     
     
@@ -193,26 +215,14 @@ function checkCanvasSpace() {
         }
     };*/
     //const ages = [32, 33, 16, 40];
-    tableData[i].every(checkCell)    // Returns false
+    
+    /** tableData[i].every(checkCell)    // Returns false
 
     function checkCell(cell) {
         cell.style.backgroundColor !== EMPTY_SPACE_COLOR;
         console.log(tableData[i])
         return true
-}
-
-    /** working section 
-    let canvasSlot = []
-
-    for (let i = 0; i < tableData.length; i++) {
-        if (tableData[i].style.backgroundColor !== EMPTY_SPACE_COLOR) {
-            canvasSlot.push(tableData[i]);
-            })
-        }
-    }
-    if (canvasSlot.length === tableData.length) {
-        return true;
-    }*/} 
+} */
 
 /** Resets canvas */
 resetButton.addEventListener('click', resetGame);

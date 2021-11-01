@@ -1,23 +1,86 @@
-const PLAYER_ONE = 'player 1'
-const PLAYER_TWO = 'Player 2' //document.getElementById('player-two-input');
+const PLAYER_ONE = localStorage.getItem('playerOne');
+const PLAYER_TWO = localStorage.getItem('playerTwo');
 const PLAYER_ONE_COLOR = 'rgb(230,57,70)'; 
 const PLAYER_TWO_COLOR = 'rgb(29,53,87)';
 const EMPTY_SPACE_COLOR =  'snow';
 
-let nameValue1 = [];
+// link to player 1
+const USERNAME_1 =  document.getElementById('player-one-input');
+const USERNAME_2 =  document.getElementById('player-two-input');
+// link to player-one-display-text
+const P_1_DISPLAY_TEXT = document.getElementById('player-one-display-text');
+const P_2_DISPLAY_TEXT = document.getElementById('player-two-display-text');
+// link player-name-text 
+const RESULT_OUTPUT1 = document.getElementById('page-one-output');
+const RESULT_OUTPUT2 = document.getElementById('page-two-output');
+// link to display-text-button
+const LOAD_BTTN = document.getElementById('loadbttn')
+//change to player1NameValue    
+var nameValue1 = [];
+var nameValue2 = [];
+
+const form = document.getElementById('form');
+
+/** Check if game has started and show which player turn it is */
+
 let playerTurnText = document.getElementById('player-go');
-    playerTurnText.textContent = `${PLAYER_ONE} starts`;
+    document.addEventListener('load', ()=>{
+        if (playerTurnText === null){
+            pass
+        } else{
+            playerTurnText.textContent = `${playerName} starts`;
+        }
+        
+    })    
 let currentPlayerCount = 1;
 let playerChip = document.querySelectorAll('.chip');
 
-let playerOneScore = parseInt(document.getElementById('player-1-score').innerHTML);
-let playerTwoScore = parseInt(document.getElementById('player-2-score').innerHTML);
+/** Add to player score on win */
+
+function updatePlayerScores(){
+    if (  playerOneScore && playerTwoScore === null ){
+        pass
+    } else {
+        var playerOneScore = parseInt(document.getElementById('player-1-score').innerHTML);
+        var playerTwoScore = parseInt(document.getElementById('player-2-score').innerHTML);
+    }
+}
+
+document.addEventListener('load', updatePlayerScores);
 
 /** grid elements */
 let tableRow = document.getElementsByTagName('tr');
 let tableData = document.getElementsByTagName('td');
 
 let resetButton = document.querySelector('.reset-game');
+
+
+
+function getUserNames(event){
+    event.preventDefault();
+    
+    nameValue1 = USERNAME_1.value
+    nameValue2 = USERNAME_2.value
+    localStorage.setItem('playerOne', nameValue1);
+    localStorage.setItem('playerTwo', nameValue2);
+
+
+    P_1_DISPLAY_TEXT.innerHTML = PLAYER_ONE;
+    P_2_DISPLAY_TEXT.innerHTML = PLAYER_TWO;
+};
+
+function resultsPage() {
+
+    PLAYER_ONE = localStorage.getItem('playerOne');
+    PLAYER_TWO = localStorage.getItem('playerTwo');
+    
+}
+
+form.addEventListener('submit', getUserNames);
+document.addEventListener('click', resultsPage);
+
+
+/** rest of the code */
 
 /** changes player name */
 let playerName = '';
@@ -220,3 +283,4 @@ function resetGame () {
         chip.style.backgroundColor = EMPTY_SPACE_COLOR
     })
 };
+

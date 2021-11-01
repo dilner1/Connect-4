@@ -20,22 +20,13 @@ var nameValue1 = [];
 var nameValue2 = [];
 let playerOne = localStorage.getItem('playerOne');
 let playerTwo = localStorage.getItem('playerTwo');
+let playerTurnText = document.getElementById('player-go');
+let playerName = '';
 
-/** grid elements */
+/** grid elements and reset button */
 let tableRow = document.getElementsByTagName('tr');
 let tableData = document.getElementsByTagName('td');
-
 let resetButton = document.querySelector('.reset-game');
-
-/** Check if game has started and show which player turn it is */
-let playerTurnText = document.getElementById('player-go');
-//     document.addEventListener('load', () => {
-//         if (playerTurnText === null) {
-//             pass
-//         } else {
-//             playerTurnText.textContent = `${playerName} starts`;
-//         }
-// })
 
 let currentPlayerCount = 1;
 let playerChip = document.querySelectorAll('.chip');
@@ -67,17 +58,13 @@ function loadPage() {
             break;
         case 'game-page':
             console.log('This is the Game Page');
-
-
-            document.addEventListener('load', () => {
-                if (playerTurnText === null) {
-                    pass
-                } else {
-                    playerTurnText.textContent = `${playerName} starts`;
-                }
-            })
+            setPlayerTurn()
             break;
     }
+}
+
+function setPlayerTurn(){
+    playerTurnText.textContent = `${playerName} starts`
 }
 
 function resultsPage() {
@@ -88,9 +75,9 @@ function resultsPage() {
 document.addEventListener('click', resultsPage);
 
 /** changes player name */
-let playerName = '';
+// let playerName = '';
+// document.addEventListener('click', changePlayerName)
 document.addEventListener('click', changePlayerName)
-
 function changePlayerName() {
     if (currentPlayerCount === 1) {
         playerName = playerOne
@@ -126,7 +113,7 @@ function playerCellCheck(event) {
                 } else {
                     //currentPlayerCount = 1;
                     playerTurnText.textContent = `${playerName}'s turn.`;
-                    playerTurnText.style.color = PLAYER_TWO_COLOR
+                    playerTurnText.style.color = PLAYER_ONE_COLOR
                     return currentPlayerCount = 2;
                 }
 
@@ -144,7 +131,7 @@ function playerCellCheck(event) {
                 } else {
                     //currentPlayerCount = 2;
                     playerTurnText.textContent = `${playerName}'s turn.`;
-                    playerTurnText.style.color = PLAYER_ONE_COLOR
+                    playerTurnText.style.color = PLAYER_TWO_COLOR
                     return currentPlayerCount = 1;
                 }
             }

@@ -39,6 +39,8 @@ function pageLoad(){
                 break;
             case 'game-page':
                 console.log('On the Game Page');
+                let playerOneScore = parseInt(document.getElementById('player-1-score').innerHTML);
+                let playerTwoScore = parseInt(document.getElementById('player-2-score').innerHTML);
                 break;
         }
 }
@@ -57,16 +59,17 @@ let currentPlayerCount = 1;
 let playerChip = document.querySelectorAll('.chip');
 
 /** Add to player score on win */
-function updatePlayerScores(){
-    if (  playerOneScore && playerTwoScore === null ){
-        pass
-    } else {
-        var playerOneScore = parseInt(document.getElementById('player-1-score').innerHTML);
-        var playerTwoScore = parseInt(document.getElementById('player-2-score').innerHTML);
-    }
-}
+// function updatePlayerScores(){
+//     if (  playerOneScore && playerTwoScore === null ){
+//         pass
+//     } else {
+//         var playerOneScore = parseInt(document.getElementById('player-1-score').innerHTML);
+//         var playerTwoScore = parseInt(document.getElementById('player-2-score').innerHTML);
+//     }
+// }
 
-document.addEventListener('load', updatePlayerScores);
+
+//document.addEventListener('load', updatePlayerScores);
 
 function homePageFormSubmit(){
     function getUserNames(event){

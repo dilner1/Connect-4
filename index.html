@@ -19,14 +19,21 @@
     <h2 class="heading" id='heading-one'>Connect 4</h2>
 
     
-    <form action="game.html" method="GET" id="form">
+    <form action="" method="GET" id="form">
         <p class="enter-name-heading">Players, Enter your name!</p>
         
+        <!--link to userName-->
         <input type="text" id="player-one-input" class="player-name" value="Player 1" required>
         
         <input type="text" id="player-two-input" class="player-name" value="Player 2" required> 
         
-        <button id="start-game" >Start Game</button>
+        <!-- link to loadbttn -->
+        <button id="display-text-button">Display text</button>
+
+        <!-- link to dispalyText -->
+        <p id="player-one-display-text"></p>
+        <p id="player-two-display-text"></p>
+        <button id="start-game" ><a href="game.html">Start Game</a></button>
     </form>
     <script rel="javascript" src="assets/javascript/app.js"></script>
 </body>

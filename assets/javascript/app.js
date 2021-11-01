@@ -21,6 +21,22 @@ var nameValue2 = [];
 
 const form = document.getElementById('form');
 
+/** load pages */
+
+window.addEventListener('DOMContentLoaded', pageLoad());
+
+function pageLoad(){
+    let page = document.body.id;
+        switch (page) {
+            case 'home-page':
+                console.log('On the Home Page')
+                break;
+            case 'game-page':
+                console.log('On the Game Page')
+                break;
+        }
+}
+
 /** Check if game has started and show which player turn it is */
 
 let playerTurnText = document.getElementById('player-go');

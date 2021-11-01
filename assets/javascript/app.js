@@ -29,13 +29,14 @@ let resetButton = document.querySelector('.reset-game');
 
 /** Check if game has started and show which player turn it is */
 let playerTurnText = document.getElementById('player-go');
-document.addEventListener('load', () => {
-    if (playerTurnText === null) {
-        pass
-    } else {
-        playerTurnText.textContent = `${playerName} starts`;
-    }
-})
+//     document.addEventListener('load', () => {
+//         if (playerTurnText === null) {
+//             pass
+//         } else {
+//             playerTurnText.textContent = `${playerName} starts`;
+//         }
+// })
+
 let currentPlayerCount = 1;
 let playerChip = document.querySelectorAll('.chip');
 
@@ -61,13 +62,20 @@ function loadPage() {
     let page = document.body.id;
     switch (page) {
         case 'home-page':
-            console.log('On the Home Page');
+            console.log('This is the Home Page');
             homePageFormSubmit();
             break;
         case 'game-page':
-            console.log('On the Game Page');
+            console.log('This is the Game Page');
 
-            //gamerScore();
+
+            document.addEventListener('load', () => {
+                if (playerTurnText === null) {
+                    pass
+                } else {
+                    playerTurnText.textContent = `${playerName} starts`;
+                }
+            })
             break;
     }
 }
@@ -147,8 +155,8 @@ function playerCellCheck(event) {
 //put HERE 
 
 // function gamerScore(){
-     let playerOneScore = parseInt(document.getElementById('player-1-score').innerHTML);
-     let playerTwoScore = parseInt(document.getElementById('player-2-score').innerHTML);
+let playerOneScore = parseInt(document.getElementById('player-1-score').innerHTML);
+let playerTwoScore = parseInt(document.getElementById('player-2-score').innerHTML);
 // };
 
 function checkWinConditions() {

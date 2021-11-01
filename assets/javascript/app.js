@@ -31,7 +31,26 @@ let resetButton = document.querySelector('.reset-game');
 let currentPlayerCount = 1;
 let playerChip = document.querySelectorAll('.chip');
 
-function homePageFormSubmit() {
+/** load pages */
+window.addEventListener('DOMContentLoaded', loadPage());
+
+function loadPage() {
+    let page = document.body.id;
+    switch (page) {
+        case 'home-page':
+            console.log('This is the Home Page');
+            FORM.addEventListener('submit', getUserNames);
+            break;
+        case 'game-page':
+            console.log('This is the Game Page');
+        
+            document.addEventListener('click', resultsPage);
+            playerTurnText.textContent = `${playerName} starts`
+            break;
+    }
+}
+
+/** Submits form with players chosen usernames */
     function getUserNames(event) {
         event.preventDefault();
 
@@ -43,40 +62,15 @@ function homePageFormSubmit() {
         P_1_DISPLAY_TEXT.innerHTML = playerOne;
         P_2_DISPLAY_TEXT.innerHTML = playerTwo;
     };
-    FORM.addEventListener('submit', getUserNames);
-}
 
-/** load pages */
-window.addEventListener('DOMContentLoaded', loadPage());
-
-function loadPage() {
-    let page = document.body.id;
-    switch (page) {
-        case 'home-page':
-            console.log('This is the Home Page');
-            homePageFormSubmit();
-            break;
-        case 'game-page':
-            console.log('This is the Game Page');
-            setPlayerTurn()
-            break;
-    }
-}
-
-function setPlayerTurn(){
-    playerTurnText.textContent = `${playerName} starts`
-}
+/** changes player name */
 
 function resultsPage() {
 
     playerOne = localStorage.getItem('playerOne');
     playerTwo = localStorage.getItem('playerTwo');
 }
-document.addEventListener('click', resultsPage);
 
-/** changes player name */
-// let playerName = '';
-// document.addEventListener('click', changePlayerName)
 document.addEventListener('click', changePlayerName)
 function changePlayerName() {
     if (currentPlayerCount === 1) {

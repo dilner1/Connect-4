@@ -1,5 +1,3 @@
-const PLAYER_ONE = localStorage.getItem('playerOne');
-const PLAYER_TWO = localStorage.getItem('playerTwo');
 const PLAYER_ONE_COLOR = 'rgb(230,57,70)'; 
 const PLAYER_TWO_COLOR = 'rgb(29,53,87)';
 const EMPTY_SPACE_COLOR =  'snow';
@@ -18,6 +16,8 @@ const LOAD_BTTN = document.getElementById('loadbttn')
 //change to player1NameValue    
 var nameValue1 = [];
 var nameValue2 = [];
+let playerOne = localStorage.getItem('playerOne');
+let playerTwo = localStorage.getItem('playerTwo');
 
 /** grid elements */
 let tableRow = document.getElementsByTagName('tr');
@@ -78,8 +78,8 @@ function homePageFormSubmit(){
         localStorage.setItem('playerTwo', nameValue2);
     
     
-        P_1_DISPLAY_TEXT.innerHTML = PLAYER_ONE;
-        P_2_DISPLAY_TEXT.innerHTML = PLAYER_TWO;
+        P_1_DISPLAY_TEXT.innerHTML = playerOne;
+        P_2_DISPLAY_TEXT.innerHTML = playerTwo;
     };
     form.addEventListener('submit', getUserNames);
 }
@@ -87,8 +87,8 @@ function homePageFormSubmit(){
 
 function resultsPage() {
 
-    PLAYER_ONE = localStorage.getItem('playerOne');
-    PLAYER_TWO = localStorage.getItem('playerTwo');
+    playerOne = localStorage.getItem('playerOne');
+    playerTwo = localStorage.getItem('playerTwo');
 }
 document.addEventListener('click', resultsPage);
 
@@ -98,9 +98,9 @@ document.addEventListener('click',changePlayerName)
 
 function changePlayerName() {
     if (currentPlayerCount === 1) {
-        playerName = PLAYER_ONE
+        playerName = playerOne
     } else {
-        playerName = PLAYER_TWO
+        playerName = playerTwo
     };
 }
 

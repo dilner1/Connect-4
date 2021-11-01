@@ -19,26 +19,31 @@ const LOAD_BTTN = document.getElementById('loadbttn')
 var nameValue1 = [];
 var nameValue2 = [];
 
+/** grid elements */
+let tableRow = document.getElementsByTagName('tr');
+let tableData = document.getElementsByTagName('td');
+
+let resetButton = document.querySelector('.reset-game');
+
 const form = document.getElementById('form');
 
 /** load pages */
-
 window.addEventListener('DOMContentLoaded', pageLoad());
 
 function pageLoad(){
     let page = document.body.id;
         switch (page) {
             case 'home-page':
-                console.log('On the Home Page')
+                console.log('On the Home Page');
+                homePageFormSubmit();
                 break;
             case 'game-page':
-                console.log('On the Game Page')
+                console.log('On the Game Page');
                 break;
         }
 }
 
 /** Check if game has started and show which player turn it is */
-
 let playerTurnText = document.getElementById('player-go');
     document.addEventListener('load', ()=>{
         if (playerTurnText === null){
@@ -52,7 +57,6 @@ let currentPlayerCount = 1;
 let playerChip = document.querySelectorAll('.chip');
 
 /** Add to player score on win */
-
 function updatePlayerScores(){
     if (  playerOneScore && playerTwoScore === null ){
         pass
@@ -64,39 +68,29 @@ function updatePlayerScores(){
 
 document.addEventListener('load', updatePlayerScores);
 
-/** grid elements */
-let tableRow = document.getElementsByTagName('tr');
-let tableData = document.getElementsByTagName('td');
-
-let resetButton = document.querySelector('.reset-game');
-
-
-
-function getUserNames(event){
-    event.preventDefault();
+function homePageFormSubmit(){
+    function getUserNames(event){
+        event.preventDefault();
+        
+        nameValue1 = USERNAME_1.value
+        nameValue2 = USERNAME_2.value
+        localStorage.setItem('playerOne', nameValue1);
+        localStorage.setItem('playerTwo', nameValue2);
     
-    nameValue1 = USERNAME_1.value
-    nameValue2 = USERNAME_2.value
-    localStorage.setItem('playerOne', nameValue1);
-    localStorage.setItem('playerTwo', nameValue2);
+    
+        P_1_DISPLAY_TEXT.innerHTML = PLAYER_ONE;
+        P_2_DISPLAY_TEXT.innerHTML = PLAYER_TWO;
+    };
+    form.addEventListener('submit', getUserNames);
+}
 
-
-    P_1_DISPLAY_TEXT.innerHTML = PLAYER_ONE;
-    P_2_DISPLAY_TEXT.innerHTML = PLAYER_TWO;
-};
 
 function resultsPage() {
 
     PLAYER_ONE = localStorage.getItem('playerOne');
     PLAYER_TWO = localStorage.getItem('playerTwo');
-    
 }
-
-form.addEventListener('submit', getUserNames);
 document.addEventListener('click', resultsPage);
-
-
-/** rest of the code */
 
 /** changes player name */
 let playerName = '';

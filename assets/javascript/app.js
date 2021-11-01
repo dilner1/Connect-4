@@ -53,7 +53,6 @@ let playerTurnText = document.getElementById('player-go');
         } else{
             playerTurnText.textContent = `${playerName} starts`;
         }
-        
     })    
 let currentPlayerCount = 1;
 let playerChip = document.querySelectorAll('.chip');
@@ -79,7 +78,6 @@ function homePageFormSubmit(){
         nameValue2 = USERNAME_2.value
         localStorage.setItem('playerOne', nameValue1);
         localStorage.setItem('playerTwo', nameValue2);
-    
     
         P_1_DISPLAY_TEXT.innerHTML = playerOne;
         P_2_DISPLAY_TEXT.innerHTML = playerTwo;

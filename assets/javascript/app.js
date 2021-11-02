@@ -42,20 +42,20 @@ function loadPage() {
             console.log('This is the Game Page');
             currentPlayerCount = 1;
             changePlayerName()
-            //playerTurnText.textContent = `${playerName} starts!`
+            playerTurnText.textContent = `${playerName} starts!`;
             break;
     }
 }
 
 /** Submits form with players chosen usernames */
-    function getUserNames(event) {
-        event.preventDefault();
+function getUserNames(event) {
+    event.preventDefault();
 
-        nameValue1 = USERNAME_1.value
-        nameValue2 = USERNAME_2.value
-        localStorage.setItem('playerOne', nameValue1);
-        localStorage.setItem('playerTwo', nameValue2);
-    };
+    nameValue1 = USERNAME_1.value
+    nameValue2 = USERNAME_2.value
+    localStorage.setItem('playerOne', nameValue1);
+    localStorage.setItem('playerTwo', nameValue2);
+};
 
 /** changes player name */
 
@@ -69,6 +69,7 @@ function resultsPage() {
  * NOT CHANGING NAME CORRECTLY
  */
 document.addEventListener('click', changePlayerName)
+
 function changePlayerName() {
     if (currentPlayerCount === 1) {
         playerName = playerOne
@@ -105,7 +106,7 @@ function playerCellCheck(event) {
                     currentPlayerCount = 2;
                     playerTurnText.textContent = `${playerName}'s turn.`;
                     playerTurnText.style.color = PLAYER_ONE_COLOR
-                    return 
+                    return
                 }
 
             } else {

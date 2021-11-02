@@ -41,8 +41,6 @@ function loadPage() {
         case 'game-page':
             console.log('This is the Game Page');
             changePlayerName()
-            document.addEventListener('click', resultsPage);
-            playerTurnText.textContent = `${playerName} starts`
             break;
     }
 }
@@ -65,6 +63,9 @@ function resultsPage() {
     playerTwo = localStorage.getItem('playerTwo');
 }
 
+/**
+ * NOT CHANGING NAME CORRECTLY
+ */
 document.addEventListener('click', changePlayerName)
 function changePlayerName() {
     if (currentPlayerCount === 1) {
@@ -99,7 +100,6 @@ function playerCellCheck(event) {
                     return playerDraw();
 
                 } else {
-                    //currentPlayerCount = 1;
                     playerTurnText.textContent = `${playerName}'s turn.`;
                     playerTurnText.style.color = PLAYER_ONE_COLOR
                     return currentPlayerCount = 2;
@@ -117,7 +117,6 @@ function playerCellCheck(event) {
                     return playerDraw();
 
                 } else {
-                    //currentPlayerCount = 2;
                     playerTurnText.textContent = `${playerName}'s turn.`;
                     playerTurnText.style.color = PLAYER_TWO_COLOR
                     return currentPlayerCount = 1;
@@ -127,12 +126,8 @@ function playerCellCheck(event) {
     }
 };
 
-//put HERE 
-
-// function gamerScore(){
 let playerOneScore = parseInt(document.getElementById('player-1-score').innerHTML);
 let playerTwoScore = parseInt(document.getElementById('player-2-score').innerHTML);
-// };
 
 function checkWinConditions() {
     if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
@@ -172,8 +167,6 @@ function horizontalWinCheck() {
     };
 };
 
-
-
 /** check if vertical win condition is met */
 function verticalWinCheck() {
     for (let playerColor = 0; playerColor < 7; playerColor++) {
@@ -188,9 +181,7 @@ function verticalWinCheck() {
     }
 }
 
-/**
- * check if diagonal win condition is met going down
- */
+/** check if diagonal win condition is met going down */
 function diagonalWinCheckDown() {
     for (let playerColor = 0; playerColor < 4; playerColor++) {
         for (let row = 0; row < 3; row++) {
@@ -227,7 +218,6 @@ function checkChipsMatch(chip1, chip2, chip3, chip4) {
 };
 
 /** Check if all slots have been taken by players */
-
 function checkCanvasSpace() {
     let canvasSlot = []
     for (let i = 0; i < tableData.length; i++) {

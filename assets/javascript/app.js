@@ -40,9 +40,10 @@ function loadPage() {
             break;
         case 'game-page':
             console.log('This is the Game Page');
-            currentPlayerCount = 2;
-            changePlayerName()
-
+            currentPlayerCount = 1;
+            changePlayerName();
+            resultsPage();
+            playerTurnText.textContent = `${playerName} starts.`;
             break;
     }
 }
@@ -106,7 +107,7 @@ function playerCellCheck(event) {
                 } else {
                     currentPlayerCount = 2;
                     playerTurnText.style.color = PLAYER_TWO_COLOR
-                    playerTurnText.textContent = `${playerName}'s turn.`;
+                    playerTurnText.textContent = `${playerTwo}'s turn.`;
                     return
                 }
 
@@ -124,7 +125,7 @@ function playerCellCheck(event) {
                 } else {
                     currentPlayerCount = 1;
                     playerTurnText.style.color = PLAYER_ONE_COLOR
-                    playerTurnText.textContent = `${playerName}'s turn.`;
+                    playerTurnText.textContent = `${playerOne}'s turn.`;
                     return
                 }
             }

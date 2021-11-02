@@ -40,8 +40,9 @@ function loadPage() {
             break;
         case 'game-page':
             console.log('This is the Game Page');
-            currentPlayerCount = 1;
+            currentPlayerCount = 2;
             changePlayerName()
+
             break;
     }
 }
@@ -70,9 +71,6 @@ function resultsPage() {
 document.addEventListener('click', changePlayerName)
 
 function changePlayerName() {
-    // if (playerTurnText.textContent === null){
-    //     playerTurnText.textContent = 
-    // }
 
     if (currentPlayerCount === 1) {
         playerName = playerOne
@@ -107,8 +105,8 @@ function playerCellCheck(event) {
 
                 } else {
                     currentPlayerCount = 2;
-                    playerTurnText.textContent = `${playerName}'s turn.`;
                     playerTurnText.style.color = PLAYER_TWO_COLOR
+                    playerTurnText.textContent = `${playerName}'s turn.`;
                     return
                 }
 
@@ -125,8 +123,8 @@ function playerCellCheck(event) {
 
                 } else {
                     currentPlayerCount = 1;
-                    playerTurnText.textContent = `${playerName}'s turn.`;
                     playerTurnText.style.color = PLAYER_ONE_COLOR
+                    playerTurnText.textContent = `${playerName}'s turn.`;
                     return
                 }
             }

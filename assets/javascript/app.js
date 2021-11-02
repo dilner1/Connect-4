@@ -41,6 +41,7 @@ function loadPage() {
         case 'game-page':
             console.log('This is the Game Page');
             changePlayerName()
+            if (currentPlayerCount === 1)
             break;
     }
 }
@@ -70,7 +71,7 @@ document.addEventListener('click', changePlayerName)
 function changePlayerName() {
     if (currentPlayerCount === 1) {
         playerName = playerOne
-    } else {
+    } else if (currentPlayerCount === 2) {
         playerName = playerTwo
     };
 }

@@ -5,13 +5,10 @@ const EMPTY_SPACE_COLOR = 'snow';
 // link to player 1
 const USERNAME_1 = document.getElementById('player-one-input');
 const USERNAME_2 = document.getElementById('player-two-input');
-// link to player-one-display-text
-const P_1_DISPLAY_TEXT = document.getElementById('player-one-display-text');
-const P_2_DISPLAY_TEXT = document.getElementById('player-two-display-text');
 // link player-name-text 
 const RESULT_OUTPUT1 = document.getElementById('page-one-output');
 const RESULT_OUTPUT2 = document.getElementById('page-two-output');
-// link to display-text-button
+
 const LOAD_BTTN = document.getElementById('loadbttn')
 const FORM = document.getElementById('form');
 
@@ -58,9 +55,6 @@ function loadPage() {
         nameValue2 = USERNAME_2.value
         localStorage.setItem('playerOne', nameValue1);
         localStorage.setItem('playerTwo', nameValue2);
-
-        P_1_DISPLAY_TEXT.innerHTML = playerOne;
-        P_2_DISPLAY_TEXT.innerHTML = playerTwo;
     };
 
 /** changes player name */

@@ -40,7 +40,7 @@ function loadPage() {
             break;
         case 'game-page':
             console.log('This is the Game Page');
-        
+            changePlayerName()
             document.addEventListener('click', resultsPage);
             playerTurnText.textContent = `${playerName} starts`
             break;
@@ -226,7 +226,7 @@ function checkChipsMatch(chip1, chip2, chip3, chip4) {
     }
 };
 
-/** Check if all slots have been taken by players - rewrite? */
+/** Check if all slots have been taken by players */
 
 function checkCanvasSpace() {
     let canvasSlot = []

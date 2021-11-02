@@ -52,14 +52,27 @@ body {
     color:rgb(24, 26, 153);
 }
 
-#start-game {
+.buttons {
+    text-decoration: none;
     margin-top: 2rem;
-    color: #ffffff;
     font-size: 2rem;
     padding: 1rem;
     background-color: #2778C4;
+    color: #ffffff;
     border: none;
 }
+
+.buttons:hover{
+    background-color: #235e96;
+    transform: scale(1.1);
+}
+
+#start-game a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+
 
 /* game page */
 #player-go {
@@ -86,12 +99,9 @@ body {
     background-color:  #ffffff;
 }
 
-.reset-game {
+#reset-game {
     margin: 0 auto;
     margin-top: 2rem;
-    padding: 1rem;
     width: 10rem;
     text-align: center;
-    color: #ffffff;
-    background-color: #2778C4;
 }

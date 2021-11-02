@@ -26,7 +26,7 @@ let playerName = '';
 /** grid elements and reset button */
 let tableRow = document.getElementsByTagName('tr');
 let tableData = document.getElementsByTagName('td');
-let resetButton = document.querySelector('.reset-game');
+let resetButton = document.getElementById('reset-game');
 
 let currentPlayerCount = 1;
 let playerChip = document.querySelectorAll('.chip');

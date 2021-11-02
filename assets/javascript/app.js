@@ -41,7 +41,7 @@ function loadPage() {
         case 'game-page':
             console.log('This is the Game Page');
             changePlayerName()
-            if (currentPlayerCount === 1)
+            //playerTurnText.textContent = `${playerName} starts!`
             break;
     }
 }
@@ -156,12 +156,12 @@ function playerDraw() {
 
 /** check if horizontal win condition is met */
 function horizontalWinCheck() {
-    for (let row = 0; row < tableRow.length; row++) {
+    for (let i = 0; i < tableRow.length; i++) {
         for (let playerColor = 0; playerColor < 4; playerColor++) {
-            if (checkChipsMatch(tableRow[row].children[playerColor].style.backgroundColor,
-                    tableRow[row].children[playerColor + 1].style.backgroundColor,
-                    tableRow[row].children[playerColor + 2].style.backgroundColor,
-                    tableRow[row].children[playerColor + 3].style.backgroundColor)) {
+            if (checkChipsMatch(tableRow[i].children[playerColor].style.backgroundColor,
+                    tableRow[i].children[playerColor + 1].style.backgroundColor,
+                    tableRow[i].children[playerColor + 2].style.backgroundColor,
+                    tableRow[i].children[playerColor + 3].style.backgroundColor)) {
                 return true;
             };
         };
@@ -171,11 +171,11 @@ function horizontalWinCheck() {
 /** check if vertical win condition is met */
 function verticalWinCheck() {
     for (let playerColor = 0; playerColor < 7; playerColor++) {
-        for (let row = 0; row < 3; row++) {
-            if (checkChipsMatch(tableRow[row].children[playerColor].style.backgroundColor,
-                    tableRow[row + 1].children[playerColor].style.backgroundColor,
-                    tableRow[row + 2].children[playerColor].style.backgroundColor,
-                    tableRow[row + 3].children[playerColor].style.backgroundColor)) {
+        for (let i = 0; i < 3; i++) {
+            if (checkChipsMatch(tableRow[i].children[playerColor].style.backgroundColor,
+                    tableRow[i + 1].children[playerColor].style.backgroundColor,
+                    tableRow[i + 2].children[playerColor].style.backgroundColor,
+                    tableRow[i + 3].children[playerColor].style.backgroundColor)) {
                 return true;
             };
         }
@@ -185,11 +185,11 @@ function verticalWinCheck() {
 /** check if diagonal win condition is met going down */
 function diagonalWinCheckDown() {
     for (let playerColor = 0; playerColor < 4; playerColor++) {
-        for (let row = 0; row < 3; row++) {
-            if (checkChipsMatch(tableRow[row].children[playerColor].style.backgroundColor,
-                    tableRow[row + 1].children[playerColor + 1].style.backgroundColor,
-                    tableRow[row + 2].children[playerColor + 2].style.backgroundColor,
-                    tableRow[row + 3].children[playerColor + 3].style.backgroundColor)) {
+        for (let i = 0; i < 3; i++) {
+            if (checkChipsMatch(tableRow[i].children[playerColor].style.backgroundColor,
+                    tableRow[i + 1].children[playerColor + 1].style.backgroundColor,
+                    tableRow[i + 2].children[playerColor + 2].style.backgroundColor,
+                    tableRow[i + 3].children[playerColor + 3].style.backgroundColor)) {
                 return true;
             };
         }
@@ -199,11 +199,11 @@ function diagonalWinCheckDown() {
 /** check if diagonal win condition is met going up */
 function diagonalWinCheckUp() {
     for (let playerColor = 0; playerColor < 4; playerColor++) {
-        for (let row = 5; row > 2; row--) {
-            if (checkChipsMatch(tableRow[row].children[playerColor].style.backgroundColor,
-                    tableRow[row - 1].children[playerColor + 1].style.backgroundColor,
-                    tableRow[row - 2].children[playerColor + 2].style.backgroundColor,
-                    tableRow[row - 3].children[playerColor + 3].style.backgroundColor)) {
+        for (let i = 5; i > 2; i--) {
+            if (checkChipsMatch(tableRow[i].children[playerColor].style.backgroundColor,
+                    tableRow[i - 1].children[playerColor + 1].style.backgroundColor,
+                    tableRow[i - 2].children[playerColor + 2].style.backgroundColor,
+                    tableRow[i - 3].children[playerColor + 3].style.backgroundColor)) {
                 return true;
             };
         }

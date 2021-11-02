@@ -40,6 +40,7 @@ function loadPage() {
             break;
         case 'game-page':
             console.log('This is the Game Page');
+            currentPlayerCount = 1;
             changePlayerName()
             //playerTurnText.textContent = `${playerName} starts!`
             break;
@@ -101,9 +102,10 @@ function playerCellCheck(event) {
                     return playerDraw();
 
                 } else {
+                    currentPlayerCount = 2;
                     playerTurnText.textContent = `${playerName}'s turn.`;
                     playerTurnText.style.color = PLAYER_ONE_COLOR
-                    return currentPlayerCount = 2;
+                    return 
                 }
 
             } else {
@@ -118,9 +120,10 @@ function playerCellCheck(event) {
                     return playerDraw();
 
                 } else {
+                    currentPlayerCount = 1;
                     playerTurnText.textContent = `${playerName}'s turn.`;
                     playerTurnText.style.color = PLAYER_TWO_COLOR
-                    return currentPlayerCount = 1;
+                    return
                 }
             }
         }

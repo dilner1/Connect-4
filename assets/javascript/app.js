@@ -1,29 +1,27 @@
+// Global Constants
+
+const USERNAME_1 = document.getElementById('player-one-input');
+const USERNAME_2 = document.getElementById('player-two-input');
 const PLAYER_ONE_COLOR = 'rgb(230,57,70)';
 const PLAYER_TWO_COLOR = 'rgb(29,53,87)';
 const EMPTY_SPACE_COLOR = 'snow';
-
-// link to player 1
-const USERNAME_1 = document.getElementById('player-one-input');
-const USERNAME_2 = document.getElementById('player-two-input');
-// link player-name-text 
 const RESULT_OUTPUT1 = document.getElementById('page-one-output');
 const RESULT_OUTPUT2 = document.getElementById('page-two-output');
-
 const LOAD_BTTN = document.getElementById('loadbttn')
 const FORM = document.getElementById('form');
 
-//change to player1NameValue    
+// Global Variables   
 var nameValue1 = [];
 var nameValue2 = [];
 let playerOne = localStorage.getItem('playerOne');
 let playerTwo = localStorage.getItem('playerTwo');
 let playerTurnText = document.getElementById('player-go');
 let playerName = '';
-
-/** grid elements and reset button */
 let tableRow = document.getElementsByTagName('tr');
 let tableData = document.getElementsByTagName('td');
 let resetButton = document.getElementById('reset-game');
+let playerOneScore = parseInt(document.getElementById('player-1-score').innerHTML);
+let playerTwoScore = parseInt(document.getElementById('player-2-score').innerHTML);
 
 let currentPlayerCount = 1;
 let playerChip = document.querySelectorAll('.chip');
@@ -43,6 +41,8 @@ function loadPage() {
             currentPlayerCount = 1;
             changePlayerName();
             resultsPage();
+            playerOneScore = parseInt(document.getElementById('player-1-score').innerHTML);
+            playerTwoScore = parseInt(document.getElementById('player-2-score').innerHTML);
             playerTurnText.textContent = `${playerName} starts.`;
             break;
     }
@@ -59,23 +59,20 @@ function getUserNames(event) {
 };
 
 /** changes player name */
-
 function resultsPage() {
 
     playerOne = localStorage.getItem('playerOne');
     playerTwo = localStorage.getItem('playerTwo');
 }
 
-/**
- * NOT CHANGING NAME CORRECTLY
- */
+/** Changes Names */
 document.addEventListener('click', changePlayerName)
 
 function changePlayerName() {
 
     if (currentPlayerCount === 1) {
         playerName = playerOne
-    } else if (currentPlayerCount === 2) {
+    } else {
         playerName = playerTwo
     };
 }
@@ -96,32 +93,24 @@ function playerCellCheck(event) {
             cell.push(tableRow[i].children[row]);
             if (currentPlayerCount === 1) {
                 cell[0].style.backgroundColor = PLAYER_ONE_COLOR;
-
                 /** check player 1 win condition */
                 if (checkWinConditions()) {
                     return playerWinNotice();
                 } else if (checkCanvasSpace()) {
-
                     return playerDraw();
-
                 } else {
                     currentPlayerCount = 2;
                     playerTurnText.style.color = PLAYER_TWO_COLOR
                     playerTurnText.textContent = `${playerTwo}'s turn.`;
                     return
                 }
-
             } else if (currentPlayerCount === 2){
                 /** check player 2 win condition    */
                 cell[0].style.backgroundColor = PLAYER_TWO_COLOR;
-
                 if (checkWinConditions()) {
                     return playerWinNotice();
-
                 } else if (checkCanvasSpace()) {
-
                     return playerDraw();
-
                 } else {
                     currentPlayerCount = 1;
                     playerTurnText.style.color = PLAYER_ONE_COLOR
@@ -132,9 +121,6 @@ function playerCellCheck(event) {
         }
     }
 };
-
-let playerOneScore = parseInt(document.getElementById('player-1-score').innerHTML);
-let playerTwoScore = parseInt(document.getElementById('player-2-score').innerHTML);
 
 function checkWinConditions() {
     if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
@@ -154,6 +140,7 @@ function playerWinNotice() {
     return setTimeout(resetGame, 2000)
 }
 
+/** Shows Draw result message */
 function playerDraw() {
     playerTurnText.textContent = `It's a draw!`
     swal.fire(`Draw`);

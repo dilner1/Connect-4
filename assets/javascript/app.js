@@ -237,7 +237,7 @@ function checkCanvasSpace() {
 
 
 Array.prototype.forEach.call.tableData, (event) => {
-    event.style.backgroundColor = EMPTY_SPACE_COLOR;
+    event.style.backgroundColor = 'EMPTY_SPACE_COLOR';
         console.log(tableData[i])
     }
 };*/
@@ -246,7 +246,7 @@ Array.prototype.forEach.call.tableData, (event) => {
 /** tableData[i].every(checkCell)    // Returns false
 
     function checkCell(cell) {
-        cell.style.backgroundColor !== EMPTY_SPACE_COLOR;
+        cell.style.backgroundColor !== 'EMPTY_SPACE_COLOR';
         console.log(tableData[i])
         return true
 } */

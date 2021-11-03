@@ -20,8 +20,8 @@ let playerName = '';
 let tableRow = document.getElementsByTagName('tr');
 let tableData = document.getElementsByTagName('td');
 let resetButton = document.getElementById('reset-game');
-let playerOneScore = parseInt(document.getElementById('player-1-score').innerHTML);
-let playerTwoScore = parseInt(document.getElementById('player-2-score').innerHTML);
+let playerOneScore = []
+let playerTwoScore = []
 
 let currentPlayerCount = 1;
 let playerChip = document.querySelectorAll('.chip');

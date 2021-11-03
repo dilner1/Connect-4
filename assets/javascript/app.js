@@ -63,12 +63,12 @@ function resultsPage() {
     playerOne = localStorage.getItem('playerOne');
     playerTwo = localStorage.getItem('playerTwo');
 
-    if (playerOne === null && playerTwo === null){
+    if (playerOne === null && playerTwo === null) {
         playerOne = 'Player 1';
         playerTwo = 'Player 2';
-    } else if (playerOne === null){
+    } else if (playerOne === null) {
         playerOne = 'Player 1';
-    } else if (playerTwo === null){
+    } else if (playerTwo === null) {
         playerTwo = 'Player 2';
     }
 }
@@ -112,7 +112,7 @@ function playerCellCheck(event) {
                     playerTurnText.textContent = `${playerTwo}'s turn.`;
                     return
                 }
-            } else if (currentPlayerCount === 2){
+            } else {
                 /** check player 2 win condition    */
                 cell[0].style.backgroundColor = PLAYER_TWO_COLOR;
                 if (checkWinConditions()) {
@@ -146,7 +146,7 @@ function checkWinConditions() {
 function playerWinNotice() {
     swal.fire(`${playerName} wins!`);
     setTimeout(resetGame, 2000)
-    return 
+    return
 }
 
 /** Shows Draw result message */
@@ -222,34 +222,27 @@ function checkChipsMatch(chip1, chip2, chip3, chip4) {
 
 /** Check if all slots have been taken by players */
 function checkCanvasSpace() {
-    let canvasSlot = []
+    let canvasSpace = []
     for (let i = 0; i < tableData.length; i++) {
         if (tableData[i].style.backgroundColor !== EMPTY_SPACE_COLOR) {
-            canvasSlot.push(tableData[i]);
+            canvasSpace.push(tableData[i]);
         }
     }
-    if (canvasSlot.length === tableData.length) {
+    if (canvasSpace.length === tableData.length) {
         return true;
     }
 }
-//let i = 0
-/** not working yet - testing 
 
-
-Array.prototype.forEach.call.tableData, (event) => {
-    event.style.backgroundColor = 'EMPTY_SPACE_COLOR';
-        console.log(tableData[i])
-    }
-};*/
-//const ages = [32, 33, 16, 40];
-
-/** tableData[i].every(checkCell)    // Returns false
-
-    function checkCell(cell) {
-        cell.style.backgroundColor !== 'EMPTY_SPACE_COLOR';
-        console.log(tableData[i])
-        return true
-} */
+// function checkCanvasSpace() {
+//     //let canvasSpace = []
+//     tableData.every((td)=>{
+//         if (td.style.backgroundColor !== EMPTY_SPACE_COLOR){
+//             return true;
+//         } else {
+//             return false;
+//         }
+//     })
+// }
 
 /** Resets canvas */
 resetButton.addEventListener('click', resetGame);

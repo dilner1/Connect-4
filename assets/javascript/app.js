@@ -224,7 +224,7 @@ function checkChipsMatch(chip1, chip2, chip3, chip4) {
 function checkCanvasSpace() {
     let canvasSlot = []
     for (let i = 0; i < tableData.length; i++) {
-        if (tableData[i].style.backgroundColor !== 'snow') {
+        if (tableData[i].style.backgroundColor !== EMPTY_SPACE_COLOR) {
             canvasSlot.push(tableData[i]);
         }
     }

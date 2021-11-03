@@ -58,11 +58,19 @@ function getUserNames(event) {
     localStorage.setItem('playerTwo', nameValue2);
 };
 
-/** changes player name */
+/** pull player name values*/
 function resultsPage() {
-
     playerOne = localStorage.getItem('playerOne');
     playerTwo = localStorage.getItem('playerTwo');
+
+    if (playerOne === null && playerTwo === null){
+        playerOne = 'Player 1';
+        playerTwo = 'Player 2';
+    } else if (playerOne === null){
+        playerOne = 'Player 1';
+    } else if (playerTwo === null){
+        playerTwo = 'Player 2';
+    }
 }
 
 /** Changes Names */
@@ -137,7 +145,8 @@ function checkWinConditions() {
 } /** reset game on win */
 function playerWinNotice() {
     swal.fire(`${playerName} wins!`);
-    return setTimeout(resetGame, 2000)
+    setTimeout(resetGame, 2000)
+    return 
 }
 
 /** Shows Draw result message */
@@ -248,5 +257,6 @@ resetButton.addEventListener('click', resetGame);
 function resetGame() {
     playerChip.forEach(chip => {
         chip.style.backgroundColor = EMPTY_SPACE_COLOR
+        playerTurnText.textContent = `${playerName} starts.`;
     })
 };

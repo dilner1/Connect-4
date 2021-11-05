@@ -144,7 +144,13 @@ function checkWinConditions() {
     }
 } /** reset game on win */
 function playerWinNotice() {
-    swal.fire(`${playerName} wins!`);
+    // swal.fire(`${playerName} wins!`);
+    Swal.fire({
+        icon: 'success',
+        title: `${playerName} wins!`,
+        showConfirmButton: false,
+        timer: 1500
+      })
     setTimeout(resetGame, 2000)
     return
 }

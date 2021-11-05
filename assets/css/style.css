@@ -72,8 +72,6 @@ body {
     color: #ffffff;
 }
 
-
-
 /* game page */
 #player-go {
     margin: 0;
@@ -88,7 +86,6 @@ body {
     margin: 0 auto;
     background-color: #7dc6c9;
     border: 3px solid #A8DADC; 
-
     max-width: 770px;
     max-height: 660px;
 }

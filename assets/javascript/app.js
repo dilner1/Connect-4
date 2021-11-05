@@ -13,8 +13,8 @@ const FORM = document.getElementById('form');
 // Global Variables   
 var nameValue1 = [];
 var nameValue2 = [];
-let playerOne = localStorage.getItem('playerOne');
-let playerTwo = localStorage.getItem('playerTwo');
+let playerOne = sessionStorage.getItem('playerOne');
+let playerTwo = sessionStorage.getItem('playerTwo');
 let playerTurnText = document.getElementById('player-go');
 let playerName = '';
 let tableRow = document.getElementsByTagName('tr');
@@ -54,14 +54,14 @@ function getUserNames(event) {
 
     nameValue1 = USERNAME_1.value
     nameValue2 = USERNAME_2.value
-    localStorage.setItem('playerOne', nameValue1);
-    localStorage.setItem('playerTwo', nameValue2);
+    sessionStorage.setItem('playerOne', nameValue1);
+    sessionStorage.setItem('playerTwo', nameValue2);
 };
 
 /** pull player name values*/
 function resultsPage() {
-    playerOne = localStorage.getItem('playerOne');
-    playerTwo = localStorage.getItem('playerTwo');
+    playerOne = sessionStorage.getItem('playerOne');
+    playerTwo = sessionStorage.getItem('playerTwo');
 
     if (playerOne === null && playerTwo === null) {
         playerOne = 'Player 1';

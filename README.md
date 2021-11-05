@@ -1,5 +1,9 @@
 # Features
 
+## Existing Features
+
+- Login Screen
+
 ## Design Stage: 
 
 This version of connect four gave me inspiration on creaitng my game, although with parts that are certainly too complex for me at this stage.

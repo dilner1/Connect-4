@@ -144,7 +144,6 @@ function checkWinConditions() {
     }
 } /** reset game on win */
 function playerWinNotice() {
-    // swal.fire(`${playerName} wins!`);
     Swal.fire({
         icon: 'success',
         title: `${playerName} wins!`,

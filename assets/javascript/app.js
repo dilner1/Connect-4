@@ -158,7 +158,7 @@ function playerWinNotice() {
 /** Shows Draw result message */
 function playerDraw() {
     playerTurnText.textContent = `It's a draw!`
-    swal.fire(`Draw`);
+    swal.fire(`Draw`,'warning');
     return setTimeout(resetGame, 2000)
 };
 

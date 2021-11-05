@@ -54,6 +54,18 @@ Non-essential elements that could be added
 
 The classic game of connect 4 is 7 counters wide and 6 counters high so i will follow this design.
 
+## Wire Frames
+
+- Desktop layout plan
+![Desktop opening screen](assets/Images/desktop_screen1.png)
+![Desktop game screen](assets/Images/desktop_screen2.png)
+
+- mobile layout plan
+![Mobile opening screen](assets/Images/mobile_screen1.png)
+![Mobile game screen](assets/Images/mobile_screen2.png)
+
+
+
 ## Colour Palette
 
 Selected colors based off of combinations suggestrd by this site, colors were based on the traditional connect 4 color scheme of blue and red but with less saturation.

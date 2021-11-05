@@ -57,10 +57,12 @@ The classic game of connect 4 is 7 counters wide and 6 counters high so i will f
 ## Wire Frames
 
 - Desktop layout plan
+
 ![Desktop opening screen](assets/Images/desktop_screen1.png)
 ![Desktop game screen](assets/Images/desktop_screen2.png)
 
 - mobile layout plan
+
 ![Mobile opening screen](assets/Images/mobile_screen1.png)
 ![Mobile game screen](assets/Images/mobile_screen2.png)
 

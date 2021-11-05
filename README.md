@@ -3,27 +3,27 @@
 ## Existing Features
 
 - Player name form
-    * Allows users to input their player name, if no name is inputted it will throw a required message
-    * Inputted usernames show in the color they will play in on screen
-![Player input screen](assets/Images/first_screen.png)
-
+    - Allows users to input their player name, if no name is inputted it will throw a required message
+    - Inputted usernames show in the color they will play in on screen
 - Start Button
-    * Start game button changes color and size on hover and navigates to game page.
-    * Uses sessionStorage to log user names and pass data to game page
+    - Start game button changes color and size on hover and navigates to game page.
+    - Uses sessionStorage to log user names and pass data to game page
 ![Hover button](assets/Images/button_hover.png)
 
 - Player turn messages
-    * Opens with message informing players of who starts, after the first click the message changes to '{Player1/2}'s turn'
-    * If there is an error with the sessionStorage the player names default to Player 1 and Player 2
-    * On a win the player message resetes to '{Player1/2} Starts'
+    - Opens with message informing players of who starts, after the first click the message changes to '{Player1/2}'s turn'
+    - If there is an error with the sessionStorage the player names default to Player 1 and Player 2
+    - On a win the player message resetes to '{Player1/2} Starts'
+
     ![Player start](assets/Images/player_starts.png)
     ![Player turn](assets/Images/player_turn.png)
--
- * Player go changes when clicking the table data 'chip', but not when clicking anywhere else on the screen
+
+- Clicking on canvas
+    - Player go changes when clicking the table data 'chip', but not when clicking anywhere else on the screen
     
 - Win and draw messages
-    * On a win a message fires with the players name, the board colors stay for a few seconds before resetting so player can see the winning move
-    * Messages use sweet alert as it is much nicer than a js alert message
+    - On a win a message fires with the players name, the board colors stay for a few seconds before resetting so player can see the winning move
+    - Messages use sweet alert as it is much nicer than a js alert message
 ![Win message](assets/Images/win_message.png)
     
 
@@ -33,20 +33,20 @@ This version of connect four gave me inspiration on creaitng my game, although w
 
 https://codethislab.com/html5-game-connect-4/
 
-What MUST be include:
-- Changes between player one and player two after each go
-- Cannot place chips anywhere on the board, they must stack ontop of each other
-- Placing 4 of the same colour chips in a row, colum or diagnally gives a win
-- detect which player won
+- What MUST be include:
+    - Changes between player one and player two after each go
+    - Cannot place chips anywhere on the board, they must stack ontop of each other
+    - Placing 4 of the same colour chips in a row, colum or diagnally gives a win
+    - detect which player won and display message
 
 What should be included
-- Player turn indicator
-- Reset button
+    - Player turn indicator
+    - Reset button
 
-Non-essential elements to add
-- start menu
-- AI player option
-- timer
+Non-essential elements that could be added
+    - start menu
+    - AI player option
+    - timer
 
 The classic game of connect 4 is 7 counters wide and 6 counters high so i will follow this design.
 

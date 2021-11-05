@@ -148,8 +148,6 @@ function playerWinNotice() {
     Swal.fire({
         icon: 'success',
         title: `${playerName} wins!`,
-        showConfirmButton: false,
-        timer: 1500
       })
     setTimeout(resetGame, 2000)
     return
@@ -158,7 +156,9 @@ function playerWinNotice() {
 /** Shows Draw result message */
 function playerDraw() {
     playerTurnText.textContent = `It's a draw!`
-    swal.fire(`Draw`,'warning');
+    swal.fire({
+        icon: 'warning', 
+        title: `Draw`});
     return setTimeout(resetGame, 2000)
 };
 

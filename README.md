@@ -66,8 +66,6 @@ The classic game of connect 4 is 7 counters wide and 6 counters high so i will f
 ![Mobile opening screen](assets/Images/mobile_screen1.png)
 ![Mobile game screen](assets/Images/mobile_screen2.png)
 
-
-
 ## Colour Palette
 
 Selected colors based off of combinations suggestrd by this site, colors were based on the traditional connect 4 color scheme of blue and red but with less saturation.
@@ -87,6 +85,8 @@ Implemented a reset button for players to restart a round, this does not effect 
 # Testing
 
 ## Validator Testing
+
+
 
 ## Changes to base code
 

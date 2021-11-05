@@ -23,14 +23,11 @@
         <p class="enter-name-heading">Players, Enter your name!</p>
         
         <!--link to userName-->
-        <input type="text" id="player-one-input" class="player-name" placeholder="Player 1" required>
+        <input type="text" id="player-one-input" class="player-name" placeholder="Player 1" required aria-label="player 1 input">
         
-        <input type="text" id="player-two-input" class="player-name" placeholder="Player 2" required> 
+        <input type="text" id="player-two-input" class="player-name" placeholder="Player 2" required aria-label="player 2 input"> 
 
-        <!-- link to dispalyText -->
-        <p id="player-one-display-text"></p>
-        <p id="player-two-display-text"></p>
-        <button id="start-game" class="buttons"><a href="game.html">Start Game</a></button>
+        <button id="start-game" class="buttons" aria-label="submit player names"><a href="game.html">Start Game</a></button>
     </form>
     <script rel="javascript" src="assets/javascript/app.js"></script>
 </body>

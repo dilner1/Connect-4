@@ -4,6 +4,13 @@
 
 - Login Screen
 
+* Allows users to input their playwer name, if no name is inputted it will throw an error.
+* Inputted usernames show in the color they will play in on screen
+* Start game button changes color and size on hover and navigates to game page.
+* Uses sessionStorage to log user names and pass data to game page
+
+
+
 ## Design Stage: 
 
 This version of connect four gave me inspiration on creaitng my game, although with parts that are certainly too complex for me at this stage.

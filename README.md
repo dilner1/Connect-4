@@ -18,13 +18,17 @@
     ![Player start](assets/Images/player_starts.png)
     ![Player turn](assets/Images/player_turn.png)
 
-- Clicking on canvas
-    - Player go changes when clicking the table data 'chip', but not when clicking anywhere else on the screen
+- Canvas
+    - Player places 'chip' on click but only when on a column with free space. The player must click on the actual space, the  player doesn't waste their turn if they click on any ramdom part of the screen
+    - The player chip will always go to the bottom space in the colum, no matter where you click
+    - Player go changes when clicking the table data 'chip'
     
 - Win and draw messages
     - On a win a message fires with the players name, the board colors stay for a few seconds before resetting so player can see the winning move
     - Messages use sweet alert as it is much nicer than a js alert message
 ![Win message](assets/Images/win_message.png)
+
+- 
     
 
 ## Design Stage: 
@@ -52,6 +56,7 @@ The classic game of connect 4 is 7 counters wide and 6 counters high so i will f
 
 ## Colour Palette
 
+Selected colors based off of combinations suggestrd by this site, colors were based on the traditional connect 4 color scheme of blue and red but with less saturation.
 https://coolors.co/palettes/trending
 
 - Player red E63946

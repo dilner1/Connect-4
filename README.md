@@ -2,21 +2,30 @@
 
 ## Existing Features
 
-- Login Screen
+- Player name form
+    * Allows users to input their player name, if no name is inputted it will throw a required message
+    * Inputted usernames show in the color they will play in on screen
+![Player input screen](assets/Images/first_screen.png)
 
-* Allows users to input their player name, if no name is inputted it will throw a required message
-* Inputted usernames show in the color they will play in on screen
-* Start game button changes color and size on hover and navigates to game page.
-* Uses sessionStorage to log user names and pass data to game page
+- Start Button
+    * Start game button changes color and size on hover and navigates to game page.
+    * Uses sessionStorage to log user names and pass data to game page
+![Hover button](assets/Images/button_hover.png)
 
-- Game Screen
-
-* Opens with message informing players of who starts, after the first click the message changes to '{Player1/2}'s turn'
-* Player go changes when clicking the table data 'chip', but not when clicking anywhere else on the screen
-* On a win a message fires with player name, the board colors stay for a few seconds before resetting so player can see the winning move
-* On a win the player message resetes to '{Player1/2} Starts'
-* If there is an error with the sessionStorage the player names efault to Player 1 and Player 2
-* Messages use sweet alert as it is much nicer than a js alert message
+- Player turn messages
+    * Opens with message informing players of who starts, after the first click the message changes to '{Player1/2}'s turn'
+    * If there is an error with the sessionStorage the player names default to Player 1 and Player 2
+    * On a win the player message resetes to '{Player1/2} Starts'
+    ![Player start](assets/Images/player_starts.png)
+    ![Player turn](assets/Images/player_turn.png)
+-
+ * Player go changes when clicking the table data 'chip', but not when clicking anywhere else on the screen
+    
+- Win and draw messages
+    * On a win a message fires with the players name, the board colors stay for a few seconds before resetting so player can see the winning move
+    * Messages use sweet alert as it is much nicer than a js alert message
+![Win message](assets/Images/win_message.png)
+    
 
 ## Design Stage: 
 

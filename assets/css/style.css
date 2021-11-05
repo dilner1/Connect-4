@@ -22,7 +22,11 @@ body {
     font-size: 5rem;
 }
 
-.scoreline {
+.score-block {
+    display: block;
+}
+
+.score-block p{
     display: inline;
     padding-left: 2rem;
 }
@@ -102,3 +106,14 @@ body {
     width: 10rem;
     text-align: center;
 }
+
+@media only screen and (min-width: 440px) {
+    .score-block {
+        display: inline;
+    }
+
+    .score-block p {
+        display: inline;
+        padding-left: 2rem;
+    }
+  }

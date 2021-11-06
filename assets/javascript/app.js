@@ -164,15 +164,13 @@ function playerWinNotice() {
         Swal.fire({
             icon: 'success',
             title: `${playerName} wins!`,
-            confirmButtonColor: "#2778C4",
-
+            confirmButtonColor: "#E63946"
         })
     } else {
         Swal.fire({
             icon: 'success',
             title: `${playerName} wins!`,
-            confirmButtonColor: "#2778C4",
-            color: "#181A99"
+            confirmButtonColor: "#181A99"
         })
     }
     setTimeout(resetGame, 2000)

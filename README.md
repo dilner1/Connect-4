@@ -7,7 +7,8 @@
     - Inputted usernames show in the color they will play in on screen
 - Start Button
     - Start game button changes color and size on hover and navigates to game page.
-    - Uses sessionStorage to log user names and pass data to game page
+    - SessionStorage logs user names and pass data to game page
+    - Navigates using window.location.assign rather than anchor link
 ![Hover button](assets/Images/button_hover.png)
 
 - Player turn messages
@@ -86,8 +87,6 @@ Implemented a reset button for players to restart a round, this does not effect 
 
 ## Validator Testing
 
-
-
 ## Changes to base code
 
 Following the tutorial the following code was added to log mouse clicks to the console. After realising it doesn't actually benefit the game in any way I removed it completely without consequence.
@@ -96,15 +95,13 @@ Following the tutorial the following code was added to log mouse clicks to the c
 When coding the reset button I used a querySelector however forgot to put the '.' before class name so I kept returning the error app.js:153 Uncaught TypeError: Cannot read property 'addEventListener' of null
     at HTMLDocument.<anonymous>
 
+## Automatic Nameing
+
+To proof the site from breaking if there is an issue with the session storage there is a function that checks on each click if there are still values. if not the names are set to 'Player 1' or 'Player 2', this is just to prevent the names from showing as null.
+
 ## Submit Button
 
-Created a function that allowed submit button to also redirect to the game however POST method was causing an issue - for now am using GET.
-![Submit error message](assets/Images/post_error_message.png)
-This still didn't redirect to the correct page, this was because I set the action as app.js rather than game.html.
-
-The second part of the form issue was this error message
-![Value error](assets/Images/value_error_message.png)
-There is an issue with collecting data from the form itself
+I wanted to have the submit button also navigate to the game page as this would keep the layout uncluttered, this worked prior to implimenting working stored usernames by using an anchor tag. The inputs had 'required' tags however these only prevented the form from submitting once, after more than one click the the game generated name variables and sent the user to the game page. The values would be null for the first two clicks and then continue as 'Player 1' and 'Player 2' (the automatic naming causes this and I believe to be the reason this is an issue in the first place). I wrote a function that validates both inputs for null or '' values, a sweet alert is fired if so. Removing the anchor tag and using window.location.assign instead allowed me to have more control over when the user is directed to the game page. This was chosen over .replace as I still wanted users to go back to the home screen if they needed.
 
 ## Unfixed Bugs
 

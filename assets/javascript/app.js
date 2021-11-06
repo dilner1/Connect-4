@@ -63,7 +63,7 @@ function getUserNames(event) {
 /** Validates if usernames have been submitted */
 function validateNames(){
     if (USERNAME_1.value === null || USERNAME_1.value === '' || USERNAME_2.value === null || USERNAME_2.value === ''){
-        swal.fire('Please enter a name for both players.');
+        swal.fire({title:'Please enter a name for both players.',confirmButtonColor: "#2778C4"});
         return false;
     } else {
         return true;
@@ -160,10 +160,21 @@ function checkWinConditions() {
     }
 } /** Reset game on win */
 function playerWinNotice() {
-    Swal.fire({
-        icon: 'success',
-        title: `${playerName} wins!`,
-    })
+    if(currentPlayerCount === 1){
+        Swal.fire({
+            icon: 'success',
+            title: `${playerName} wins!`,
+            confirmButtonColor: "#2778C4",
+
+        })
+    } else {
+        Swal.fire({
+            icon: 'success',
+            title: `${playerName} wins!`,
+            confirmButtonColor: "#2778C4",
+            color: "#181A99"
+        })
+    }
     setTimeout(resetGame, 2000)
     return
 }
@@ -173,7 +184,8 @@ function playerDraw() {
     playerTurnText.textContent = `It's a draw!`
     swal.fire({
         icon: 'warning',
-        title: `Draw`
+        title: `Draw`,
+        confirmButtonColor: "#2778C4"
     });
     return setTimeout(resetGame, 2000)
 };

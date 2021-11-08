@@ -50,20 +50,23 @@ function loadPage() {
 /** Submits form with players chosen usernames */
 function getUserNames(event) {
     event.preventDefault();
-        if(validateNames()){
-            nameValue1 = USERNAME_1.value
-            nameValue2 = USERNAME_2.value
-            sessionStorage.setItem('playerOne', nameValue1);
-            sessionStorage.setItem('playerTwo', nameValue2);
-            window.location.assign("game.html");
-        }
-        
+    if (validateNames()) {
+        nameValue1 = USERNAME_1.value
+        nameValue2 = USERNAME_2.value
+        sessionStorage.setItem('playerOne', nameValue1);
+        sessionStorage.setItem('playerTwo', nameValue2);
+        window.location.assign("game.html");
+    }
+
 };
 
 /** Validates if usernames have been submitted */
-function validateNames(){
-    if (USERNAME_1.value === null || USERNAME_1.value === '' || USERNAME_2.value === null || USERNAME_2.value === ''){
-        swal.fire({text:'Please enter a name for both players.',confirmButtonColor: "#2778C4"});
+function validateNames() {
+    if (USERNAME_1.value === null || USERNAME_1.value === '' || USERNAME_2.value === null || USERNAME_2.value === '') {
+        swal.fire({
+            text: 'Please enter a name for both players.',
+            confirmButtonColor: "#2778C4"
+        });
         return false;
     } else {
         return true;
@@ -160,11 +163,11 @@ function checkWinConditions() {
     }
 } /** Reset game on win */
 function playerWinNotice() {
-    if(currentPlayerCount === 1){
+    if (currentPlayerCount === 1) {
         Swal.fire({
             icon: 'success',
             text: `${playerName} wins!`,
-            confirmButtonColor:'#E63946'
+            confirmButtonColor: '#E63946'
         })
     } else {
         Swal.fire({
@@ -173,9 +176,9 @@ function playerWinNotice() {
             confirmButtonColor: "#181A99"
         })
     }
-    setTimeout(resetGame, 2000)
+    setTimeout(resetGame, 2000);
     return
-}
+};
 
 /** Shows draw result message */
 function playerDraw() {
@@ -196,7 +199,7 @@ function horizontalWinCheck() {
                     tableRow[i].children[playerColor + 1].style.backgroundColor,
                     tableRow[i].children[playerColor + 2].style.backgroundColor,
                     tableRow[i].children[playerColor + 3].style.backgroundColor
-                    )) {
+                )) {
                 return true;
             };
         };
@@ -215,7 +218,7 @@ function verticalWinCheck() {
             };
         }
     }
-}
+};
 
 /** Check if diagonal win condition is met going down */
 function diagonalWinCheckDown() {
@@ -229,7 +232,7 @@ function diagonalWinCheckDown() {
             };
         }
     }
-}
+};
 
 /** Check if diagonal win condition is met going up */
 function diagonalWinCheckUp() {
@@ -243,7 +246,7 @@ function diagonalWinCheckUp() {
             };
         }
     }
-}
+};
 
 /** Check if colors match */
 function checkChipsMatch(chip1, chip2, chip3, chip4) {
@@ -254,14 +257,12 @@ function checkChipsMatch(chip1, chip2, chip3, chip4) {
 };
 
 /** Check if all slots have been taken by players */
-function checkCanvasSpace(){
+function checkCanvasSpace() {
     Array.prototype.every.call(tableData, (event) => {
         event.style.backgroundColor = EMPTY_SPACE_COLOR;
         return;
-});
-}
-    
-
+    })
+};
 
 /** Resets canvas */
 resetButton.addEventListener('click', resetGame);

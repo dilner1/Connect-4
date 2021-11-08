@@ -254,45 +254,14 @@ function checkChipsMatch(chip1, chip2, chip3, chip4) {
 };
 
 /** Check if all slots have been taken by players */
-function checkCanvasSpace() {
-    for (let i = 0; i < tableData.length; i++) {
-        let tableColors = tableData[i].style.backgroundColor
-        if (tableColors.every(hasPlayerColor)){
-        return true
-    }
-    }
+function checkCanvasSpace(){
+    Array.prototype.every.call(tableData, (event) => {
+        event.style.backgroundColor = EMPTY_SPACE_COLOR;
+        return;
+});
+}
     
 
-
-//     let canvasSpace = []
-//     for (let i = 0; i < tableData.length; i++) {
-//         if (tableData[i].style.backgroundColor !== EMPTY_SPACE_COLOR) {
-//             canvasSpace.push(tableData[i]);
-//         }
-//     }
-//     if (canvasSpace.length === tableData.length) {
-//         return true;
-//     }
-}
-
-function hasPlayerColor(thing){
-    return thing !== EMPTY_SPACE_COLOR
-    }
-
-
-// function checkCanvasSpace() {
-//     let canvasSpace = []
-//     let cell = []
-//     cell[0].style.backgroundColor = 
-//     for (let i = 0; i < tableData.length; i++) {
-//         if (tableData[i].style.backgroundColor !== EMPTY_SPACE_COLOR) {
-//             canvasSpace.push(tableData[i]);
-//         }
-//     }
-//     if (canvasSpace.length === tableData.length) {
-//         return true;
-//     }
-// }
 
 /** Resets canvas */
 resetButton.addEventListener('click', resetGame);

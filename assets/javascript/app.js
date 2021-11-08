@@ -63,7 +63,7 @@ function getUserNames(event) {
 /** Validates if usernames have been submitted */
 function validateNames(){
     if (USERNAME_1.value === null || USERNAME_1.value === '' || USERNAME_2.value === null || USERNAME_2.value === ''){
-        swal.fire({title:'Please enter a name for both players.',confirmButtonColor: "#2778C4"});
+        swal.fire({text:'Please enter a name for both players.',confirmButtonColor: "#2778C4"});
         return false;
     } else {
         return true;
@@ -101,7 +101,7 @@ function checkUserhasName() {
     }
 }
 
-/** Check table cells for click and calls fuction to change color */
+/** Check table cells for click and calls fuction to change color - taken from tutorial video */
 Array.prototype.forEach.call(tableData, (event) => {
     event.style.backgroundColor = EMPTY_SPACE_COLOR;
     event.addEventListener('click', playerCellCheck);
@@ -163,13 +163,13 @@ function playerWinNotice() {
     if(currentPlayerCount === 1){
         Swal.fire({
             icon: 'success',
-            title: `${playerName} wins!`,
-            confirmButtonColor: "#E63946"
+            text: `${playerName} wins!`,
+            confirmButtonColor:'#E63946'
         })
     } else {
         Swal.fire({
             icon: 'success',
-            title: `${playerName} wins!`,
+            text: `${playerName} wins!`,
             confirmButtonColor: "#181A99"
         })
     }
@@ -182,7 +182,7 @@ function playerDraw() {
     playerTurnText.textContent = `It's a draw!`
     swal.fire({
         icon: 'warning',
-        title: `Draw`,
+        text: `Draw`,
         confirmButtonColor: "#2778C4"
     });
     return setTimeout(resetGame, 2000)
@@ -195,7 +195,8 @@ function horizontalWinCheck() {
             if (checkChipsMatch(tableRow[i].children[playerColor].style.backgroundColor,
                     tableRow[i].children[playerColor + 1].style.backgroundColor,
                     tableRow[i].children[playerColor + 2].style.backgroundColor,
-                    tableRow[i].children[playerColor + 3].style.backgroundColor)) {
+                    tableRow[i].children[playerColor + 3].style.backgroundColor
+                    )) {
                 return true;
             };
         };
@@ -267,13 +268,10 @@ function checkCanvasSpace() {
 
 // function checkCanvasSpace() {
 //     //let canvasSpace = []
-//     tableData.every((td)=>{
-//         if (td.style.backgroundColor !== EMPTY_SPACE_COLOR){
+//     tableData.every((cell)=>{
+//         if(cell.style.backgroundColor !== EMPTY_SPACE_COLOR){
 //             return true;
-//         } else {
-//             return false;
-//         }
-//     })
+//     }})
 // }
 
 /** Resets canvas */

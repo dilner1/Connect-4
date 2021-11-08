@@ -255,23 +255,43 @@ function checkChipsMatch(chip1, chip2, chip3, chip4) {
 
 /** Check if all slots have been taken by players */
 function checkCanvasSpace() {
-    let canvasSpace = []
     for (let i = 0; i < tableData.length; i++) {
-        if (tableData[i].style.backgroundColor !== EMPTY_SPACE_COLOR) {
-            canvasSpace.push(tableData[i]);
-        }
+        let tableColors = tableData[i].style.backgroundColor
+        if (tableColors.every(hasPlayerColor)){
+        return true
     }
-    if (canvasSpace.length === tableData.length) {
-        return true;
     }
+    
+
+
+//     let canvasSpace = []
+//     for (let i = 0; i < tableData.length; i++) {
+//         if (tableData[i].style.backgroundColor !== EMPTY_SPACE_COLOR) {
+//             canvasSpace.push(tableData[i]);
+//         }
+//     }
+//     if (canvasSpace.length === tableData.length) {
+//         return true;
+//     }
 }
 
+function hasPlayerColor(thing){
+    return thing !== EMPTY_SPACE_COLOR
+    }
+
+
 // function checkCanvasSpace() {
-//     //let canvasSpace = []
-//     tableData.every((cell)=>{
-//         if(cell.style.backgroundColor !== EMPTY_SPACE_COLOR){
-//             return true;
-//     }})
+//     let canvasSpace = []
+//     let cell = []
+//     cell[0].style.backgroundColor = 
+//     for (let i = 0; i < tableData.length; i++) {
+//         if (tableData[i].style.backgroundColor !== EMPTY_SPACE_COLOR) {
+//             canvasSpace.push(tableData[i]);
+//         }
+//     }
+//     if (canvasSpace.length === tableData.length) {
+//         return true;
+//     }
 // }
 
 /** Resets canvas */

@@ -200,7 +200,7 @@ function horizontalWinCheck() {
             if (checkChipsMatch(tableRow[i].children[playerColor].style.backgroundColor,
                     tableRow[i].children[playerColor + 1].style.backgroundColor,
                     tableRow[i].children[playerColor + 2].style.backgroundColor,
-                    tableRow[i].children[playerColor + 3].style.backgroundColor
+                    tableRow[i].children[playerColor + 3].style.backgroundColor,
                 )) {
                 return true;
             };

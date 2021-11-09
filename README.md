@@ -116,7 +116,7 @@ When looking at the github link on mobile the chips do not space out correctly h
 
 ## Color Values
 
-Whilst not a bug as such, the constant EMPTY_SPACE_COLOR is set to white, this is not best practice and should be the rbg value. When the value is changed to rgb the code breaks however but I am not sure why.
+Whilst not a bug as such, the constant EMPTY_SPACE_COLOR is set to white, this is not best practice and should be an rbg value. When the value is changed to rgb the code breaks however but I am unsure as to why.
 
 # Deployment
 

@@ -1,4 +1,4 @@
-// Global const Variables 
+// Global Constants 
 const USERNAME_1 = document.getElementById('player-one-input');
 const USERNAME_2 = document.getElementById('player-two-input');
 const PLAYER_ONE_COLOR = 'rgb(230,57,70)';
@@ -9,7 +9,7 @@ const RESULT_OUTPUT2 = document.getElementById('page-two-output');
 const LOAD_BTTN = document.getElementById('loadbttn');
 const FORM = document.getElementById('form');
 
-// Global let Variables   
+// Global Variables   
 let nameValue1 = [];
 let nameValue2 = [];
 let playerOne = sessionStorage.getItem('playerOne');
@@ -104,7 +104,7 @@ function checkUserhasName() {
 }
 
 /** Check table cells for click and calls fuction to change color - taken from tutorial video with minimal changes */
-Array.prototype.forEach.call(tableData, (event) => {
+Array.prototype.forEach.call(tableData,  function (event) {
     event.style.backgroundColor = EMPTY_SPACE_COLOR;
     event.addEventListener('click', playerCellCheck);
 });

@@ -10,8 +10,8 @@ const LOAD_BTTN = document.getElementById('loadbttn');
 const FORM = document.getElementById('form');
 
 // Global Variables   
-var nameValue1 = [];
-var nameValue2 = [];
+let nameValue1 = [];
+let nameValue2 = [];
 let playerOne = sessionStorage.getItem('playerOne');
 let playerTwo = sessionStorage.getItem('playerTwo');
 let playerTurnText = document.getElementById('player-go');
@@ -21,7 +21,6 @@ let tableData = document.getElementsByTagName('td');
 let resetButton = document.getElementById('reset-game');
 let playerOneScore = [];
 let playerTwoScore = [];
-
 let currentPlayerCount = 1;
 let playerChip = document.querySelectorAll('.chip');
 
@@ -104,7 +103,7 @@ function checkUserhasName() {
     }
 }
 
-/** Check table cells for click and calls fuction to change color - taken from tutorial video */
+/** Check table cells for click and calls fuction to change color - taken from tutorial video with minimal changes */
 Array.prototype.forEach.call(tableData, (event) => {
     event.style.backgroundColor = EMPTY_SPACE_COLOR;
     event.addEventListener('click', playerCellCheck);
@@ -112,18 +111,18 @@ Array.prototype.forEach.call(tableData, (event) => {
 
 /** Check rows and columns starting from the bottom */
 function playerCellCheck(event) {
-
+    
     let row = event.target.cellIndex;
-    let cell = [];
+    let cells = [];
     for (let i = 5; i > -1; i--) {
         if (tableRow[i].children[row].style.backgroundColor === EMPTY_SPACE_COLOR) {
-            cell.push(tableRow[i].children[row]);
+            cells.push(tableRow[i].children[row]);
             if (currentPlayerCount === 1) {
-                cell[0].style.backgroundColor = PLAYER_ONE_COLOR;
+                cells[0].style.backgroundColor = PLAYER_ONE_COLOR;
                 /** Check player 1 win condition */
                 if (checkWinConditions()) {
                     return playerWinNotice();
-                } else if (checkCanvasSpace()) {
+                } else if (isAllSpaceTaken()) {
                     return playerDraw();
                 } else {
                     currentPlayerCount = 2;
@@ -133,10 +132,10 @@ function playerCellCheck(event) {
                 }
             } else {
                 /** Check player 2 win condition    */
-                cell[0].style.backgroundColor = PLAYER_TWO_COLOR;
+                cells[0].style.backgroundColor = PLAYER_TWO_COLOR;
                 if (checkWinConditions()) {
                     return playerWinNotice();
-                } else if (checkCanvasSpace()) {
+                } else if (isAllSpaceTaken()) {
                     return playerDraw();
                 } else {
                     currentPlayerCount = 1;
@@ -194,7 +193,7 @@ function playerDraw() {
     return setTimeout(resetGame, 2000)
 };
 
-/** Check if horizontal win condition is met */
+/** Check if horizontal win condition is met - sections taken from tutorial video with minimal changes */
 function horizontalWinCheck() {
     for (let i = 0; i < tableRow.length; i++) {
         for (let playerColor = 0; playerColor < 4; playerColor++) {
@@ -209,7 +208,7 @@ function horizontalWinCheck() {
     };
 };
 
-/** Check if vertical win condition is met */
+/** Check if vertical win condition is met - sections taken from tutorial video with minimal changes */
 function verticalWinCheck() {
     for (let playerColor = 0; playerColor < 7; playerColor++) {
         for (let i = 0; i < 3; i++) {
@@ -223,7 +222,7 @@ function verticalWinCheck() {
     }
 };
 
-/** Check if diagonal win condition is met going down */
+/** Check if diagonal win condition is met going down - sections taken from tutorial video with minimal changes */
 function diagonalWinCheckDown() {
     for (let playerColor = 0; playerColor < 4; playerColor++) {
         for (let i = 0; i < 3; i++) {
@@ -237,7 +236,7 @@ function diagonalWinCheckDown() {
     }
 };
 
-/** Check if diagonal win condition is met going up */
+/** Check if diagonal win condition is met going up - sections taken from tutorial video with minimal changes */
 function diagonalWinCheckUp() {
     for (let playerColor = 0; playerColor < 4; playerColor++) {
         for (let i = 5; i > 2; i--) {
@@ -259,30 +258,16 @@ function checkChipsMatch(chip1, chip2, chip3, chip4) {
     }
 };
 
-/** Check if all slots have been taken by players */
-// function checkCanvasSpace() {
-//     let canvasSpace = []
-//     for (let i = 0; i < tableData.length; i++) {
-//         if (tableData[i].style.backgroundColor !== EMPTY_SPACE_COLOR) {
-//             canvasSpace.push(tableData[i]);
-//         }
-//     }
-//     if (canvasSpace.length === tableData.length) {
-//         return true;
-//     }
-// }
-
-function checkCanvasSpace() {
-    let canvasSpace = 0
-
+/** Check if all slots have been taken by players  - sections taken from tutorial video with minimal changes */
+function isAllSpaceTaken() {
+    let canvasSpace = [];
     for (let i = 0; i < tableData.length; i++) {
-        let tableColor = tableData[i].style.backgroundColor
-        if (tableColor !== EMPTY_SPACE_COLOR) {
-            canvasSpace + 1
+        if (tableData[i].style.backgroundColor !== EMPTY_SPACE_COLOR) {
+            canvasSpace.push(tableData[i]);
         }
-        if (canvasSpace === tableData.length) {
-            return playerDraw();
-        }
+    }
+    if (canvasSpace.length === tableData.length) {
+        return true;
     }
 };
 

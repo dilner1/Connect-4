@@ -28,10 +28,8 @@
     - On a win a message fires with the players name, the board colors stay for a few seconds before resetting so player can see the winning move
     - Messages use sweet alert as it is much nicer than a js alert message
 ![Win message](assets/Images/win_message.png)
-
-- 
+ 
     
-
 ## Design Stage: 
 
 This version of connect four gave me inspiration on creaitng my game, although with parts that are certainly too complex for me at this stage.
@@ -53,7 +51,12 @@ Non-essential elements that could be added
     - AI player option
     - timer
 
-The classic game of connect 4 is 7 counters wide and 6 counters high so i will follow this design.
+The classic game of connect 4 is 7 counters wide and 6 counters high so I followed this design.
+
+I looked at several tutorials to build the basis for the app, some has an array of all the winning moves however this didn;t require much logic and was time consuming so I didn't want to go down this Route. I chose the following as it was slightly easier to read in comparison on other examples and because it ustalised for loops and functions for each winning move this would be not only easier to maintain but also more of a challenge to learn.
+
+- This is the link to the tutorial I follows
+https://www.youtube.com/watch?v=Z_IaJQojun8&t=1s&ab_channel=ConorBailey
 
 ## Wire Frames
 
@@ -92,9 +95,6 @@ Implemented a reset button for players to restart a round, this does not effect 
 Following the tutorial the following code was added to log mouse clicks to the console. After realising it doesn't actually benefit the game in any way I removed it completely without consequence.
 ![Event listener removed](assets/Images/event_listener_removed.png)
 
-When coding the reset button I used a querySelector however forgot to put the '.' before class name so I kept returning the error app.js:153 Uncaught TypeError: Cannot read property 'addEventListener' of null
-    at HTMLDocument.<anonymous>
-
 ## Automatic Nameing
 
 To proof the site from breaking if there is an issue with the session storage there is a function that checks on each click if there are still values. if not the names are set to 'Player 1' or 'Player 2', this is just to prevent the names from showing as null.
@@ -114,10 +114,25 @@ When looking at the github link on mobile the chips do not space out correctly h
 
 ![Responsive design on phone](assets/Images/on_phone_screenshot.jpg)
 
+## Color Values
+
+Whilst not a bug as such, the constant EMPTY_SPACE_COLOR is set to white, this is not best practice and should be the rbg value. When the value is changed to rgb the code breaks however but I am not sure why.
+
 # Deployment
+
+The site was deployed to GitHub pages. The steps to deploy are as follows:
+
+In the GitHub repository, navigate to the Settings tab In the pages section, go to select branch drop-down menu, select Main Once the Main branch has been selected, a link to the site is provided
+
+The live link can be found here - https://dilner1.github.io/Connect-4/
 
 # Credits
 
 ## Content
 
+Font was sourced from Google Fonts https://fonts.google.com/
+Pop up alerts are implimented from sweetalert2 https://sweetalert2.github.io/#examples
+
 ## Media
+
+No images or videos were sourced for this project

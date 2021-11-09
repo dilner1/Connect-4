@@ -40,7 +40,7 @@ body {
 
 .score-block p{
     display: inline;
-    padding-left: 2rem;
+    padding: 0 1rem;
 }
 
 #player-1-score {
@@ -120,7 +120,7 @@ body {
     text-align: center;
 }
 
-@media only screen and (min-width: 550px) {
+@media only screen and (min-width: 570px) {
 
     #back-button {
         float: left;
@@ -136,6 +136,9 @@ body {
 
     .score-block p {
         display: inline;
+    }
+
+    #player-1-score {
         padding-left: 2rem;
     }
   }

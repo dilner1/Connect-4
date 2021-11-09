@@ -25,8 +25,6 @@ let playerChip = document.getElementsByClassName('chip');
 let backButton = document.getElementById('back-button');
 let resetButton = document.getElementById('reset-game');
 
-console.log(backButton)
-
 // Load pages
 window.addEventListener('DOMContentLoaded', loadPage());
 
@@ -106,11 +104,10 @@ function checkUserhasName() {
 }
 
 // Back button to player name select screen
-
 backButton.addEventListener('click', returnToHomePage);
 function returnToHomePage() {
     console.log('hi')
-    // location.assign("index.html");
+    location.assign("index.html");
 }
 
 // Check table cells for click and calls fuction to change color

@@ -22,6 +22,18 @@ body {
     font-size: 5rem;
 }
 
+#back-button {
+    display: inline;
+    float: left;
+    margin-left: 1rem;
+    border-radius: 5%;
+    height: 2rem;
+    width: 2rem;
+    padding: 0;
+    font-size: 1rem;
+
+}
+
 .score-block {
     display: block;
 }
@@ -108,7 +120,16 @@ body {
     text-align: center;
 }
 
-@media only screen and (min-width: 440px) {
+@media only screen and (min-width: 550px) {
+
+    #back-button {
+        float: left;
+        width: 3rem;
+        height: 3rem;
+        margin: 2rem 2rem;
+        font-size: 2rem;
+    }
+
     .score-block {
         display: inline;
     }

@@ -18,11 +18,14 @@ let playerTurnText = document.getElementById('player-go');
 let playerName = '';
 let tableRow = document.getElementsByTagName('tr');
 let tableData = document.getElementsByTagName('td');
-let resetButton = document.getElementById('reset-game');
 let playerOneScore = [];
 let playerTwoScore = [];
 let currentPlayerCount = 1;
-let playerChip = document.querySelectorAll('.chip');
+let playerChip = document.getElementsByClassName('chip');
+let backButton = document.getElementById('back-button');
+let resetButton = document.getElementById('reset-game');
+
+console.log(backButton)
 
 // Load pages
 window.addEventListener('DOMContentLoaded', loadPage());
@@ -100,6 +103,14 @@ function checkUserhasName() {
     } else if (playerTwo === null) {
         playerTwo = 'Player 2';
     }
+}
+
+// Back button to player name select screen
+
+backButton.addEventListener('click', returnToHomePage);
+function returnToHomePage() {
+    console.log('hi')
+    // location.assign("index.html");
 }
 
 // Check table cells for click and calls fuction to change color

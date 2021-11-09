@@ -85,7 +85,6 @@ https://coolors.co/palettes/trending
 
 Implemented a reset button for players to restart a round, this does not effect the players score. This function is also called when a player wins. Initially when called the canvas would reset immediately, decided instead to delay the rest so players could see the move that won the game. Initially tried to call the reset using an event listener to the sweet alert however I could not get this to work so instead opent for a setTimeout.
 
-
 # Testing
 
 ## Validator Testing
@@ -102,15 +101,17 @@ JSHint Validation
 
 ![Game page HTML Validation](assets/Images/jshint.png)
 
-template literal syntax however this is vital for how the code works. Changhed arrow functions as they were flagged by JSHint
+template literal syntax however this is vital for how the code works. Changed arrow functions as they were flagged and could be changed easily.
+
+A common error was 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz). The same eorror also appears for const variables.
 
 ## Changes to base code
 
 Following the tutorial the following code was added to log mouse clicks to the console. After realising it doesn't actually benefit the game in any way I removed it completely without consequence.
 ![Event listener removed](assets/Images/event_listener_removed.png)
 
-## Automatic Nameing
-
+## Automatic Nameing in Case of Error
+ 
 To proof the site from breaking if there is an issue with the session storage there is a function that checks on each click if there are still values. if not the names are set to 'Player 1' or 'Player 2', this is just to prevent the names from showing as null.
 
 ## Submit Button
@@ -124,9 +125,13 @@ I wanted to have the submit button also navigate to the game page as this would 
 When looking at the grid on the inspect screen, the site scales well in different sizes.
 ![Responsive design on laptop](assets/Images/on_laptop_screenshot.png)
 
-When looking at the github link on mobile the chips do not space out correctly however, have adjust the width and height from 14% to use transform:scale() however this doesn't fix the issue. This is very confising as it works perfectly fine as shown on when looking at responsive design on the laptop
+When looking at the github link on mobile the chips do not space out correctly however, have adjust the width and height from 14% to use transform:scale() however this doesn't fix the issue. This is very confising as it works perfectly fine as shown on when looking at responsive design on the laptop. On top of this the site was tested on an alternative phone which worked. 
 
-![Responsive design on phone](assets/Images/on_phone_screenshot.jpg)
+- 
+![Responsive design on phone not working](assets/Images/on_phone_screenshot.jpg)
+
+- Alternative phone 
+![Responsive design on phone working](assets/Images/mobile_second_test.jpg)
 
 ## Color Values
 

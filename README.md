@@ -30,7 +30,22 @@
 ![Win message](assets/Images/win_message.png)
  
     
-## Design Stage: 
+# Design Stage: 
+
+## Strategy
+What are you aiming to acheieve and for whom?
+
+## Scope
+Which features based on the stategy plane do you plan to include. What will be excluded?
+
+## Structure
+How is the info structured and how is it grouped?
+
+## Skeleton
+How will information be presented and how will you navigate?
+
+## Surface
+How will the finished product look?
 
 This version of connect four gave me inspiration on creaitng my game, although with parts that are certainly too complex for me at this stage.
 

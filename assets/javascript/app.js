@@ -103,7 +103,7 @@ function checkUserhasName() {
     }
 }
 
-// Back button to player name select screen
+// Back button takes players back to name select screen
 backButton.addEventListener('click', returnToHomePage);
 function returnToHomePage() {
     console.log('hi')

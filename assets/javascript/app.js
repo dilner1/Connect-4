@@ -275,8 +275,8 @@ function isAllSpaceTaken() {
 resetButton.addEventListener('click', resetGame);
 
 function resetGame() {
-    playerChip.forEach(chip => {
-        chip.style.backgroundColor = EMPTY_SPACE_COLOR
+    playerChip.forEach(function (chip){
+        chip.style.backgroundColor = EMPTY_SPACE_COLOR;
         playerTurnText.textContent = `${playerName} starts.`;
-    })
-};
+    });
+}

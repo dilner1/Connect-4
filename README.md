@@ -90,6 +90,10 @@ Implemented a reset button for players to restart a round, this does not effect 
 
 ## Validator Testing
 
+
+
+Changhed arrow functions as they were flagged by JSHint
+
 ## Changes to base code
 
 Following the tutorial the following code was added to log mouse clicks to the console. After realising it doesn't actually benefit the game in any way I removed it completely without consequence.

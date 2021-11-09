@@ -1,4 +1,4 @@
-// Global Constants
+// Global const Variables 
 const USERNAME_1 = document.getElementById('player-one-input');
 const USERNAME_2 = document.getElementById('player-two-input');
 const PLAYER_ONE_COLOR = 'rgb(230,57,70)';
@@ -9,7 +9,7 @@ const RESULT_OUTPUT2 = document.getElementById('page-two-output');
 const LOAD_BTTN = document.getElementById('loadbttn');
 const FORM = document.getElementById('form');
 
-// Global Variables   
+// Global let Variables   
 let nameValue1 = [];
 let nameValue2 = [];
 let playerOne = sessionStorage.getItem('playerOne');
@@ -50,14 +50,14 @@ function loadPage() {
 function getUserNames(event) {
     event.preventDefault();
     if (validateNames()) {
-        nameValue1 = USERNAME_1.value
-        nameValue2 = USERNAME_2.value
+        nameValue1 = USERNAME_1.value;
+        nameValue2 = USERNAME_2.value;
         sessionStorage.setItem('playerOne', nameValue1);
         sessionStorage.setItem('playerTwo', nameValue2);
         window.location.assign("game.html");
     }
 
-};
+}
 
 /** Validates if usernames have been submitted */
 function validateNames() {
@@ -79,16 +79,16 @@ function resultsPage() {
 }
 
 /** Changes Names */
-document.addEventListener('click', changePlayerName)
+document.addEventListener('click', changePlayerName);
 
 function changePlayerName() {
     if (currentPlayerCount === 1) {
-        playerName = playerOne
+        playerName = playerOne;
         checkUserhasName();
     } else {
-        playerName = playerTwo
+        playerName = playerTwo;
         checkUserhasName();
-    };
+    }
 }
 
 /** If session data is deleted this will generate placeholder names */
@@ -126,9 +126,9 @@ function playerCellCheck(event) {
                     return playerDraw();
                 } else {
                     currentPlayerCount = 2;
-                    playerTurnText.style.color = PLAYER_TWO_COLOR
+                    playerTurnText.style.color = PLAYER_TWO_COLOR;
                     playerTurnText.textContent = `${playerTwo}'s turn.`;
-                    return
+                    return;
                 }
             } else {
                 /** Check player 2 win condition    */
@@ -139,25 +139,25 @@ function playerCellCheck(event) {
                     return playerDraw();
                 } else {
                     currentPlayerCount = 1;
-                    playerTurnText.style.color = PLAYER_ONE_COLOR
+                    playerTurnText.style.color = PLAYER_ONE_COLOR;
                     playerTurnText.textContent = `${playerOne}'s turn.`;
-                    return
+                    return;
                 }
             }
         }
     }
-};
+}
 
 // Checks all winning moves
 function checkWinConditions() {
     if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
         if (currentPlayerCount === 1) {
-            playerTurnText.textContent = `${playerName} is the winner!`
-            playerTurnText.style.color = PLAYER_ONE_COLOR
+            playerTurnText.textContent = `${playerName} is the winner!`;
+            playerTurnText.style.color = PLAYER_ONE_COLOR;
             return document.getElementById("player-1-score").innerText = ++playerOneScore;
         } else {
-            playerTurnText.textContent = `${playerName} is the winner!`
-            playerTurnText.style.color = PLAYER_TWO_COLOR
+            playerTurnText.textContent = `${playerName} is the winner!`;
+            playerTurnText.style.color = PLAYER_TWO_COLOR;
             return document.getElementById("player-2-score").innerText = ++playerTwoScore;
         }
     }
@@ -170,28 +170,28 @@ function playerWinNotice() {
             icon: 'success',
             text: `${playerName} wins!`,
             confirmButtonColor: '#E63946'
-        })
+        });
     } else {
         Swal.fire({
             icon: 'success',
             text: `${playerName} wins!`,
             confirmButtonColor: "#181A99"
-        })
+        });
     }
     setTimeout(resetGame, 2000);
-    return
-};
+    return;
+}
 
 /** Shows draw result message */
 function playerDraw() {
-    playerTurnText.textContent = `It's a draw!`
+    playerTurnText.textContent = `It's a draw!`;
     swal.fire({
         icon: 'warning',
         text: `Draw`,
         confirmButtonColor: "#2778C4"
     });
-    return setTimeout(resetGame, 2000)
-};
+    return setTimeout(resetGame, 2000);
+}
 
 /** Check if horizontal win condition is met - sections taken from tutorial video with minimal changes */
 function horizontalWinCheck() {
@@ -203,10 +203,10 @@ function horizontalWinCheck() {
                     tableRow[i].children[playerColor + 3].style.backgroundColor,
                 )) {
                 return true;
-            };
-        };
-    };
-};
+            }
+        }
+    }
+}
 
 /** Check if vertical win condition is met - sections taken from tutorial video with minimal changes */
 function verticalWinCheck() {
@@ -217,10 +217,10 @@ function verticalWinCheck() {
                     tableRow[i + 2].children[playerColor].style.backgroundColor,
                     tableRow[i + 3].children[playerColor].style.backgroundColor)) {
                 return true;
-            };
+            }
         }
     }
-};
+}
 
 /** Check if diagonal win condition is met going down - sections taken from tutorial video with minimal changes */
 function diagonalWinCheckDown() {
@@ -231,10 +231,10 @@ function diagonalWinCheckDown() {
                     tableRow[i + 2].children[playerColor + 2].style.backgroundColor,
                     tableRow[i + 3].children[playerColor + 3].style.backgroundColor)) {
                 return true;
-            };
+            }
         }
     }
-};
+}
 
 /** Check if diagonal win condition is met going up - sections taken from tutorial video with minimal changes */
 function diagonalWinCheckUp() {
@@ -245,18 +245,18 @@ function diagonalWinCheckUp() {
                     tableRow[i - 2].children[playerColor + 2].style.backgroundColor,
                     tableRow[i - 3].children[playerColor + 3].style.backgroundColor)) {
                 return true;
-            };
+            }
         }
     }
-};
+}
 
 /** Check if colors match */
 function checkChipsMatch(chip1, chip2, chip3, chip4) {
     if (chip1 !== EMPTY_SPACE_COLOR) {
-        let c = chip1
-        return (c === chip2 && c === chip3 && c === chip4)
+        let c = chip1;
+        return (c === chip2 && c === chip3 && c === chip4);
     }
-};
+}
 
 /** Check if all slots have been taken by players  - sections taken from tutorial video with minimal changes */
 function isAllSpaceTaken() {

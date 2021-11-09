@@ -90,9 +90,19 @@ Implemented a reset button for players to restart a round, this does not effect 
 
 ## Validator Testing
 
+- CSS Validation
+![Page one CSS Validation](assets/Images/page_one_css_validation.png) 
+![Game page CSS Validation](assets/Images/game_screen_css_validation.png)
 
+- HTML Validation
+![Page one HTML Validation](assets/Images/page_one_html_validation.png) 
+![Game page HTML Validation](assets/Images/game_screen_html_validation.png)
 
-Changhed arrow functions as they were flagged by JSHint
+JSHint Validation
+
+![Game page HTML Validation](assets/Images/jshint.png)
+
+template literal syntax however this is vital for how the code works. Changhed arrow functions as they were flagged by JSHint
 
 ## Changes to base code
 

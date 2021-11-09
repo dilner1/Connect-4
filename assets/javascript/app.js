@@ -56,7 +56,6 @@ function getUserNames(event) {
         sessionStorage.setItem('playerTwo', nameValue2);
         window.location.assign("game.html");
     }
-
 }
 
 /** Validates if usernames have been submitted */
@@ -269,7 +268,7 @@ function isAllSpaceTaken() {
     if (canvasSpace.length === tableData.length) {
         return true;
     }
-};
+}
 
 /** Resets canvas */
 resetButton.addEventListener('click', resetGame);

@@ -280,7 +280,7 @@ function isAllSpaceTaken() {
 // Resets canvas
 resetButton.addEventListener('click', resetGame);
 function resetGame() {
-    playerChip.forEach(chip => {
+    playerChip.forEach(function(chip){
         chip.style.backgroundColor = EMPTY_SPACE_COLOR
         playerTurnText.textContent = `${playerName} starts.`;
     })

@@ -260,17 +260,31 @@ function checkChipsMatch(chip1, chip2, chip3, chip4) {
 };
 
 /** Check if all slots have been taken by players */
+// function checkCanvasSpace() {
+//     let canvasSpace = []
+//     for (let i = 0; i < tableData.length; i++) {
+//         if (tableData[i].style.backgroundColor !== EMPTY_SPACE_COLOR) {
+//             canvasSpace.push(tableData[i]);
+//         }
+//     }
+//     if (canvasSpace.length === tableData.length) {
+//         return true;
+//     }
+// }
+
 function checkCanvasSpace() {
-    let canvasSpace = []
+    let canvasSpace = 0
+
     for (let i = 0; i < tableData.length; i++) {
-        if (tableData[i].style.backgroundColor !== EMPTY_SPACE_COLOR) {
-            canvasSpace.push(tableData[i]);
+        let tableColor = tableData[i].style.backgroundColor
+        if (tableColor !== EMPTY_SPACE_COLOR) {
+            canvasSpace + 1
+        }
+        if (canvasSpace === tableData.length) {
+            return playerDraw();
         }
     }
-    if (canvasSpace.length === tableData.length) {
-        return true;
-    }
-}
+};
 
 /** Resets canvas */
 resetButton.addEventListener('click', resetGame);

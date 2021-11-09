@@ -21,7 +21,7 @@ let tableData = document.getElementsByTagName('td');
 let playerOneScore = [];
 let playerTwoScore = [];
 let currentPlayerCount = 1;
-let playerChip = document.getElementsByClassName('chip');
+let playerChip = document.querySelectorAll('.chip');
 let backButton = document.getElementById('back-button');
 let resetButton = document.getElementById('reset-game');
 
@@ -279,10 +279,9 @@ function isAllSpaceTaken() {
 
 // Resets canvas
 resetButton.addEventListener('click', resetGame);
-
 function resetGame() {
-    playerChip.forEach(function (chip){
-        chip.style.backgroundColor = EMPTY_SPACE_COLOR;
+    playerChip.forEach(chip => {
+        chip.style.backgroundColor = EMPTY_SPACE_COLOR
         playerTurnText.textContent = `${playerName} starts.`;
-    });
-}
+    })
+};

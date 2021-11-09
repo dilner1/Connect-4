@@ -24,7 +24,7 @@ let playerTwoScore = [];
 let currentPlayerCount = 1;
 let playerChip = document.querySelectorAll('.chip');
 
-/** Load pages */
+// Load pages
 window.addEventListener('DOMContentLoaded', loadPage());
 
 function loadPage() {
@@ -46,7 +46,7 @@ function loadPage() {
     }
 }
 
-/** Submits form with players chosen usernames */
+// Submits form with players chosen usernames
 function getUserNames(event) {
     event.preventDefault();
     if (validateNames()) {
@@ -58,7 +58,7 @@ function getUserNames(event) {
     }
 }
 
-/** Validates if usernames have been submitted */
+// Validates if usernames have been submitted
 function validateNames() {
     if (USERNAME_1.value === null || USERNAME_1.value === '' || USERNAME_2.value === null || USERNAME_2.value === '') {
         swal.fire({
@@ -71,13 +71,13 @@ function validateNames() {
     }
 }
 
-/** Pulls player name values*/
+// Pulls player name values
 function resultsPage() {
     playerOne = sessionStorage.getItem('playerOne');
     playerTwo = sessionStorage.getItem('playerTwo');
 }
 
-/** Changes Names */
+// Changes Names
 document.addEventListener('click', changePlayerName);
 
 function changePlayerName() {
@@ -90,7 +90,7 @@ function changePlayerName() {
     }
 }
 
-/** If session data is deleted this will generate placeholder names */
+// If session data is deleted this will generate placeholder names
 function checkUserhasName() {
     if (playerOne === null && playerTwo === null) {
         playerOne = 'Player 1';
@@ -102,15 +102,14 @@ function checkUserhasName() {
     }
 }
 
-/** Check table cells for click and calls fuction to change color - taken from tutorial video with minimal changes */
+// Check table cells for click and calls fuction to change color
 Array.prototype.forEach.call(tableData,  function (event) {
     event.style.backgroundColor = EMPTY_SPACE_COLOR;
     event.addEventListener('click', playerCellCheck);
 });
 
-/** Check rows and columns starting from the bottom */
+// Check rows and columns starting from the bottom
 function playerCellCheck(event) {
-    
     let row = event.target.cellIndex;
     let cells = [];
     for (let i = 5; i > -1; i--) {
@@ -118,7 +117,7 @@ function playerCellCheck(event) {
             cells.push(tableRow[i].children[row]);
             if (currentPlayerCount === 1) {
                 cells[0].style.backgroundColor = PLAYER_ONE_COLOR;
-                /** Check player 1 win condition */
+                // Check player 1 win condition
                 if (checkWinConditions()) {
                     return playerWinNotice();
                 } else if (isAllSpaceTaken()) {
@@ -130,7 +129,7 @@ function playerCellCheck(event) {
                     return;
                 }
             } else {
-                /** Check player 2 win condition    */
+                // Check player 2 win condition
                 cells[0].style.backgroundColor = PLAYER_TWO_COLOR;
                 if (checkWinConditions()) {
                     return playerWinNotice();
@@ -162,7 +161,7 @@ function checkWinConditions() {
     }
 }
 
-/** Reset game on win */
+// Reset game on win
 function playerWinNotice() {
     if (currentPlayerCount === 1) {
         Swal.fire({
@@ -181,7 +180,7 @@ function playerWinNotice() {
     return;
 }
 
-/** Shows draw result message */
+// Shows draw result message
 function playerDraw() {
     playerTurnText.textContent = `It's a draw!`;
     swal.fire({
@@ -192,7 +191,7 @@ function playerDraw() {
     return setTimeout(resetGame, 2000);
 }
 
-/** Check if horizontal win condition is met - sections taken from tutorial video with minimal changes */
+// Check if horizontal win condition is met - sections taken from tutorial video with minimal changes
 function horizontalWinCheck() {
     for (let i = 0; i < tableRow.length; i++) {
         for (let playerColor = 0; playerColor < 4; playerColor++) {
@@ -207,7 +206,7 @@ function horizontalWinCheck() {
     }
 }
 
-/** Check if vertical win condition is met - sections taken from tutorial video with minimal changes */
+// Check if vertical win condition is met - sections taken from tutorial video with minimal changes
 function verticalWinCheck() {
     for (let playerColor = 0; playerColor < 7; playerColor++) {
         for (let i = 0; i < 3; i++) {
@@ -221,7 +220,7 @@ function verticalWinCheck() {
     }
 }
 
-/** Check if diagonal win condition is met going down - sections taken from tutorial video with minimal changes */
+// Check if diagonal win condition is met going down - sections taken from tutorial video with minimal changes
 function diagonalWinCheckDown() {
     for (let playerColor = 0; playerColor < 4; playerColor++) {
         for (let i = 0; i < 3; i++) {
@@ -235,7 +234,7 @@ function diagonalWinCheckDown() {
     }
 }
 
-/** Check if diagonal win condition is met going up - sections taken from tutorial video with minimal changes */
+// Check if diagonal win condition is met going up - sections taken from tutorial video with minimal changes
 function diagonalWinCheckUp() {
     for (let playerColor = 0; playerColor < 4; playerColor++) {
         for (let i = 5; i > 2; i--) {
@@ -249,7 +248,7 @@ function diagonalWinCheckUp() {
     }
 }
 
-/** Check if colors match */
+// Check if colors match
 function checkChipsMatch(chip1, chip2, chip3, chip4) {
     if (chip1 !== EMPTY_SPACE_COLOR) {
         let c = chip1;
@@ -257,7 +256,7 @@ function checkChipsMatch(chip1, chip2, chip3, chip4) {
     }
 }
 
-/** Check if all slots have been taken by players  - sections taken from tutorial video with minimal changes */
+// Check if all slots have been taken by players  - sections taken from tutorial video with minimal changes
 function isAllSpaceTaken() {
     let canvasSpace = [];
     for (let i = 0; i < tableData.length; i++) {
@@ -270,7 +269,7 @@ function isAllSpaceTaken() {
     }
 }
 
-/** Resets canvas */
+// Resets canvas
 resetButton.addEventListener('click', resetGame);
 
 function resetGame() {

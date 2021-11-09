@@ -149,6 +149,7 @@ function playerCellCheck(event) {
     }
 };
 
+// Checks all winning moves
 function checkWinConditions() {
     if (horizontalWinCheck() || verticalWinCheck() || diagonalWinCheckDown() || diagonalWinCheckUp()) {
         if (currentPlayerCount === 1) {
@@ -161,7 +162,9 @@ function checkWinConditions() {
             return document.getElementById("player-2-score").innerText = ++playerTwoScore;
         }
     }
-} /** Reset game on win */
+}
+
+/** Reset game on win */
 function playerWinNotice() {
     if (currentPlayerCount === 1) {
         Swal.fire({

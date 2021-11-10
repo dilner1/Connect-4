@@ -30,7 +30,7 @@ Connect 4 is an online remake of the classic children's game designed for two pl
 
     - If there is an error with the sessionStorage data the player names default to Player 1 and Player 2 so there will always be information on who's turn it is
 
-    - On a win the player message results to '{Player1/2} Starts'
+    - On a win the player message returns to '{Player1/2} Starts'
 
     ![Player start](assets/Images/player_starts.png)
     ![Player turn](assets/Images/player_turn.png)
@@ -54,30 +54,40 @@ Connect 4 is an online remake of the classic children's game designed for two pl
 
 # Design Stage: 
 
-This version of connect four gave me inspiration on creaitng my game, although with parts that are certainly too complex for me at this stage.
+This version of connect four gave me inspiration for creating my version of the game, although with parts that are certainly too complex for me at this stage. The inclusion of a color indicator for the player turn prompted me to include this in various areas of my site, such as when the player enters their name, the player turn text and the color of the ok button on a winning result.
 
 https://codethislab.com/html5-game-connect-4/
 
 - What MUST be include:
     - Changes between player one and player two after each go
+    
     - Cannot place chips anywhere on the board, they must stack ontop of each other
+    
     - Placing 4 of the same colour chips in a row, colum or diagnally gives a win
+    
     - detect which player won and display message
 
-What should be included
+- What should be included
     - Player turn indicator
+    
     - Reset button
+    
+    - back button
 
-Non-essential elements that could be added
+- Non-essential elements that could be added
     - start menu
+    
     - AI player option
+    
     - timer
 
 The classic game of connect 4 is 7 counters wide and 6 counters high so I followed this design.
 
-I looked at several tutorials to build the basis for the app, some has an array of all the winning moves however this didn;t require much logic and was time consuming so I didn't want to go down this Route. I chose the following as it was slightly easier to read in comparison on other examples and because it ustalised for loops and functions for each winning move this would be not only easier to maintain but also more of a challenge to learn.
+I looked at several tutorials to build the basis for the app, some had an array of all the winning moves which didn't require much logic, however, it would mean that if I wanted to change the amount of spaces on the canvas in the future (for example, having a larger 3 v 3 mode) then it would be very time consuming and tedious rather than just changing a few numbers in the winning move functions.
 
-- This is the link to the tutorial I follows
+I chose to follow this tutorial below as it was seemed easier to comprehend in comparison to other examples, there was also plenty of room for improvement as this is quite a basic game compared to the earlier example.
+
+- This is the link to the tutorial I followed
 https://www.youtube.com/watch?v=Z_IaJQojun8&t=1s&ab_channel=ConorBailey
 
 ## Wire Frames
@@ -94,18 +104,19 @@ https://www.youtube.com/watch?v=Z_IaJQojun8&t=1s&ab_channel=ConorBailey
 
 ## Colour Palette
 
-Selected colors based off of combinations suggestrd by this site, colors were based on the traditional connect 4 color scheme of blue and red but with less saturation.
+Selected colors based on combinations suggested by this site, colors were based on the traditional connect 4 scheme of blue and red but with less saturation. The is a slightly lighter border to allow the canvas stand out from the background and the chip colors, this also gives the site come variation. The blue player color is quite dark, using the same color for the text looked almost black, a more saturated blue is used instead to give a clearer indication for who's turn it is. As the red stands out enough I kept that the same color value throughout.
 https://coolors.co/palettes/trending
 
-- Player red E63946
-- Canvas blue A8DADC
-- Player blue 1D3557
-- background F1FAEE
-- Alternative B1E1A3
+- Red player #E63946
+- Canvas blue #A8DADC
+- Blue player #1D3557
+- Blue text #181A99
+- background #F1FAEE
+- Button color #2778C4
 
 ## Reset Button
 
-Implemented a reset button for players to restart a round, this does not effect the players score. This function is also called when a player wins. Initially when called the canvas would reset immediately, decided instead to delay the rest so players could see the move that won the game. Initially tried to call the reset using an event listener to the sweet alert however I could not get this to work so instead opent for a setTimeout.
+The reset button allows players to restart a round, this does not affect the players score. This function is also called when a player wins. Initially when called the canvas would reset immediately, I decided instead to delay this so players could see the winning move. Initially I tried to call the reset function using an event listener on the sweet alert button, however I could not get this to work so instead opted for a setTimeout. The setTimeout only affects the reset on a win, when pressing the button the game resets immediately.
 
 # Testing
 
@@ -119,7 +130,7 @@ Implemented a reset button for players to restart a round, this does not effect 
 ![Page one HTML Validation](assets/Images/page_one_html_validation.png) 
 ![Game page HTML Validation](assets/Images/game_screen_html_validation.png)
 
-JSHint Validation
+- JSHint Validation
 
 ![Game page HTML Validation](assets/Images/jshint.png)
 
@@ -127,10 +138,14 @@ template literal syntax however this is vital for how the code works. Changed ar
 
 A common error was 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz). The same eorror also appears for const variables.
 
-## Changes to base code
+## Lighthouse Scores
+![Mobile index lighthouse score](assets/Images/mobile_indexscreen_lighthouse.png)
 
-Following the tutorial the following code was added to log mouse clicks to the console. After realising it doesn't actually benefit the game in any way I removed it completely without consequence.
-![Event listener removed](assets/Images/event_listener_removed.png)
+![Mobile game screen lighthouse score](assets/Images/mobile_gamescreen_lighthouse.png)
+
+![Desktop game screen lighthouse score](assets/Images/desktop_indexscreen_lighthouse.png)
+
+![Desktop game screen lighthouse score](assets/Images/desktop_gamescreen_lighthouse.png)
 
 ## Automatic Nameing in Case of Error
  

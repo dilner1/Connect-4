@@ -64,7 +64,6 @@ function validateNames() {
     if (USERNAME_1.value === null || USERNAME_1.value === '' || USERNAME_2.value === null || USERNAME_2.value === '') {
         swal.fire({
             text: 'Please enter a name for both players.',
-            confirmButtonColor: "#2778C4"
         });
         return false;
     } else {
@@ -80,7 +79,6 @@ function resultsPage() {
 
 // Changes Names
 document.addEventListener('click', changePlayerName);
-
 function changePlayerName() {
     if (currentPlayerCount === 1) {
         playerName = playerOne;
@@ -106,7 +104,6 @@ function checkUserhasName() {
 // Back button takes players back to name select screen
 backButton.addEventListener('click', returnToHomePage);
 function returnToHomePage() {
-    console.log('hi')
     location.assign("index.html");
 }
 

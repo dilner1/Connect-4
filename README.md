@@ -1,51 +1,58 @@
+# Connect 4
+
+Connect 4 is an online remake of the classic children's game designed for two players that need to connect four of their chips in a row either vertically, horizontally or diagonally to win. I wanted to reference the theme of the original game of red vs. blue, but with a less saturated look to give it a more modern feel. The site contains two pages, the home page allows users to create their own username, the start button then redirects users to the
+
 # Features
 
 ## Existing Features
 
-- Player name form
-    - Allows users to input their player name, if no name is inputted it will throw a required message
-    - Inputted usernames show in the color they will play in on screen
+- Player Name Form
+    - Allows users to input their player name with no restriction, if no name is inputted it will throw a required message using sweet alert
+
+    - The usernames will show in the input box as the color they will play as in the game
+
 - Start Button
-    - Start game button changes color and size on hover and navigates to game page.
-    - SessionStorage logs user names and pass data to game page
-    - Navigates using window.location.assign rather than anchor link
+    - Start button changes color and size on hover and navigates to the game page.
+
+    - SessionStorage logs user names and passes data to the game page
+
+    - The Start button submits the form and navigates using window.location.assign rather than using an anchor link
 ![Hover button](assets/Images/button_hover.png)
 
-- Player turn messages
-    - Opens with message informing players of who starts, after the first click the message changes to '{Player1/2}'s turn'
-    - If there is an error with the sessionStorage the player names default to Player 1 and Player 2
-    - On a win the player message resetes to '{Player1/2} Starts'
+- Game Page Header
+    - The Header contains the game title, a back button, player turn text and the player score which changes position depending on screen size
+
+    - The back button will go back to the first page, this resets the player names and scores
+![Game Page Header](assets/Images/game_page_header.png)
+
+- Game Page Messages
+    - The game page opens with a message informing players of who starts, after the first click the message changes to '{Player1/2}'s turn'
+
+    - If there is an error with the sessionStorage data the player names default to Player 1 and Player 2 so there will always be information on who's turn it is
+
+    - On a win the player message results to '{Player1/2} Starts'
 
     ![Player start](assets/Images/player_starts.png)
     ![Player turn](assets/Images/player_turn.png)
 
-- Canvas
-    - Player places 'chip' on click but only when on a column with free space. The player must click on the actual space, the  player doesn't waste their turn if they click on any ramdom part of the screen
-    - The player chip will always go to the bottom space in the colum, no matter where you click
-    - Player go changes when clicking the table data 'chip'
+- Game Canvas
+    - The player places their 'chip' by clicking on a white space. If the player clicks on a column with no free space, the turn is not taken and no chip is placed. This means the player will not waste their go if they click on a random part of the screen
+
+    - The player's chip will always drop to the bottom space in the column, no matter where you click
+
+    - The Player's turn changes once a chip has been placed on the canvas
     
-- Win and draw messages
-    - On a win a message fires with the players name, the board colors stay for a few seconds before resetting so player can see the winning move
-    - Messages use sweet alert as it is much nicer than a js alert message
-![Win message](assets/Images/win_message.png)
- 
-    
+- Win and Draw Messages
+    - On a win a message fires with the player's name, the board colors stay for a few seconds before resetting so the 
+    player can see the winning move
+
+    - The alert message fires with a tick icon and the ok button appears in the color of the winning player
+
+    - Pop up messages use sweet alert as it is both clearer and nicer to view than a native is alert message
+![Win message](assets/Images/blue_wins.png)
+![Win message](assets/Images/draw.png)
+
 # Design Stage: 
-
-## Strategy
-What are you aiming to acheieve and for whom?
-
-## Scope
-Which features based on the stategy plane do you plan to include. What will be excluded?
-
-## Structure
-How is the info structured and how is it grouped?
-
-## Skeleton
-How will information be presented and how will you navigate?
-
-## Surface
-How will the finished product look?
 
 This version of connect four gave me inspiration on creaitng my game, although with parts that are certainly too complex for me at this stage.
 

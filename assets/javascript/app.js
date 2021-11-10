@@ -93,12 +93,12 @@ function changePlayerName() {
 
 // If session data is deleted this will generate placeholder names
 function checkUserhasName() {
-    if (playerOne === null && playerTwo === null) {
+    if (playerOne === null || playerOne === '' && playerTwo === null || playerTwo === '') {
         playerOne = 'Player 1';
         playerTwo = 'Player 2';
-    } else if (playerOne === null) {
+    } else if (playerOne === null || playerOne === '') {
         playerOne = 'Player 1';
-    } else if (playerTwo === null) {
+    } else if (playerTwo === null || playerTwo === '') {
         playerTwo = 'Player 2';
     }
 }

@@ -122,6 +122,8 @@ The reset button allows players to restart a round, this does not affect the pla
 
 ## Validator Testing
 
+All validation has passed for CSS and HTML, the JSHint threw many errors that cannot be changed.
+
 - CSS Validation
 ![Page one CSS Validation](assets/Images/page_one_css_validation.png) 
 ![Game page CSS Validation](assets/Images/game_screen_css_validation.png)
@@ -134,9 +136,9 @@ The reset button allows players to restart a round, this does not affect the pla
 
 ![Game page HTML Validation](assets/Images/jshint.png)
 
-template literal syntax however this is vital for how the code works. Changed arrow functions as they were flagged and could be changed easily.
+There is an issue with the template literal syntax, however this is vital for how the code functions, as they are used to pull the player names from storage. Without these the player is unable to set their own username. Errors advised changing arrow functions, this was not as much of an issue as there were only two instances where they were used and can be changed easily.
 
-A common error was 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz). The same eorror also appears for const variables.
+A common error was 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz). The same eorror also appears for const variables. These are unavoidable as the variables should not be changed to var.
 
 ## Lighthouse Scores
 ![Mobile index lighthouse score](assets/Images/mobile_indexscreen_lighthouse.png)
@@ -147,9 +149,9 @@ A common error was 'let' is available in ES6 (use 'esversion: 6') or Mozilla JS 
 
 ![Desktop game screen lighthouse score](assets/Images/desktop_gamescreen_lighthouse.png)
 
-## Automatic Nameing in Case of Error
+## Automatic Naming in Case of Error
  
-To proof the site from breaking if there is an issue with the session storage there is a function that checks on each click if there are still values. if not the names are set to 'Player 1' or 'Player 2', this is just to prevent the names from showing as null.
+To proof the site from breaking if there is an issue with the session storage there is a function called checkUserhasName that determines if there are still values. This If there are no values for  the names are set to 'Player 1' or 'Player 2', this is just to prevent the names from showing as null.
 
 ## Submit Button
 
